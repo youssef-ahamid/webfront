@@ -1,5 +1,5 @@
-import { Hero } from "@/components";
+import { Button } from "@/components";
 
 export default function Home() {
-  return <Hero />;
+  return <Button>Request a call</Button>;
 }
