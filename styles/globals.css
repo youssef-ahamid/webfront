@@ -3,6 +3,6 @@
 @tailwind utilities;
 
 
-button span {
-    text-transform: capitalize;
+button.button-lg {
+    @apply min-w-[327px] h-[56px];
 }
