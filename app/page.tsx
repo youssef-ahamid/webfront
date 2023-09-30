@@ -1,5 +1,10 @@
-import { Button } from "@/components";
+import { Button, Content } from "@/components";
+import Anchor from "@/components/Anchor";
 
 export default function Home() {
-  return <Button>Request a call</Button>;
+  return (
+    <>
+      <Anchor href="/gg" color="danger">about us</Anchor>
+    </>
+  );
 }
