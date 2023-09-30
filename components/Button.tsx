@@ -3,6 +3,7 @@
 import { Button as NButton } from "@nextui-org/react";
 import clsx from "clsx";
 import { ComponentProps } from "react";
+import Content from "./Content";
 export default function Button({
   children,
   className,
@@ -14,9 +15,11 @@ export default function Button({
       {...props}
       size={size}
       radius="sm"
-      className={clsx(size === "lg" && "min-w-[327px] h-[56px]", className)}
+      className={clsx(`button-${size}`, className)}
     >
-      <span>{children}</span>
+      <Content as="span" size={`button/${size}`}>
+        {children}
+      </Content>
     </NButton>
   );
 }
