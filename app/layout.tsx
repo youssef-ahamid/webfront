@@ -36,9 +36,9 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+        <Providers themeProps={{ attribute: "class" }}>
           <div className="relative flex flex-col h-screen">
-            <main className="ayman-shahin container mx-auto max-w-7xl pt-16 px-6 flex-grow">
+            <main className="ayman-shahin text-foreground bg-background container mx-auto max-w-7xl pt-16 px-6 flex-grow">
               {children}
             </main>
           </div>
