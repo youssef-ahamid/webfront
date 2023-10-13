@@ -21,7 +21,7 @@ export default function Box({
       className={clsx(
         "group p-8 flex flex-col justify-center",
         className,
-        light ? `bg-${color}/20` : `bg-${color}`,
+        light ? `bg-${color}-100` : `bg-${color}`,
         size
       )}
     >

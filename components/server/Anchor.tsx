@@ -40,12 +40,14 @@ export default function Anchor({
       </Content>
 
       <div
-        className={`w-full absolute top-100 h-3 -translate-y-2.5 bg-${color}/20 z-0 group-hover:scale-x-100 ${
+        className={`w-full absolute top-100 h-3 -translate-y-2.5 bg-${color}-100 z-0 group-hover:scale-x-100 ${
           !active && "scale-x-0"
         } transition duration-300 ease-soft-spring origin-bottom-left`}
       ></div>
     </a>
   );
 }
+
+const colors = "bg-primary-100 bg-warning-100 bg-success-100 bg-danger-100";
 
 Anchor.Props = {} as AnchorProps;

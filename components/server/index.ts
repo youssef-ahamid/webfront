@@ -6,3 +6,4 @@ export { default as Content } from "./Content";
 export { default as CTA } from "./CTA";
 export { default as Navbar } from "./Navbar";
 export { default as Page } from "./Page";
+export { default as Section } from "./Section";
