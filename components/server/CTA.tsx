@@ -1,4 +1,4 @@
-import { Button, Content } from "@/components";
+import { Button, Content } from "@/components/server";
 import clsx from "clsx";
 
 interface CTAProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -15,7 +15,7 @@ export default function CTA({
     <div
       {...props}
       className={clsx(
-        "w-full py-20 px-8 sm:px-14 relative group gradients-default rounded-[40px] shadow-2xl border border-gray-800/10 border-opacity-10 justify-start items-center gap-2.5 inline-flex",
+        "w-full py-20 px-8 sm:px-14 max-h-min relative group gradients-default rounded-[40px] shadow-2xl border border-gray-800/10 border-opacity-10 justify-start items-center gap-2.5 inline-flex",
         className
       )}
     >
