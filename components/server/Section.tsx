@@ -25,7 +25,10 @@ export default function Section({
   ...props
 }: SectionProps) {
   return (
-    <section {...props} className={clsx("relative group py-6", className)}>
+    <section
+      {...props}
+      className={clsx("relative group py-6 min-h-[75vh] w-full", className)}
+    >
       <div className="flex items-end absolute z-0 -mt-12">
         <Reveal direction="top-to-bottom" duration={0.7}>
           <Box size="h-[70vh] min-w-[144px] w-[20vw]" color={color} light />
@@ -61,25 +64,22 @@ export default function Section({
             </Content>
           </div>
           <div className="flex flex-col sm:flex-row sm:justify-between w-full">
-              <Content
-                as="h2"
-                size="header/lg"
-                className={clsx("max-w-2xl")}
-                {...props}
-              >
-                {title}
-              </Content>
-              <div className="flex flex-col space-y-12 items-start pt-6">
-                {subtitle && (
-                  <Content
-                    size="body/md"
-                    className="max-w-[300px] text-justify"
-                  >
-                    {subtitle}
-                  </Content>
-                )}
-                {action}
-              </div>
+            <Content
+              as="h2"
+              size="header/lg"
+              className={clsx("max-w-2xl")}
+              {...props}
+            >
+              {title}
+            </Content>
+            <div className="flex flex-col space-y-12 items-start pt-6">
+              {subtitle && (
+                <Content size="body/md" className="max-w-[300px] text-justify">
+                  {subtitle}
+                </Content>
+              )}
+              {action}
+            </div>
           </div>
         </div>
         {children}
