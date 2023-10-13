@@ -6,3 +6,7 @@
 button.button-lg {
     @apply min-w-[327px] h-[56px];
 }
+
+.gradients-default {
+    background: linear-gradient(298deg, rgba(251, 249, 237, 0.36) -52.86%, rgba(41, 47, 54, 0.36) 60.95%), #292F36;
+}

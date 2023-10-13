@@ -17,6 +17,10 @@ export const themes: ConfigThemes = {
         600: "#003858",
       },
       secondary: {
+        DEFAULT: "#FBF9ED",
+        foreground: "#292F36",
+      },
+      warning: {
         500: "#EB7A3D",
         DEFAULT: "#EB7A3D",
         600: "#CF5108",

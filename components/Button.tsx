@@ -23,3 +23,5 @@ export default function Button({
     </NButton>
   );
 }
+
+Button.Props = {} as ComponentProps<typeof NButton>;
