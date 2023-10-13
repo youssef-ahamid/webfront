@@ -3,15 +3,26 @@ import { BaseColors, ThemeColors } from "@nextui-org/react";
 import clsx from "clsx";
 
 interface AnchorProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
-  color?: keyof Omit<ThemeColors, keyof BaseColors>;
+  color?: keyof ThemeColors | keyof BaseColors;
+  active?: boolean;
+  autoActivate?: boolean;
+  label?: string;
 }
+import { headers } from "next/headers";
 
 export default function Anchor({
   color = "primary",
-  children,
+  active = false,
+  label,
+  children = label,
   className,
+  autoActivate = false,
   ...props
-}: AnchorProps) {
+}: AnchorProps) {  
+  const headersList = Object.fromEntries(headers().entries());
+  const path = headersList["next-url"] || headersList["x-invoke-path"];
+
+  active = active || (autoActivate && path === props.href);
   return (
     <a
       {...props}
@@ -29,7 +40,9 @@ export default function Anchor({
       </Content>
 
       <div
-        className={`w-full absolute top-100 h-3 -translate-y-2.5 bg-${color}/20 z-0 group-hover:scale-x-100 scale-x-0 transition duration-300 ease-soft-spring origin-bottom-left`}
+        className={`w-full absolute top-100 h-3 -translate-y-2.5 bg-${color}/20 z-0 group-hover:scale-x-100 ${
+          !active && "scale-x-0"
+        } transition duration-300 ease-soft-spring origin-bottom-left`}
       ></div>
     </a>
   );

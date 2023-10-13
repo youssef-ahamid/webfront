@@ -1,5 +1,4 @@
-import { Badge, Box, CTA, OnEnter, Reveal, Navbar } from "@/components";
-import Anchor from "@/components/server/Anchor";
+import { Badge, Box, CTA, Reveal, Navbar, Anchor } from "@/components";
 
 export default function Home() {
   return (
@@ -10,18 +9,19 @@ export default function Home() {
             href: "/",
             label: "Home",
             color: "primary",
+            active: true,
           },
           {
             href: "/gg",
             label: "About",
             color: "warning",
+            active: false,
           },
         ]}
-      >
-        <Anchor href="/gg" color="danger" active>
-          Get Started
-        </Anchor>
-      </Navbar>
+      />
+      <Anchor href="/gg" color="danger">
+        about us
+      </Anchor>
       <Badge>June 2023</Badge>
       <div className="min-h-screen">
         <CTA>
