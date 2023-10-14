@@ -1,22 +1,43 @@
 "use client";
 
-import { ComponentProps, useRef } from "react";
-import { useInView, motion } from "framer-motion";
+import { ComponentProps } from "react";
+import { AnimationControls, TargetAndTransition, motion } from "framer-motion";
 import clsx from "clsx";
 
 export interface OnEnterProps extends ComponentProps<typeof motion.div> {}
 
-export default function OnEnter({ children, className, animate, ...props }: OnEnterProps) {
-  const ref = useRef(null);
-  const isInView = useInView(ref);
-
+export default function OnEnter({
+  children,
+  className,
+  animate,
+  ...props
+}: OnEnterProps) {
+  const whileInView = (animate as TargetAndTransition) ?? {};
   return (
-    <div ref={ref} className={clsx("max-w-min", className)}>
-      <motion.div {...props} animate={isInView ? animate : undefined}>
+    <div className={clsx("max-w-min", className)}>
+      <motion.div
+        {...props}
+        whileInView={
+          {
+            ...whileInView,
+            transition: {
+              ...spring,
+              ...whileInView?.transition,
+            },
+          } as any
+        }
+        transition={spring}
+      >
         {children}
       </motion.div>
     </div>
   );
 }
+
+const spring = {
+  type: "spring",
+  stiffness: 200,
+  damping: 20,
+};
 
 OnEnter.Props = {} as OnEnterProps;

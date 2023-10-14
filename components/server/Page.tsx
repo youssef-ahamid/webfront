@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import Anchor from "./Anchor";
 import Footer from "./Footer";
 import Button from "./Button";
+import CTA from "./CTA";
 
 export interface PageProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -35,6 +36,12 @@ function Page({ children, className, ...props }: PageProps) {
       </PagePaddedContent>
       {children}
 
+      <CTA>
+        <CTA.Title>
+          The most advanced platform for building static sites
+        </CTA.Title>
+        <CTA.Action>Get Started</CTA.Action>
+      </CTA>
       <Footer
         links={[
           {
