@@ -29,7 +29,7 @@ export default function Anchor({
       <a
         {...props}
         className={clsx(
-          "relative overflow-visible group max-w-min px-1 py-3",
+          "relative overflow-visible group max-w-min px-1 py-3 cursor-none",
           className
         )}
       >
