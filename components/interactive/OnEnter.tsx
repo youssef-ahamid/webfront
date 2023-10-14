@@ -11,7 +11,7 @@ export default function OnEnter({ children, className, animate, ...props }: OnEn
   const isInView = useInView(ref);
 
   return (
-    <div ref={ref} className={clsx("relative max-w-min", className)}>
+    <div ref={ref} className={clsx("max-w-min", className)}>
       <motion.div {...props} animate={isInView ? animate : undefined}>
         {children}
       </motion.div>
