@@ -9,6 +9,7 @@ interface AnchorProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   label?: string;
 }
 import { headers } from "next/headers";
+import { CursorHovered } from "../interactive/Cursor";
 
 export default function Anchor({
   color = "primary",
@@ -18,33 +19,35 @@ export default function Anchor({
   className,
   autoActivate = false,
   ...props
-}: AnchorProps) {  
+}: AnchorProps) {
   const headersList = Object.fromEntries(headers().entries());
   const path = headersList["next-url"] || headersList["x-invoke-path"];
 
   active = active || (autoActivate && path === props.href);
   return (
-    <a
-      {...props}
-      className={clsx(
-        "relative overflow-visible group max-w-min px-1 py-3 cursor-pointer",
-        className
-      )}
-    >
-      <Content
-        as="span"
-        size="caption/md"
-        className="whitespace-nowrap z-10 relative"
+    <CursorHovered>
+      <a
+        {...props}
+        className={clsx(
+          "relative overflow-visible group max-w-min px-1 py-3",
+          className
+        )}
       >
-        {children}
-      </Content>
+        <Content
+          as="span"
+          size="caption/md"
+          className="whitespace-nowrap z-10 relative"
+        >
+          {children}
+        </Content>
 
-      <div
-        className={`w-full absolute top-100 h-3 -translate-y-2.5 bg-${color}-100 z-0 group-hover:scale-x-100 ${
-          !active && "scale-x-0"
-        } transition duration-300 ease-soft-spring origin-bottom-left`}
-      ></div>
-    </a>
+        <div
+          className={`w-full absolute top-100 h-3 -translate-y-2.5 bg-${color}-100 z-0 group-hover:scale-x-100 ${
+            !active && "scale-x-0"
+          } transition duration-300 ease-soft-spring origin-bottom-left`}
+        ></div>
+      </a>
+    </CursorHovered>
   );
 }
 
