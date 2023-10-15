@@ -16,9 +16,9 @@ export default function Home() {
   return (
     <Page>
       <Hero
-        title="Lorem ipsum dolor sit amet."
-        subtitle="Id morbi risus lectus proin et. Duis nunc ipsum lorem parturient ut est nunc. Sollicitudin proin etiam vestibulum sagittis morbi lobortis amet sed. Imperdiet dui eget in id sollicitudin ve"
-        action={<Button>Get Started</Button>}
+        title="hp-hero-title"
+        subtitle="hp-hero-subtitle"
+        action={<Button contentId="hp-hero-cta" />}
         graphicUrl="https://placehold.co/600x400/EEE/31343C"
       />
       <Section

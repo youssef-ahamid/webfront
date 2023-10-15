@@ -7,15 +7,18 @@ interface AnchorProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   active?: boolean;
   autoActivate?: boolean;
   label?: string;
+  contentId?: ContentKey;
 }
 import { headers } from "next/headers";
 import { CursorHovered } from "../interactive/Cursor";
+import { ContentKey } from "./Content";
 
 export default function Anchor({
   color = "primary",
   active = false,
   label,
   children = label,
+  contentId,
   className,
   autoActivate = false,
   ...props
@@ -37,6 +40,7 @@ export default function Anchor({
           as="span"
           size="caption/md"
           className="whitespace-nowrap z-10 relative"
+          contentId={contentId}
         >
           {children}
         </Content>
@@ -51,6 +55,6 @@ export default function Anchor({
   );
 }
 
-const colors = "bg-primary-100 bg-warning-100 bg-success-100 bg-danger-100";
+const colors = "bg-primary-100 bg-warning-100 bg-success-100 bg-danger-100 bg-default-100";
 
 Anchor.Props = {} as AnchorProps;

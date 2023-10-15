@@ -1,13 +1,13 @@
 import React, { ReactNode } from "react";
-import Content from "./Content";
+import Content, { ContentKey } from "./Content";
 import { ThemeColors } from "@nextui-org/react";
 import Page from "./Page";
 import Box from "./Box";
 import { Reveal } from "../interactive";
 
 interface HeroProps {
-  title: string;
-  subtitle: string;
+  title: ContentKey;
+  subtitle: ContentKey;
   action: ReactNode;
   graphicUrl: string;
   color?: keyof ThemeColors;
@@ -25,12 +25,8 @@ export default function Hero({
       <Page.PaddedContent className="pb-24 mb-12 z-10 relative">
         <div className="container mx-auto flex flex-col md:flex-row items-start justify-between">
           <div className="md:w-1/2 flex flex-col items-start space-y-12 md:pr-6">
-            <Content as="h1" size="header/xl" className="max-w-md">
-              {title}
-            </Content>
-            <Content size="body/lg" className="mb-6 max-w-xl">
-              {subtitle}
-            </Content>
+            <Content as="h1" size="header/xl" className="max-w-md" contentId={title} />
+            <Content size="body/lg" className="mb-6 max-w-xl" contentId={subtitle} />
             {action}
           </div>
           <div className="md:w-1/2 pt-24 md:pt-0">

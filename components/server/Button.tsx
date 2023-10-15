@@ -1,15 +1,22 @@
 "use client";
 
-import { Button as NButton } from "@nextui-org/react";
+import {
+  ButtonProps as NButtonProps,
+  Button as NButton,
+} from "@nextui-org/react";
 import clsx from "clsx";
-import { ComponentProps } from "react";
-import Content from "./Content";
+import Content, { ContentKey } from "./Content";
+
+export interface ButtonProps extends NButtonProps {
+  contentId?: ContentKey;
+}
 export default function Button({
   children,
   className,
   size = "lg",
+  contentId,
   ...props
-}: ComponentProps<typeof NButton>) {
+}: ButtonProps) {
   return (
     <NButton
       {...props}
@@ -17,11 +24,11 @@ export default function Button({
       radius="sm"
       className={clsx(`button-${size}`, className)}
     >
-      <Content as="span" size={`button/${size}`}>
+      <Content as="span" size={`button/${size}`} contentId={contentId}>
         {children}
       </Content>
     </NButton>
   );
 }
 
-Button.Props = {} as ComponentProps<typeof NButton>;
+Button.Props = {} as ButtonProps;

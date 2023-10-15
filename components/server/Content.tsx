@@ -28,7 +28,11 @@ export default function Content({
     children = content[contentId];
     // contentEditable = await isAdminView(); // TODO: check if content admin
   }
-  return <Component {...props} className={clsx(fontSizes[size], className)} />;
+  return (
+    <Component {...props} className={clsx(fontSizes[size], className)}>
+      {children}
+    </Component>
+  );
 }
 
 Content.Props = {} as ContentProps;
