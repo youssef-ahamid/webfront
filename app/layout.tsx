@@ -4,6 +4,7 @@ import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Providers } from "./providers";
 import clsx from "clsx";
+import { getUser } from "@/auth";
 
 export const metadata: Metadata = {
   title: {
@@ -27,6 +28,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const user = getUser();
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
@@ -36,7 +38,7 @@ export default function RootLayout({
           fontSans.className
         )}
       >
-        <Providers themeProps={{ attribute: "class" }}>
+        <Providers themeProps={{ attribute: "class" }} user={user!}>
           <div className="relative flex flex-col">{children}</div>
         </Providers>
       </body>

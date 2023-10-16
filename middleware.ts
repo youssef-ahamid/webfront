@@ -23,7 +23,6 @@ export async function middleware(request: NextRequest) {
         body: JSON.stringify({ token }),
       }
     ).then((res) => res.json());
-    console.log(loggedIn, user);
     if (!loggedIn) return NextResponse.redirect(loginUrl);
     return NextResponse.next();
   } catch (e) {
