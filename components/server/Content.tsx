@@ -1,6 +1,9 @@
+"use client";
+
 import { FontSize, fontSizes } from "@/config/fontSizes";
 import clsx from "clsx";
 import content from "@/content.json";
+import { useUser } from "@/contexts";
 export interface ContentProps
   extends React.HTMLAttributes<
     | HTMLHeadingElement
@@ -24,12 +27,17 @@ export default function Content({
   contentEditable,
   ...props
 }: ContentProps) {
+  const { user } = useUser();
   if (contentId) {
     children = content[contentId];
-    // contentEditable = await isAdminView(); // TODO: check if content admin
+    contentEditable = !!user;
   }
   return (
-    <Component {...props} className={clsx(fontSizes[size], className)}  contentEditable={contentEditable}>
+    <Component
+      {...props}
+      className={clsx(fontSizes[size], className)}
+      contentEditable={contentEditable || !!user}
+    >
       {children}
     </Component>
   );
