@@ -1,10 +1,4 @@
 import {
-  Badge,
-  Box,
-  CTA,
-  OnEnter,
-  Reveal,
-  Navbar,
   Page,
   Section,
   Button,
@@ -12,8 +6,6 @@ import {
   ParallaxText,
   Content,
 } from "@/components";
-import Anchor from "@/components/server/Anchor";
-import Image from "next/image";
 
 export default function Home() {
   return (
@@ -25,13 +17,16 @@ export default function Home() {
         graphicUrl="https://placehold.co/600x400/EEE/31343C"
       />
 
+      <Page.PaddedContent>
+        <div className="w-full h-px bg-foreground/40 mb-1 mt-32" />
+      </Page.PaddedContent>
       <Section
-        title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas."
+        title="hp-section-1-title"
         number="01"
-        header="About"
+        header="hp-section-1-header"
         color="success"
-        subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas."
-        action={<Button>Get Started</Button>}
+        subtitle="hp-section-1-subtitle"
+        action={<Button contentId="hp-section-1-cta" />}
       />
       <div className="w-screen py-24 bg-default">
         <Page.PaddedContent>
@@ -81,11 +76,11 @@ export default function Home() {
       </div>
 
       <Section
-        title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas."
+        title="hp-section-2-title"
         number="02"
-        header="Our Business"
-        subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptas."
-        action={<Button>Get Started</Button>}
+        header="hp-section-2-header"
+        subtitle="hp-section-2-subtitle"
+        action={<Button contentId="hp-section-2-cta" />}
       />
     </Page>
   );

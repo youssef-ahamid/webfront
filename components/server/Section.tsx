@@ -58,25 +58,21 @@ export default function Section({
               as="h3"
               size="caption/md"
               className={clsx("max-w-2xl text-gray-700")}
+              contentId={header}
               {...props}
-            >
-              {header}
-            </Content>
+            />
           </div>
           <div className="flex flex-col sm:flex-row sm:justify-between w-full">
             <Content
               as="h2"
               size="header/lg"
               className={clsx("max-w-2xl")}
+              contentId={title}
               {...props}
-            >
-              {title}
-            </Content>
+              />
             <div className="flex flex-col space-y-12 items-start pt-6">
               {subtitle && (
-                <Content size="body/md" className="max-w-[300px] text-justify">
-                  {subtitle}
-                </Content>
+                <Content contentId={subtitle} size="body/md" className="max-w-[300px] text-justify" />
               )}
               {action}
             </div>
