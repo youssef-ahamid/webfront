@@ -2,7 +2,8 @@ import { z } from "zod";
 
 export function zodValidate<T extends Record<string, z.ZodTypeAny>>(
   data: any,
-  zodSchema: T
+  zodSchema: T,
+  options?: { partial?: boolean }
 ):
   | {
       success: false;
@@ -19,7 +20,10 @@ export function zodValidate<T extends Record<string, z.ZodTypeAny>>(
       };
       issues: null;
     } {
-  const result = z.object(zodSchema).safeParse(data);
+  const zod = options?.partial
+    ? z.object(zodSchema).partial()
+    : z.object(zodSchema);
+  const result = zod.safeParse(data);
   if (!result.success) {
     const issues = result.error.issues.map((issue) => {
       return {
