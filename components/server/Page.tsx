@@ -50,10 +50,8 @@ function Page({ children, className, ...props }: PageProps) {
       {children}
 
       <CTA>
-        <CTA.Title>
-          The most advanced platform for building static sites
-        </CTA.Title>
-        <CTA.Action>Get Started</CTA.Action>
+        <CTA.Title contentId="main-cta-title" />
+        <CTA.Action contentId="main-cta-action" />
       </CTA>
       <Footer
         links={[
