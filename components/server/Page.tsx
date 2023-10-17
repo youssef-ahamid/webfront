@@ -2,7 +2,7 @@ import clsx from "clsx";
 import Navbar from "./Navbar";
 import Anchor from "./Anchor";
 import Footer from "./Footer";
-import Button from "./Button";
+import Button from "../interactive/Button";
 import CTA from "./CTA";
 
 export interface PageProps extends React.HTMLAttributes<HTMLDivElement> {}

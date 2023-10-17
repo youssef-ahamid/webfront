@@ -47,7 +47,7 @@ function LoginForm() {
     });
     setLoading(false);
 
-    window.location.pathname = "/admin";
+    window.location.pathname = "/";
   };
 
   return (

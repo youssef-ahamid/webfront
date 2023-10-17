@@ -33,7 +33,12 @@ export default function Content({
   return (
     <Component
       {...props}
-      className={clsx(size && fontSizes[size], className)}
+      suppressContentEditableWarning
+      style={{
+        outline: "none",
+        ...props.style,
+      }}
+      className={clsx(size && fontSizes[size], className, 'focus-within:underline')}
       contentEditable={contentEditable}
       onInput={(e) => {
         if (contentId) {
