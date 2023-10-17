@@ -13,27 +13,40 @@ function Page({ children, className, ...props }: PageProps) {
       {...props}
       className={clsx("flex-grow flex flex-col items-start", className)}
     >
-      <PagePaddedContent>
-        <Navbar
-          links={[
-            {
-              href: "/",
-              label: "Home",
-              color: "primary",
-            },
-            {
-              href: "/gg",
-              label: "About",
-              color: "warning",
-            },
-          ]}
-          action={
-            <Anchor href="/gg" color="danger" active>
-              Get Started
+      <Navbar
+        links={[
+          {
+            href: "#about",
+            label: "About us",
+            color: "success",
+          },
+          {
+            href: "#business",
+            label: "Our Business",
+            color: "primary",
+          },
+          {
+            href: "#press",
+            label: "Press",
+            color: "danger",
+          },
+          {
+            href: "#contact",
+            label: "Get in touch",
+            color: "default",
+          },
+        ]}
+        action={
+          <div className="flex space-x-2">
+            <Anchor href="?lang=en" color="primary" active>
+              EN
             </Anchor>
-          }
-        />
-      </PagePaddedContent>
+            <Anchor href="?lang=ar" color="danger">
+              AR
+            </Anchor>
+          </div>
+        }
+      />
       {children}
 
       <CTA>
@@ -45,33 +58,27 @@ function Page({ children, className, ...props }: PageProps) {
       <Footer
         links={[
           {
-            href: "/",
-            label: "Home",
+            href: "#about",
+            label: "About us",
+            color: "success",
+          },
+          {
+            href: "#business",
+            label: "Our Business",
             color: "primary",
           },
           {
-            href: "/gg",
-            label: "About",
-            color: "warning",
+            href: "#press",
+            label: "Press",
+            color: "danger",
           },
           {
-            href: "/gg",
-            label: "Careers",
-            color: "foreground",
+            href: "#contact",
+            label: "Get in touch",
+            color: "default",
           },
         ]}
-        socialLinks={[
-          {
-            href: "/",
-            label: "Home",
-            color: "primary",
-          },
-          {
-            href: "/gg",
-            label: "About",
-            color: "warning",
-          },
-        ]}
+        socialLinks={[]}
         action={
           <Button
             size="md"

@@ -9,6 +9,7 @@ export const themes: ConfigThemes = {
       default: {
         DEFAULT: "#292F36",
         foreground: "#FBF9ED",
+        100: "#292F362a"
       },
       primary: {
         100: "#E7F3FC",

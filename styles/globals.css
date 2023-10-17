@@ -4,7 +4,7 @@
 
 
 button.button-lg {
-    @apply min-w-[327px] h-[56px];
+    @apply w-full max-w-[312px] md:min-w-[327px] h-[56px];
 }
 
 .gradients-default {
@@ -13,5 +13,5 @@ button.button-lg {
 
 html {
     scroll-behavior: smooth;
-    cursor: none;
+    /* cursor: none; */
 }

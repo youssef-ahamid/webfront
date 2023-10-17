@@ -22,10 +22,10 @@ export function Providers({ children, themeProps, user, page }: ProvidersProps) 
       <NextThemesProvider {...themeProps}>
         <UserProvider user={user}>
           <ContentProvider page={page}>
-            <MouseProvider>
-              <Cursor />
+            {/* <MouseProvider> */}
+              {/* <Cursor /> */}
               {children}
-            </MouseProvider>
+            {/* </MouseProvider> */}
           </ContentProvider>
         </UserProvider>
       </NextThemesProvider>

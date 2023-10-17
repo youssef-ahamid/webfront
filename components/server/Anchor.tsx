@@ -28,18 +28,18 @@ export default function Anchor({
 
   active = active || (autoActivate && path === props.href);
   return (
-    <CursorHovered>
+    <div>
       <a
         {...props}
         className={clsx(
-          "relative overflow-visible group max-w-min px-1 py-3 cursor-none",
+          "relative overflow-visible group max-w-min px-1 py-3 cursor-pointer",
           className
         )}
       >
         <Content
           as="span"
           size="caption/md"
-          className="whitespace-nowrap z-10 relative"
+          className={`whitespace-nowrap z-10 relative ${active ? "font-bold" : ""}`}
           contentId={contentId}
         >
           {children}
@@ -51,7 +51,7 @@ export default function Anchor({
           } transition duration-300 ease-soft-spring origin-bottom-left`}
         ></div>
       </a>
-    </CursorHovered>
+    </div>
   );
 }
 

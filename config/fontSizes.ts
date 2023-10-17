@@ -1,9 +1,9 @@
 import { fontDisplay, fontMono } from "./fonts";
 
 export const fontSizes = {
-  "header/xl": `text-4xl font-bold ${fontDisplay.className}`,
-  "header/lg": `text-3xl font-bold ${fontDisplay.className}`,
-  "header/md": `text-2xl font-bold ${fontDisplay.className}`,
+  "header/xl": `text-3xl md:text-4xl font-bold ${fontDisplay.className}`,
+  "header/lg": `text-2xl md:text-3xl font-bold ${fontDisplay.className}`,
+  "header/md": `text-xl md:text-2xl font-bold ${fontDisplay.className}`,
   "header/sm": `text-xl font-bold ${fontDisplay.className}`,
   "header/xs": `text-lg font-bold ${fontDisplay.className}`,
   "subheader/xl": "text-xl font-bold",
