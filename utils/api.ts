@@ -52,4 +52,6 @@ export const api = {
           user: User;
         }
     >("/api/register", credentials),
+  editContent: (pageId: string, userId: string, content: object) =>
+    fetcher("/api/contentEdit", { pageId, userId, content }),
 } as const;

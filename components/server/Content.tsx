@@ -2,7 +2,6 @@
 
 import { FontSize, fontSizes } from "@/config/fontSizes";
 import clsx from "clsx";
-import content from "@/content.json";
 import { useContent, useUser } from "@/contexts";
 export interface ContentProps
   extends React.HTMLAttributes<
@@ -28,9 +27,9 @@ export default function Content({
   ...props
 }: ContentProps) {
   const { user } = useUser();
-  const { edit } = useContent();
+  const { edit, content } = useContent();
   if (contentId) {
-    children = content[contentId];
+    children = content[contentId]
     contentEditable = !!user;
   }
   return (
