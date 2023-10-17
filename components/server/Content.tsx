@@ -3,7 +3,7 @@
 import { FontSize, fontSizes } from "@/config/fontSizes";
 import clsx from "clsx";
 import content from "@/content.json";
-import { useUser } from "@/contexts";
+import { useContent, useUser } from "@/contexts";
 export interface ContentProps
   extends React.HTMLAttributes<
     | HTMLHeadingElement
@@ -28,6 +28,7 @@ export default function Content({
   ...props
 }: ContentProps) {
   const { user } = useUser();
+  const { edit } = useContent();
   if (contentId) {
     children = content[contentId];
     contentEditable = !!user;
@@ -36,7 +37,12 @@ export default function Content({
     <Component
       {...props}
       className={clsx(fontSizes[size], className)}
-      contentEditable={contentEditable || !!user}
+      contentEditable={contentEditable}
+      onInput={(e) => {
+        if (contentId) {
+          edit(contentId, e.currentTarget.textContent!);
+        }
+      }}
     >
       {children}
     </Component>

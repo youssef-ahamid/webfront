@@ -7,6 +7,7 @@ import { ThemeProviderProps } from "next-themes/dist/types";
 import { MouseProvider, UserProvider } from "@/contexts";
 import Cursor from "@/components/interactive/Cursor";
 import { User } from "@prisma/client";
+import ContentProvider from "@/contexts/Content/Provider";
 
 export interface ProvidersProps {
   children: React.ReactNode;
@@ -15,15 +16,16 @@ export interface ProvidersProps {
 }
 
 export function Providers({ children, themeProps, user }: ProvidersProps) {
-  console.log(user);
   return (
     <NextUIProvider>
       <NextThemesProvider {...themeProps}>
         <UserProvider user={user}>
-          <MouseProvider>
-            <Cursor />
-            {children}
-          </MouseProvider>
+          <ContentProvider>
+            <MouseProvider>
+              <Cursor />
+              {children}
+            </MouseProvider>
+          </ContentProvider>
         </UserProvider>
       </NextThemesProvider>
     </NextUIProvider>
