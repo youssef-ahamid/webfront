@@ -3,7 +3,7 @@ import Content, { ContentKey } from "./Content";
 import { ThemeColors } from "@nextui-org/react";
 import Page from "./Page";
 import Box from "./Box";
-import { Reveal } from "../interactive";
+import { Appear, Reveal } from "../interactive";
 
 interface HeroProps {
   title: ContentKey;
@@ -25,9 +25,22 @@ export default function Hero({
       <Page.PaddedContent className="pb-24 mb-12 z-10 relative">
         <div className="container mx-auto flex flex-col md:flex-row items-start justify-between">
           <div className="md:w-1/2 flex flex-col items-start space-y-12 md:pr-6">
-            <Content as="h1" size="header/xl" className="max-w-md" contentId={title} />
-            <Content size="body/lg" className="mb-6 max-w-xl" contentId={subtitle} />
-            {action}
+            <Appear>
+              <Content
+                as="h1"
+                size="header/xl"
+                className="max-w-md"
+                contentId={title}
+              />
+            </Appear>
+            <Appear delay={0.2}>
+              <Content
+                size="body/lg"
+                className="mb-6 max-w-xl"
+                contentId={subtitle}
+              />
+            </Appear>
+            <Appear delay={0.4}>{action}</Appear>
           </div>
           <div className="md:w-1/2 pt-24 md:pt-0">
             <img
