@@ -1,9 +1,7 @@
-// import { authOptions } from "./auth";
-
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-const LOGIN_PATH = "/auth/login";
+const LOGIN_PATH = "/admin/auth";
 export async function middleware(request: NextRequest) {
   const resolve = () => {
     const requestHeaders = new Headers(request.headers);
