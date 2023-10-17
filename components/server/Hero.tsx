@@ -43,11 +43,13 @@ export default function Hero({
             <Appear delay={0.4}>{action}</Appear>
           </div>
           <div className="md:w-1/2 pt-24 md:pt-0">
-            <img
-              src={graphicUrl}
-              alt="Hero graphic"
-              className="w-full mx-auto my-8 md:my-0 md:pl-8 relative max-w-none"
-            />
+            <Appear delay={0.6}>
+              <img
+                src={graphicUrl}
+                alt="Hero graphic"
+                className="w-full mx-auto my-8 md:my-0 md:pl-8 relative max-w-none"
+              />
+            </Appear>
           </div>
         </div>
       </Page.PaddedContent>

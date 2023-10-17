@@ -2,6 +2,7 @@ import { ThemeColors } from "@nextui-org/react";
 import Anchor from "./Anchor";
 import Image from "next/image";
 import Page from "./Page";
+import { Appear } from "../interactive";
 
 export type NavbarLink = {
   href: string;
@@ -20,20 +21,28 @@ const Navbar = ({
   links,
   action,
   children,
-  logo = "/logo.png",
+  logo = "https://placehold.co/200x80/EEE/31343C",
 }: NavbarProps) => {
   return (
     <Page.PaddedContent>
       <nav className="flex justify-between align-center py-3">
-        <Image src={logo} alt="logo" width={100} height={100} />
+        <Appear>
+          <img src={logo} alt="logo" className="w-28" />
+        </Appear>
         <ul className="space-x-4 hidden md:flex">
-          {links.map((link) => (
+          {links.map((link, i) => (
             <li key={link.href}>
-              <Anchor {...link} autoActivate />
+              <Appear delay={0.2 + i / 10}>
+                <Anchor {...link} autoActivate />
+              </Appear>
             </li>
           ))}
         </ul>
-        {action && <div>{action}</div>}
+        {action && (
+          <div>
+            <Appear delay={0.6}>{action}</Appear>
+          </div>
+        )}
       </nav>
       {children}
     </Page.PaddedContent>

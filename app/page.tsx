@@ -5,6 +5,8 @@ import {
   Hero,
   ParallaxText,
   Content,
+  Appear,
+  Reveal,
 } from "@/components";
 
 export default function Home() {
@@ -18,7 +20,13 @@ export default function Home() {
       />
 
       <Page.PaddedContent>
-        <div className="w-full h-px bg-foreground/40 mb-1 mt-32" />
+        <Reveal
+          direction="left-to-right"
+          duration={1.4}
+          className="max-w-none w-full"
+        >
+          <div className="w-full h-px bg-foreground/40 mb-1 mt-32" />
+        </Reveal>
       </Page.PaddedContent>
       <Section
         title="hp-section-1-title"
@@ -30,18 +38,27 @@ export default function Home() {
       />
       <div className="w-screen py-24 bg-default">
         <Page.PaddedContent>
-          <div className="w-full h-px bg-background mb-1"></div>
-          <Content
-            contentId="hp-slider-subheader"
-            size="caption/sm"
-            className="text-background"
-          />
+          <Reveal
+            direction="left-to-right"
+            duration={1.4}
+            className="max-w-none"
+          >
+            <div className="w-full h-px bg-background mb-1"></div>
+          </Reveal>
+          <Appear delay={0.6}>
+            <Content
+              contentId="hp-slider-subheader"
+              size="caption/sm"
+              className="text-background"
+            />
+          </Appear>
         </Page.PaddedContent>
 
         <ParallaxText baseVelocity={-0.13} className="text-background">
           <div className="flex items-end">
             <div className="w-[120vw] h-24 bg-current opacity-5" />
             <Content
+              size=""
               className="text-7xl font-bold mx-8 text-current"
               contentId="hp-slider-text-1"
             />
@@ -51,6 +68,7 @@ export default function Home() {
           <div className="flex items-end">
             <div className="w-[180vw] h-24 bg-current opacity-5" />
             <Content
+              size=""
               className="text-7xl font-bold mx-8 text-current"
               contentId="hp-slider-text-2"
             />
@@ -60,6 +78,7 @@ export default function Home() {
           <div className="flex items-end">
             <div className="w-[170vw] h-24 bg-current opacity-5" />
             <Content
+              size=""
               className="text-7xl font-bold mx-8 text-current"
               contentId="hp-slider-text-3"
             />
@@ -67,11 +86,13 @@ export default function Home() {
         </ParallaxText>
 
         <Page.PaddedContent>
-          <img
-            src="https://placehold.co/800x400/EEE/31343C"
-            alt="Picture of the author"
-            className="w-full max-w-2xl h-auto pt-16"
-          />
+          <Appear delay={0.6}>
+            <img
+              src="https://placehold.co/800x400/EEE/31343C"
+              alt="Picture of the author"
+              className="w-full max-w-2xl h-auto pt-16"
+            />
+          </Appear>
         </Page.PaddedContent>
       </div>
 

@@ -11,7 +11,7 @@ export interface ContentProps
     | HTMLQuoteElement
   > {
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "q";
-  size?: FontSize;
+  size?: FontSize | ""
   contentId?: string;
 }
 
@@ -33,7 +33,7 @@ export default function Content({
   return (
     <Component
       {...props}
-      className={clsx(fontSizes[size], className)}
+      className={clsx(size && fontSizes[size], className)}
       contentEditable={contentEditable}
       onInput={(e) => {
         if (contentId) {

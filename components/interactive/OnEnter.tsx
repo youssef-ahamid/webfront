@@ -17,6 +17,7 @@ export default function OnEnter({
     <div className={clsx("max-w-min", className)}>
       <motion.div
         {...props}
+        className="scroll-mt-80"
         whileInView={
           {
             ...whileInView,

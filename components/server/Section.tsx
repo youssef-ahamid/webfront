@@ -2,7 +2,7 @@ import { Box, Button, Content, Page } from "@/components/server";
 import { ThemeColors } from "@nextui-org/react";
 import clsx from "clsx";
 import { ReactNode } from "react";
-import { Reveal } from "../interactive";
+import { Appear, Reveal } from "../interactive";
 
 interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {
   color?: keyof ThemeColors;
@@ -27,7 +27,10 @@ export default function Section({
   return (
     <section
       {...props}
-      className={clsx("relative group py-6 my-24 min-h-[75vh] w-full", className)}
+      className={clsx(
+        "relative group py-6 my-24 min-h-[75vh] w-full",
+        className
+      )}
     >
       <div className="flex items-end absolute z-0 -mt-12">
         <Reveal direction="top-to-bottom" duration={0.7}>
@@ -47,34 +50,46 @@ export default function Section({
             <Reveal direction="left-to-right" delay={0.4} duration={0.3}>
               <div className={`w-24 h-3 mb-2 bg-${color}`} />
             </Reveal>
-            <Content
-              as="span"
-              size="caption/md"
-              className="text-gray-400 whitespace-nowrap"
-            >
-              {number}
-            </Content>
-            <Content
-              as="h3"
-              size="caption/md"
-              className={clsx("max-w-2xl text-gray-700")}
-              contentId={header}
-              {...props}
-            />
+            <Appear>
+              <Content
+                as="span"
+                size="caption/md"
+                className="text-gray-400 whitespace-nowrap"
+              >
+                {number}
+              </Content>
+            </Appear>
+            <Appear delay={0.2}>
+              <Content
+                as="h3"
+                size="caption/md"
+                className={clsx("max-w-2xl text-gray-700")}
+                contentId={header}
+                {...props}
+              />
+            </Appear>
           </div>
           <div className="flex flex-col sm:flex-row sm:justify-between w-full">
-            <Content
-              as="h2"
-              size="header/lg"
-              className={clsx("max-w-2xl")}
-              contentId={title}
-              {...props}
+            <Appear delay={0.5}>
+              <Content
+                as="h2"
+                size="header/lg"
+                className={clsx("max-w-2xl")}
+                contentId={title}
+                {...props}
               />
+            </Appear>
             <div className="flex flex-col space-y-12 items-start pt-6">
               {subtitle && (
-                <Content contentId={subtitle} size="body/md" className="max-w-[300px] text-justify" />
+                <Appear delay={0.7}>
+                  <Content
+                    contentId={subtitle}
+                    size="body/md"
+                    className="max-w-[300px] text-justify"
+                  />
+                </Appear>
               )}
-              {action}
+              <Appear delay={0.9}>{action}</Appear>
             </div>
           </div>
         </div>
