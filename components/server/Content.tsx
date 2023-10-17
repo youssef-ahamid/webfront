@@ -29,7 +29,7 @@ export default function Content({
   const { user } = useUser();
   const { edit, content } = useContent();
   if (contentId) {
-    children = content[contentId]
+    children = content[contentId] || "Edit me!";
     contentEditable = !!user;
   }
   return (

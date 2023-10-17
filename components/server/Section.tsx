@@ -27,7 +27,7 @@ export default function Section({
   return (
     <section
       {...props}
-      className={clsx("relative group py-6 min-h-[75vh] w-full", className)}
+      className={clsx("relative group py-6 my-24 min-h-[75vh] w-full", className)}
     >
       <div className="flex items-end absolute z-0 -mt-12">
         <Reveal direction="top-to-bottom" duration={0.7}>

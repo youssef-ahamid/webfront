@@ -11,14 +11,20 @@ import {
   useAnimationFrame,
 } from "framer-motion";
 import { wrap } from "@motionone/utils";
+import clsx from "clsx";
+import { Content } from "../server";
 
 interface ParallaxProps extends React.HTMLAttributes<HTMLDivElement> {
   baseVelocity: number;
+  contentProps?: typeof Content.Props;
 }
 
 export default function ParallaxText({
   children,
   baseVelocity = 100,
+  className,
+  contentProps = {},
+  ...props
 }: ParallaxProps) {
   const baseX = useMotionValue(0);
   const { scrollY } = useScroll();
@@ -65,14 +71,15 @@ export default function ParallaxText({
    * dynamically generated number of children.
    */
   return (
-    <div className="overflow-hidden m-0 whitespace-nowrap flex flex-nowrap">
+    <div
+      className={clsx(
+        "overflow-hidden m-0 whitespace-nowrap flex flex-nowrap py-6",
+        className
+      )}
+      {...props}
+    >
       <motion.div className="flex whitespace-nowrap flex-nowrap" style={{ x }}>
-        {Array.from({ length: 5 }).map((_, i) => (
-          <div className="flex items-end">
-            <div className="w-[80vw] h-16 bg-default" />
-            <p className="text-7xl font-bold mx-8">{children} </p>
-          </div>
-        ))}
+        {Array.from({ length: 5 }).map((_, i) => children)}
       </motion.div>
     </div>
   );
