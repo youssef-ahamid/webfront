@@ -38,5 +38,5 @@ export function zodValidate<T extends Record<string, z.ZodTypeAny>>(
     };
   }
 
-  return { ...result, issues: null };
+  return { ...result, issues: null } as any;
 }

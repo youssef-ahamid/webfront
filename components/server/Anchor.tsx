@@ -7,11 +7,9 @@ interface AnchorProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   active?: boolean;
   autoActivate?: boolean;
   label?: string;
-  contentId?: ContentKey;
+  contentId?: string;
 }
 import { headers } from "next/headers";
-import { CursorHovered } from "../interactive/Cursor";
-import { ContentKey } from "./Content";
 
 export default function Anchor({
   color = "primary",

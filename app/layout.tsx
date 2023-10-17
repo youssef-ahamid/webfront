@@ -27,12 +27,12 @@ export const metadata: Metadata = {
 const siteMap = {
   "/": "home",
 };
-export async function getPage() {
+async function getPage() {
   const path = headers().get("front-pathname") || "/";
   const pages = await fetch(process.env.NEXT_PUBLIC_URL + "/api/page").then(
     (res) => res.json()
   );
-  const page = pages.find((page: any) => page.slug === siteMap[path]);
+  const page = pages.find((page: any) => page.slug === (siteMap as any)[path]);
   return page;
 }
 

@@ -28,7 +28,7 @@ export const themes: ConfigThemes = {
       },
       success: {
         50: "#F6FEF9",
-        100: "#ABEFC6",
+        100: "#E1EEDA",
         500: "#0FA969",
         DEFAULT: "#0FA969",
         700: "#067647",

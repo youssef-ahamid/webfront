@@ -1,13 +1,13 @@
 import React, { ReactNode } from "react";
-import Content, { ContentKey } from "./Content";
+import Content from "./Content";
 import { ThemeColors } from "@nextui-org/react";
 import Page from "./Page";
 import Box from "./Box";
 import { Appear, Reveal } from "../interactive";
 
 interface HeroProps {
-  title: ContentKey;
-  subtitle: ContentKey;
+  title: string;
+  subtitle: string;
   action: ReactNode;
   graphicUrl: string;
   color?: keyof ThemeColors;

@@ -47,7 +47,7 @@ function createBaseRouter<
     });
     if (!success) return errors.invalid("Invalid data", issues);
 
-    return methods.updateOne(name, { where: { id: req.params.id } }, data);
+    return methods.updateOne(name, { where: { id: req.params.id } } as any, data);
   });
   const deleteOne = tryCatchHandler((req) =>
     methods.deleteOne(name, { where: { id: req.params.id } })

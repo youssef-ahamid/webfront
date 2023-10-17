@@ -12,10 +12,8 @@ export interface ContentProps
   > {
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "q";
   size?: FontSize;
-  contentId?: ContentKey;
+  contentId?: string;
 }
-
-export type ContentKey = keyof typeof content;
 
 export default function Content({
   as: Component = "p",
@@ -29,7 +27,7 @@ export default function Content({
   const { user } = useUser();
   const { edit, content } = useContent();
   if (contentId) {
-    children = content[contentId] || "Edit me!";
+    children = (content as any)[contentId] || "Edit me!";
     contentEditable = !!user;
   }
   return (

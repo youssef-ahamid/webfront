@@ -80,24 +80,24 @@ export class ORM implements IORM {
   }
 
   createIntrospectionEndpoint() {
-    this.router.get(
-      "/api/schema",
-      tryCatchHandler(async (_, res) => res.json(await this.schema()))
-    );
+    // this.router.get(
+    //   "/api/schema",
+    //   tryCatchHandler(() => this.schema())
+    // );
   }
 
   createCollectionEndpoint() {
-    this.router.get(
-      "/api/collection/:name",
-      tryCatchHandler(async (req, res) =>
-        res.json(
-          await this.collection(req.params["name"] as string, {
-            take: parseInt(req.query.take || "100"),
-            skip: parseInt(req.query.skip || "0"),
-          })
-        )
-      )
-    );
+    // this.router.get(
+    //   "/api/collection/:name",
+    //   tryCatchHandler(async (req, res) =>
+    //     res.json(
+    //       await this.collection(req.params["name"] as string, {
+    //         take: parseInt(req.query.take || "100"),
+    //         skip: parseInt(req.query.skip || "0"),
+    //       })
+    //     )
+    //   )
+    // );
   }
 
   createResource<TObj>(
@@ -106,7 +106,7 @@ export class ORM implements IORM {
       [key in keyof TObj]?: z.ZodType<TObj[key]>;
     }
   ) {
-    const resource = new Resource(name, schema, this);
+    const resource = new Resource(name, schema as any, this) as Resource<any>;
     this.resources.push(resource);
     return resource;
   }

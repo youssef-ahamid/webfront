@@ -5,10 +5,10 @@ import {
   Button as NButton,
 } from "@nextui-org/react";
 import clsx from "clsx";
-import Content, { ContentKey } from "./Content";
+import Content from "./Content";
 
 export interface ButtonProps extends NButtonProps {
-  contentId?: ContentKey;
+  contentId?: string;
 }
 export default function Button({
   children,

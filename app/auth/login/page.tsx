@@ -8,7 +8,7 @@ import { zodValidate } from "@/utils/zod";
 import { api } from "@/utils/api";
 import { signIn } from "next-auth/react";
 
-export function LoginForm() {
+function LoginForm() {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -83,7 +83,7 @@ export function LoginForm() {
   );
 }
 
-export function SignupForm() {
+function SignupForm() {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 

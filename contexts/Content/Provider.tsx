@@ -11,9 +11,9 @@ export default function ContentProvider({
 }: ComponentProps<"div"> & { page?: Page }) {
   const [updatedContent, setUpdatedContent] = useState<object>({});
   function edit(id: string, value: string) {
-    if (!page) return;
-    if (page.content[id] === value) {
-      const { [id]: _, ...rest } = updatedContent;
+    if (!page?.content) return;
+    if ((page.content as any)[id] === value) {
+      const { [id]: _, ...rest } = updatedContent as any;
       setUpdatedContent(rest);
       return;
     }
@@ -34,7 +34,7 @@ export default function ContentProvider({
 
   return (
     <ContentContext.Provider
-      value={{ content: page?.content, edit, isEdited, publish }}
+      value={{ content: page?.content as any, edit, isEdited, publish }}
     >
       {children}
       {isEdited && (

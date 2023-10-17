@@ -4,12 +4,13 @@ import { z } from "zod";
 
 export const orm = new ORM({
   provider: () => ({
-    count: (model, query) => prisma[model].count(query),
-    getOne: (model, query) => prisma[model].findFirst(query),
-    getMany: (model, query) => prisma[model].findMany(query),
-    createOne: (model, data) => prisma[model].create({ data }),
-    updateOne: (model, where, data) => prisma[model].update({ ...where, data }),
-    deleteOne: (model, where) => prisma[model].delete(where),
+    count: (model, query) => (prisma[model as any] as any).count(query),
+    getOne: (model, query) => (prisma[model as any] as any).findFirst(query),
+    getMany: (model, query) => (prisma[model as any] as any).findMany(query),
+    createOne: (model, data) => (prisma[model as any] as any).create({ data }),
+    updateOne: (model, where, data) =>
+      (prisma[model as any] as any).update({ ...where, data }),
+    deleteOne: (model, where) => (prisma[model as any] as any).delete(where),
   }),
   introspection: true,
 });
@@ -35,9 +36,10 @@ orm.router.post("/api/contentEdit", async (req, res) => {
   const { userId, pageId, content } = req.body;
   const page = await prisma.page.findFirst({ where: { id: pageId } });
   if (!page) return res.status(400).json({ message: "Page not found" });
+  const pageContent = page.content as Record<string, any>;
   const previous = Object.keys(content)
-    .filter((key) => key in page.content)
-    .reduce((obj, key) => ({ ...obj, [key]: page.content[key] }), {});
+    .filter((key) => key in pageContent)
+    .reduce((obj, key) => ({ ...obj, [key]: pageContent[key] }), {});
 
   try {
     const edit = await prisma.contentEdit.create({
@@ -51,7 +53,7 @@ orm.router.post("/api/contentEdit", async (req, res) => {
 
     await prisma.page.update({
       where: { id: pageId },
-      data: { content: { ...page.content, ...content } },
+      data: { content: { ...pageContent, ...content } },
     });
 
     res.status(200).json(edit);
