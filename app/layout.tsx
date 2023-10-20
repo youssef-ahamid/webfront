@@ -6,6 +6,7 @@ import { Providers } from "./providers";
 import clsx from "clsx";
 import { getUser } from "@/auth";
 import { headers } from "next/headers";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: {
@@ -46,6 +47,11 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
+      <Script
+        async
+        src="https://northstar-theta.vercel.app/script.js"
+        data-website-id="460fbd49-7b42-4b20-969a-d1dcf6a76fd6"
+      />
       <body
         className={clsx(
           "h-full min-h-screen bg-background font-sans antialiased ayman-shahin text-foreground",
