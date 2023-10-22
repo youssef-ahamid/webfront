@@ -7,6 +7,7 @@ import clsx from "clsx";
 import { getUser } from "@/auth";
 import { headers } from "next/headers";
 import { Analytics } from "@/northstar";
+import front from "@/utils/front";
 
 export const metadata: Metadata = {
   title: {
@@ -25,15 +26,10 @@ export const metadata: Metadata = {
   },
 };
 
-const siteMap = {
-  "/": "home",
-};
 async function getPage() {
   const path = headers().get("front-pathname") || "/";
-  const pages = await fetch(process.env.NEXT_PUBLIC_URL + "/api/page").then(
-    (res) => res.json()
-  );
-  const page = pages.find((page: any) => page.slug === (siteMap as any)[path]);
+  const page = await front.Page.methods.getOneBySlug(path);
+  console.log(page);
   return page;
 }
 

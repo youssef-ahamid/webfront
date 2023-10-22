@@ -1,11 +1,11 @@
-import { ComponentProps, useEffect, useMemo, useState } from "react";
+import { ComponentProps, useMemo, useState } from "react";
 import ContentContext from "./Context";
 
-import { api } from "@/utils/api";
 import { Page } from "@prisma/client";
 import { useUser } from "../User";
-import { Avatar, Card, CardFooter, User } from "@nextui-org/react";
+import { Avatar, Card } from "@nextui-org/react";
 import { Button } from "@/components/interactive";
+import front from "@/utils/front";
 
 export default function ContentProvider({
   children,
@@ -27,10 +27,17 @@ export default function ContentProvider({
   function publish() {
     if (!page || !user) return;
     setPublishing(true);
-    api.editContent(page.id, user.id, updatedContent).then(() => {
+    front.ContentEdit.create({
+      pageId: page.id,
+      userId: user.id,
+      content: updatedContent,
+    }).then(() => {
       location.reload();
       setPublishing(false);
-    });
+    }).catch((e) => {
+      console.error(e);
+      setPublishing(false);
+    })
   }
 
   const isEdited = useMemo(() => {
