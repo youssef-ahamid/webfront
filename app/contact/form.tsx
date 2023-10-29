@@ -11,14 +11,15 @@ export function ContactUsForm(form: typeof front.Form.Type) {
     <form
       action={async (formData: FormData) =>
         startTransition(async () => {
-          const response = await front.FormSubmission.create({
-            formId: form.id,
-            data: form.fields.map(({ id: fieldId }) => ({
-              fieldId,
-              response: formData.get(fieldId) as string,
-            })),
-          });
-          console.log(response);
+          try {
+            await front.FormSubmission.create({
+              formId: form.id,
+              data: form.fields.map(({ id: fieldId }) => ({
+                fieldId,
+                response: formData.get(fieldId) as string,
+              })),
+            });
+          } catch {}
           router.push("/contact/thank-you");
         })
       }
