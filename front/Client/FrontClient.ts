@@ -4,6 +4,8 @@ import ContentEdit from "./ContentEdit";
 import Asset from "./Asset";
 import frontFetch from "../fetch";
 import { User } from "@prisma/client";
+import Form from "./Form";
+import FormSubmission from "./FormSubmission";
 
 export default class FrontClient {
   constructor() {
@@ -11,12 +13,16 @@ export default class FrontClient {
     this.Post = Post;
     this.ContentEdit = ContentEdit;
     this.Asset = Asset;
+    this.Form = Form;
+    this.FormSubmission = FormSubmission;
   }
 
   public Page: typeof Page;
   public Post: typeof Post;
   public ContentEdit: typeof ContentEdit;
   public Asset: typeof Asset;
+  public Form: typeof Form;
+  public FormSubmission: typeof FormSubmission;
 
   public async authenticate(token: string) {
     const res = await frontFetch<{ loggedIn: boolean; user: User }>(
@@ -32,6 +38,8 @@ export default class FrontClient {
     Post.setToken(token);
     ContentEdit.setToken(token);
     Asset.setToken(token);
+    Form.setToken(token);
+    FormSubmission.setToken(token);
 
     return res.user;
   }
