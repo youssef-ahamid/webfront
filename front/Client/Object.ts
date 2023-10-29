@@ -56,6 +56,14 @@ export default class FrontObject<
     value: ZodType<T>[K]
   ) {
     return frontFetch.setToken<ZodType<T>>(this.token)(
+      this.path + "/" + key.toString() + "/" + value + "/unique"
+    );
+  }
+  public async getWhere<K extends keyof ZodType<T>>(
+    key: K,
+    value: ZodType<T>[K]
+  ) {
+    return frontFetch.setToken<ZodType<T>[]>(this.token)(
       this.path + "/" + key.toString() + "/" + value
     );
   }
