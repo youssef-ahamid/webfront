@@ -25,13 +25,12 @@ export default class FrontClient {
   public FormSubmission: typeof FormSubmission;
 
   public async authenticate(token: string) {
-    const res = await frontFetch<{ loggedIn: boolean; user: User }>(
-      "login",
-      "POST",
-      {
+    const res = await frontFetch<{ loggedIn: boolean; user: User }>("login", {
+      method: "POST",
+      body: {
         token,
-      }
-    );
+      },
+    });
     if (!res?.loggedIn) throw new Error("Invalid token");
 
     Page.setToken(token);

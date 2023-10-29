@@ -1,11 +1,24 @@
+import { RequestOptions } from "./Client/Object";
+
 async function frontFetch<T>(
   path: string,
-  method = "GET",
-  body?: any,
-  headers?: Record<string, string>
+  options: {
+    method?: string;
+    body?: any;
+  } & RequestOptions<T> = {
+    method: "GET",
+    body: undefined,
+    headers: undefined,
+    included: [],
+  }
 ) {
-  console.log("frontFetch", "https://front.memoized.tech/api/" + path);
-  const res = await fetch("https://front.memoized.tech/api/" + path, {
+  const { method = "GET", body, headers } = options;
+  const endpoint =
+    "https://front.memoized.tech/api/" +
+    path +
+    (options.included ? `?include=${options.included.join(",")}` : "");
+  console.log("[FRONT]:", endpoint);
+  const res = await fetch(endpoint, {
     method,
     headers: {
       "Content-Type": "application/json",
@@ -30,13 +43,19 @@ async function frontFetch<T>(
 frontFetch.setToken = <T>(token: string | null) => {
   return (
     path: string,
-    method = "GET",
-    body?: any,
-    headers?: Record<string, string>
+    options: {
+      method?: string;
+      body?: any;
+      headers?: Record<string, string>;
+      included?: (keyof T)[];
+    } = { method: "GET", body: undefined, headers: undefined, included: [] }
   ) => {
-    return frontFetch<T>(path, method, body, {
-      ...headers,
-      Authorization: (token && "Bearer " + token) || "",
+    return frontFetch<T>(path, {
+      ...options,
+      headers: {
+        ...options.headers,
+        Authorization: token ? "Bearer " + token : "",
+      },
     });
   };
 };
