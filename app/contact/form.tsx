@@ -47,7 +47,7 @@ export default function Field({
   const defultInputClasses =
     "appearance-none outline-none block w-full rounded-md border-0 py-2.5 text-default ring-0 focus:ring-0 sm:text-base sm:leading-6 bg-transparent w-full";
   return (
-    <div className="relative px-3 pb-1.5 pt-2.5 ring-1 ring-inset ring-default/80 focus-within:z-10 focus-within:ring-2 focus-within:ring-default bg-white w-full max-w-3xl">
+    <div className="relative px-3 pb-1.5 pt-2.5 ring-1 ring-inset ring-default/80 focus-within:z-10 focus-within:ring-2 focus-within:ring-default bg-secondary w-full max-w-3xl">
       <label
         htmlFor={id}
         className="block text-lg font-semibold leading-6 text-default"
