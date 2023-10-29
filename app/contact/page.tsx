@@ -9,15 +9,20 @@ import {
 } from "@/components";
 import { siteConfig } from "@/config/site";
 import front from "@/utils/front";
-import { Input } from "@nextui-org/react";
 import Link from "next/link";
+import { ContactUsForm } from "./form";
 
 export default async function Contact() {
+  const form = await front.Form.getOneWhere("siteId", siteConfig.id, {
+    included: ["fields"],
+  });
+
   return (
-    <Page>
+    <Page cta={false}>
       <Hero
         title="contact-hero-title"
         subtitle="contact-hero-subtitle"
+        color="default"
         action={
           <Link href="#form">
             <Button contentId="contact-hero-cta" />
@@ -47,41 +52,7 @@ export default async function Contact() {
         {/* TODO: locations */}
       </div>
 
-      <Section
-        title="contact-form-title"
-        header="contact-form-header"
-        subtitle="contact-form-subtitle"
-        form={ContactUsForm}
-      />
+      <Section title="contact-form-title" form={<ContactUsForm {...form} />} />
     </Page>
-  );
-}
-
-async function ContactUsForm() {
-  const form = await front.Form.getOneWhere("siteId", siteConfig.id);
-  async function submit(formData: FormData) {
-    const response = await front.FormSubmission.create({
-      formId: form.id,
-      data: form.fields.map(({ id: fieldId }) => ({
-        fieldId,
-        response: formData.get(fieldId) as string,
-      })),
-    });
-    console.log(response);
-    // TODO: redirect
-  }
-
-  return (
-    <form action={submit}>
-      {form.fields.map(({ id, type, title, required }, i) => (
-        <Input
-          name={id}
-          label={title}
-          isRequired={required}
-          type={type}
-          key={i}
-        />
-      ))}
-    </form>
   );
 }
