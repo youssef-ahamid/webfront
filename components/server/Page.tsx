@@ -5,9 +5,11 @@ import Footer from "./Footer";
 import Button from "../interactive/Button";
 import CTA from "./CTA";
 
-export interface PageProps extends React.HTMLAttributes<HTMLDivElement> {}
+export interface PageProps extends React.HTMLAttributes<HTMLDivElement> {
+  cta?: boolean;
+}
 
-function Page({ children, className, ...props }: PageProps) {
+function Page({ children, className, cta = true, ...props }: PageProps) {
   return (
     <main
       {...props}
@@ -49,10 +51,12 @@ function Page({ children, className, ...props }: PageProps) {
       />
       {children}
 
-      <CTA>
-        <CTA.Title contentId="main-cta-title" />
-        <CTA.Action contentId="main-cta-action" />
-      </CTA>
+      {cta && (
+        <CTA>
+          <CTA.Title contentId="main-cta-title" />
+          <CTA.Action contentId="main-cta-action" />
+        </CTA>
+      )}
       <Footer
         links={[
           {
