@@ -1,6 +1,7 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
+  id: "394v4v4b40794h", // TODO: add correct site id
   name: "Ayman Shahin Group",
   description:
     "Ayman Shahin Group is a company that provides services in the field of information technology and software development.",

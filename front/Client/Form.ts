@@ -8,6 +8,7 @@ const Form = new Object(
     name: z.string(),
     fields: z.array(
       z.object({
+        id: z.string(),
         title: z.string(),
         type: z.enum(["text", "textarea", "select", "singleSelect"]),
         required: z.boolean().default(false),

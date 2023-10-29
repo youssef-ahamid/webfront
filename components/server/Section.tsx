@@ -11,6 +11,7 @@ interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {
   title?: string;
   subtitle?: string;
   action?: ReactNode;
+  form?: () => Promise<JSX.Element>;
 }
 
 export default function Section({
@@ -22,6 +23,7 @@ export default function Section({
   title,
   subtitle,
   action,
+  form,
   ...props
 }: SectionProps) {
   return (
@@ -89,6 +91,7 @@ export default function Section({
                   />
                 </Appear>
               )}
+              {form && <Appear delay={0.7}>{form()}</Appear>}
               <Appear delay={0.9}>{action}</Appear>
             </div>
           </div>
