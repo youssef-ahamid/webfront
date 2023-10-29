@@ -8,8 +8,9 @@ import { Appear, Reveal } from "../interactive";
 interface HeroProps {
   title: string;
   subtitle: string;
-  action: ReactNode;
-  graphicUrl: string;
+  action?: ReactNode;
+  form?: ReactNode;
+  graphicUrl?: string;
   color?: keyof ThemeColors;
 }
 
@@ -18,6 +19,7 @@ export default function Hero({
   subtitle,
   action,
   graphicUrl,
+  form,
   color = "primary",
 }: HeroProps) {
   return (
@@ -42,13 +44,16 @@ export default function Hero({
             </Appear>
             <Appear delay={0.4}>{action}</Appear>
           </div>
-          <div className="md:w-1/2 pt-24 md:pt-0">
+          <div className="w-full md:w-1/2 pt-24 md:pt-0">
             <Appear delay={0.6}>
-              <img
-                src={graphicUrl}
-                alt="Hero graphic"
-                className="w-full mx-auto my-8 md:my-0 md:pl-8 relative max-w-none"
-              />
+              {graphicUrl && (
+                <img
+                  src={graphicUrl}
+                  alt="Hero graphic"
+                  className="w-full mx-auto my-8 md:my-0 md:pl-8 relative max-w-none"
+                />
+              )}
+              {form}
             </Appear>
           </div>
         </div>

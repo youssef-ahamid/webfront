@@ -23,12 +23,7 @@ export default async function Contact() {
         title="contact-hero-title"
         subtitle="contact-hero-subtitle"
         color="default"
-        action={
-          <Link href="#form">
-            <Button contentId="contact-hero-cta" />
-          </Link>
-        }
-        graphicUrl="https://placehold.co/600x400/EEE/31343C"
+        form={<ContactUsForm {...form} />}
       />
 
       <div className="w-screen py-24 bg-default">
@@ -42,17 +37,31 @@ export default async function Contact() {
           </Reveal>
           <Appear delay={0.6}>
             <Content
-              contentId="contact-slider-subheader"
+              contentId="contact-locations-subheader"
               size="caption/sm"
               className="text-background"
             />
           </Appear>
         </Page.PaddedContent>
 
-        {/* TODO: locations */}
+        <Page.PaddedContent className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 text-base leading-7 sm:grid-cols-2 sm:gap-y-16 lg:mx-auto pl-6 lg:grid-cols-4">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <Appear
+              delay={0.8 + 0.1 * i}
+            >
+              <Content
+                contentId={`contact-offices-${i}-title`}
+                as="h3"
+                className="border-l border-background pl-6 font-semibold text-background"
+              />
+              <address className="border-l border-background/20 pl-6 pt-2 not-italic text-background/80">
+                <Content contentId={`contact-offices-${i}-street`} />
+                <Content contentId={`contact-offices-${i}-city`} />
+              </address>
+            </Appear>
+          ))}
+        </Page.PaddedContent>
       </div>
-
-      <Section title="contact-form-title" form={<ContactUsForm {...form} />} />
     </Page>
   );
 }

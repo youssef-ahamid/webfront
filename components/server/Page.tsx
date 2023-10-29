@@ -33,7 +33,7 @@ function Page({ children, className, cta = true, ...props }: PageProps) {
             color: "danger",
           },
           {
-            href: "#contact",
+            href: "/contact",
             label: "Get in touch",
             color: "default",
           },
@@ -82,17 +82,19 @@ function Page({ children, className, cta = true, ...props }: PageProps) {
         ]}
         socialLinks={[]}
         action={
-          <Button
-            size="md"
-            startContent={
-              <div className="relative mr-1">
-                <div className="w-2 h-2 bg-background rounded-full animate-ping absolute" />
-                <div className="w-2 h-2 bg-background rounded-full" />
-              </div>
-            }
-          >
-            Get in touch
-          </Button>
+          cta && (
+            <Button
+              size="md"
+              startContent={
+                <div className="relative mr-1">
+                  <div className="w-2 h-2 bg-background rounded-full animate-ping absolute" />
+                  <div className="w-2 h-2 bg-background rounded-full" />
+                </div>
+              }
+            >
+              Get in touch
+            </Button>
+          )
         }
       />
     </main>

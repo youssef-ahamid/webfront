@@ -10,7 +10,20 @@ const Form = new Object(
       z.object({
         id: z.string(),
         title: z.string(),
-        type: z.enum(["text", "textarea", "select", "singleSelect"]),
+        type: z.enum([
+          "text",
+          "textarea",
+          "email",
+          "number",
+          "tel",
+          "url",
+          "select",
+          "checkbox",
+          "radio",
+          "date",
+          "time",
+          "file",
+        ]),
         required: z.boolean().default(false),
       })
     ),
