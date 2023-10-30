@@ -6,6 +6,8 @@ import frontFetch from "../fetch";
 import { User } from "@prisma/client";
 import Form from "./Form";
 import FormSubmission from "./FormSubmission";
+import JobApplication from "./JobApplication";
+import JobPosting from "./JobPosting";
 
 export default class FrontClient {
   constructor() {
@@ -15,6 +17,8 @@ export default class FrontClient {
     this.Asset = Asset;
     this.Form = Form;
     this.FormSubmission = FormSubmission;
+    this.JobPosting = JobPosting;
+    this.JobApplication = JobApplication;
   }
 
   public Page: typeof Page;
@@ -23,6 +27,8 @@ export default class FrontClient {
   public Asset: typeof Asset;
   public Form: typeof Form;
   public FormSubmission: typeof FormSubmission;
+  public JobPosting: typeof JobPosting;
+  public JobApplication: typeof JobApplication;
 
   public async authenticate(token: string) {
     const res = await frontFetch<{ loggedIn: boolean; user: User }>("login", {
@@ -33,12 +39,14 @@ export default class FrontClient {
     });
     if (!res?.loggedIn) throw new Error("Invalid token");
 
-    Page.setToken(token);
-    Post.setToken(token);
-    ContentEdit.setToken(token);
-    Asset.setToken(token);
-    Form.setToken(token);
-    FormSubmission.setToken(token);
+    this.Page.setToken(token);
+    this.Post.setToken(token);
+    this.ContentEdit.setToken(token);
+    this.Asset.setToken(token);
+    this.Form.setToken(token);
+    this.FormSubmission.setToken(token);
+    this.JobApplication.setToken(token);
+    this.JobPosting.setToken(token);
 
     return res.user;
   }

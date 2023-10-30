@@ -27,7 +27,7 @@ export default function Content({
   const { user } = useUser();
   const { edit, content } = useContent();
   if (contentId) {
-    children = (content as any)?.[contentId] || "Edit me!";
+    children = (content as any)?.[contentId] || contentId || "Edit me!";
     contentEditable = !!user;
   }
   return (
