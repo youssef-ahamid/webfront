@@ -14,7 +14,7 @@ async function frontFetch<T>(
 ) {
   const { method = "GET", body, headers } = options;
   const endpoint =
-    "http://localhost:3000/api/" +
+    "https://front.memoized.tech/api/" +
     path +
     (options.included ? `?include=${options.included.join(",")}` : "");
   console.log("[FRONT]:", endpoint);
