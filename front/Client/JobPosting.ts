@@ -8,7 +8,8 @@ const jobPostingSchema = {
   location: z.string(),
   content: z.string().optional(),
   department: z.string(),
-  questionnaire: z.array(fieldSchema),
+  userId: z.string(),
+  siteId: z.string(),
 };
 
 const JobPosting = new Object("JobPosting", jobPostingSchema, "orm/jobPosting");

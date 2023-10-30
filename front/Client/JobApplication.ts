@@ -5,13 +5,9 @@ const jobApplicationSchema = {
   name: z.string(),
   email: z.string().email(),
   phone: z.string(),
-  resumeSlug: z.string().optional(),
-  questionnaire: z.array(
-    z.object({
-      fieldId: z.string(),
-      response: z.string(),
-    })
-  ),
+  resume: z.string().optional(),
+  linkedin: z.string().optional(),
+  coverLetter: z.string().optional(),
   jobPostingId: z.string(),
 };
 
