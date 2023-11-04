@@ -1,7 +1,8 @@
 import { JobApplicationForm } from "@/app/contact/form";
-import { Page, Content, Hero, Button } from "@/components";
+import { Page, Hero, Button } from "@/components";
 import front from "@/utils/front";
 import Link from "next/link";
+import Markdown from 'react-markdown'
 
 export default async function Contact({ params }: { params: { id: string } }) {
   const job = await front.JobPosting.getOne(params.id);
@@ -19,11 +20,10 @@ export default async function Contact({ params }: { params: { id: string } }) {
       />
 
       <Page.PaddedContent>
-        <div
+        <Markdown
           id="job-content"
           className="w-full max-w-2xl mx-auto py-24 prose"
-          dangerouslySetInnerHTML={{ __html: job.content || "" }}
-        ></div>
+        >{job.content}</Markdown>
       </Page.PaddedContent>
       <JobApplicationForm {...job} />
     </Page>
