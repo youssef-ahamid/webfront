@@ -36,6 +36,38 @@ export function ContactUsForm(form: typeof front.Form.Type) {
   );
 }
 
+export function JobApplicationForm(job: typeof front.JobPosting.Type) {
+  const [isPending, startTransition] = useTransition();
+  const router = useRouter();
+  return (
+    <form
+      id="apply"
+      action={async (formData: FormData) =>
+        startTransition(async () => {
+          try {
+            // TODO: upload file
+            // TODO: submit application
+          } catch {}
+          router.push("/careers/thank-you");
+        })
+      }
+      className="w-full flex flex-col space-y-8 items-center md:px-8"
+    >
+      <div className="isolate -space-y-px rounded-md shadow-sm w-full max-w-2xl mx-auto">
+        <Field id="name" title="Name" type="text" required />
+        <Field id="email" title="Email" type="email" required />
+        <Field id="phone" title="Phone" type="tel" required />
+        <Field id="resume" title="Resume" type="file" required />
+        <Field id="coverLetter" title="Cover Letter" type="textarea" required />
+      </div>
+
+      <Button type="submit" isLoading={isPending} variant="shadow" className="ring-2 ring-background">
+        submit
+      </Button>
+    </form>
+  );
+}
+
 import clsx from "clsx";
 
 export default function Field({
