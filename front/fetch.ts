@@ -16,8 +16,12 @@ async function frontFetch<T>(
   const endpoint =
     "https://front.memoized.tech/api/" +
     path +
-    (options.included ? `?include=${options.included.join(",")}` : "");
-  console.log("[FRONT]:", endpoint);
+    (options.included?.length ? `?include=${options.included.join(",")}` : "");
+  console.log(
+    method.toLocaleUpperCase(),
+    endpoint,
+    body ? JSON.stringify(body, null, 2) : ""
+  );
   const res = await fetch(endpoint, {
     method,
     headers: {

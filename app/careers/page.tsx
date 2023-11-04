@@ -7,21 +7,34 @@ import {
   Content,
   Appear,
   Reveal,
+  Badge,
 } from "@/components";
 import { siteConfig } from "@/config/site";
 import front from "@/utils/front";
+import Link from "next/link";
 
 export default async function Careers() {
   const postings = await front.JobPosting.getWhere("siteId", siteConfig.id);
-  console.log(postings);
+
+  const byDepartment = postings.reduce((acc, posting) => {
+    if (!acc[posting.department]) {
+      acc[posting.department] = [];
+    }
+    acc[posting.department].push(posting);
+    return acc;
+  }, {} as Record<string, typeof postings>);
 
   return (
     <Page>
       <Hero
-        title="careers-hero-title"
-        subtitle="careers-hero-subtitle"
+        title="hero-title"
+        subtitle="hero-subtitle"
         color="warning"
-        action={<Button contentId="careers-hero-cta" />}
+        action={
+          <Link href="#jobs-list">
+            <Button contentId="hero-cta" />
+          </Link>
+        }
         graphicUrl="https://placehold.co/600x400/EEE/31343C"
       />
 
@@ -36,7 +49,7 @@ export default async function Careers() {
           </Reveal>
           <Appear delay={0.6}>
             <Content
-              contentId="hp-slider-subheader"
+              contentId="slider-subheader"
               size="caption/sm"
               className="text-background"
             />
@@ -49,7 +62,7 @@ export default async function Careers() {
             <Content
               size=""
               className="text-7xl font-bold mx-8 text-current"
-              contentId="hp-slider-text-1"
+              contentId="slider-text-1"
             />
           </div>
         </ParallaxText>
@@ -59,7 +72,7 @@ export default async function Careers() {
             <Content
               size=""
               className="text-7xl font-bold mx-8 text-current"
-              contentId="hp-slider-text-2"
+              contentId="slider-text-2"
             />
           </div>
         </ParallaxText>
@@ -69,22 +82,42 @@ export default async function Careers() {
             <Content
               size=""
               className="text-7xl font-bold mx-8 text-current"
-              contentId="hp-slider-text-3"
+              contentId="slider-text-3"
             />
           </div>
         </ParallaxText>
-
-        <Page.PaddedContent>
-          <Appear delay={0.6}>
-            <img
-              src="https://placehold.co/800x400/EEE/31343C"
-              alt="Picture of the author"
-              className="w-full max-w-2xl h-auto pt-16"
-            />
-          </Appear>
-        </Page.PaddedContent>
       </div>
-      {/* career list */}
+      <Page.PaddedContent className="w-full flex flex-col items-center space-y-8 py-20">
+        <Content contentId="jobs-list-header" as="h2" size="header/md" />
+
+        {Object.entries(byDepartment).map(([department, postings]) => (
+          <div className="w-full py-8 flex flex-col space-y-6">
+            <Content key={department} size="header/sm" as="h3">
+              {department}
+            </Content>
+            <div className="w-full">
+              {postings.map((posting) => (
+                <a
+                  href={`/careers/${posting.id}`}
+                  className="w-full py-4 flex justify-between group relative"
+                  key={posting.id}
+                >
+                  <div className="flex flex-col space-y-2">
+                    <Badge color="primary">{posting.location}</Badge>
+                    <Content size="subheader/lg" className="px-1">
+                      {posting.title}
+                    </Content>
+                  </div>
+                  {/* TODO: Arrow */}
+
+                  <div className="absolute bottom-0 inset-x-0 w-full h-px bg-default-200" />
+                  <div className="absolute bottom-0 inset-x-0 w-full h-px transition duration-250 ease-out origin-left scale-x-0 bg-default group-hover:scale-x-100" />
+                </a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </Page.PaddedContent>
     </Page>
   );
 }

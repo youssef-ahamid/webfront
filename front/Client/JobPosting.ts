@@ -3,6 +3,7 @@ import Object from "./Object";
 import { z } from "zod";
 
 const jobPostingSchema = {
+  id: z.string(),
   title: z.string(),
   description: z.string(),
   location: z.string(),
