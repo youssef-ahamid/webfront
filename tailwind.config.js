@@ -19,5 +19,6 @@ module.exports = {
       defaultTheme: "light",
       themes,
     }),
+    require('@tailwindcss/typography'),
   ],
 };

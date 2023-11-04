@@ -5,35 +5,30 @@ async function frontFetch<T>(
   options: {
     method?: string;
     body?: any;
+    json?: boolean;
   } & RequestOptions<T> = {
     method: "GET",
     body: undefined,
     headers: undefined,
     included: [],
+    json: true,
   }
 ) {
-  const { method = "GET", body, headers } = options;
+  const { method = "GET", body, headers, json = true } = options;
   const endpoint =
-    "https://front.memoized.tech/api/" +
+    "http://localhost:3001/api/" +
     path +
     (options.included?.length ? `?include=${options.included.join(",")}` : "");
   console.log(
     method.toLocaleUpperCase(),
     endpoint,
-    body ? JSON.stringify(body, null, 2) : ""
+    body ? (json ? JSON.stringify(body) : body) : "",
   );
   const res = await fetch(endpoint, {
     method,
-    headers: {
-      "Content-Type": "application/json",
-      ...headers,
-    },
-    body: body ? JSON.stringify(body) : undefined,
+    headers: json ? { ...headers, "Content-Type": "application/json" } : headers,
+    body: body ? (json ? JSON.stringify(body) : body) : undefined,
   });
-
-  if (!res.ok) {
-    throw await res.text();
-  }
 
   const data = await res.json();
 

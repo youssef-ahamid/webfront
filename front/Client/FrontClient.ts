@@ -8,6 +8,7 @@ import Form from "./Form";
 import FormSubmission from "./FormSubmission";
 import JobApplication from "./JobApplication";
 import JobPosting from "./JobPosting";
+import { siteConfig } from "@/config/site";
 
 export default class FrontClient {
   constructor() {
@@ -49,5 +50,20 @@ export default class FrontClient {
     this.JobPosting.setToken(token);
 
     return res.user;
+  }
+
+  public async applyToJob(formData: FormData, jobPostingId: string) {
+    formData.append("siteId", siteConfig.id);
+    formData.append("jobPostingId", jobPostingId);
+
+    return frontFetch<{
+      success: boolean;
+      message: string;
+      application?: typeof JobApplication.Type;
+    }>("apply", {
+      method: "POST",
+      body: formData,
+      json: false,
+    });
   }
 }

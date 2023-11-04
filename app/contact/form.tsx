@@ -29,7 +29,12 @@ export function ContactUsForm(form: typeof front.Form.Type) {
         {form.fields.map(Field)}
       </div>
 
-      <Button type="submit" isLoading={isPending} variant="shadow" className="ring-2 ring-background">
+      <Button
+        type="submit"
+        isLoading={isPending}
+        variant="shadow"
+        className="ring-2 ring-background"
+      >
         submit
       </Button>
     </form>
@@ -45,8 +50,7 @@ export function JobApplicationForm(job: typeof front.JobPosting.Type) {
       action={async (formData: FormData) =>
         startTransition(async () => {
           try {
-            // TODO: upload file
-            // TODO: submit application
+            await front.applyToJob(formData, job.id);
           } catch {}
           router.push("/careers/thank-you");
         })
@@ -57,11 +61,22 @@ export function JobApplicationForm(job: typeof front.JobPosting.Type) {
         <Field id="name" title="Name" type="text" required />
         <Field id="email" title="Email" type="email" required />
         <Field id="phone" title="Phone" type="tel" required />
+        <Field
+          id="linkedin"
+          title="Linkedin/Social Profile"
+          type="text"
+          required
+        />
         <Field id="resume" title="Resume" type="file" required />
         <Field id="coverLetter" title="Cover Letter" type="textarea" required />
       </div>
 
-      <Button type="submit" isLoading={isPending} variant="shadow" className="ring-2 ring-background">
+      <Button
+        type="submit"
+        isLoading={isPending}
+        variant="shadow"
+        className="ring-2 ring-background"
+      >
         submit
       </Button>
     </form>
@@ -69,6 +84,7 @@ export function JobApplicationForm(job: typeof front.JobPosting.Type) {
 }
 
 import clsx from "clsx";
+import { toast } from "sonner";
 
 export default function Field({
   id,
