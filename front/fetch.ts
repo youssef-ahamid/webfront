@@ -16,7 +16,7 @@ async function frontFetch<T>(
 ) {
   const { method = "GET", body, headers, json = true } = options;
   const endpoint =
-    "http://localhost:3001/api/" +
+    `${process.env.NEXT_PUBLIC_FRONT_URL}/api/` +
     path +
     (options.included?.length ? `?include=${options.included.join(",")}` : "");
   console.log(
