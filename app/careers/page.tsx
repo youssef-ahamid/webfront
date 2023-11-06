@@ -91,7 +91,7 @@ export default async function Careers() {
         <Content contentId="jobs-list-header" as="h2" size="header/md" />
 
         {Object.entries(byDepartment).map(([department, postings]) => (
-          <div className="w-full py-8 flex flex-col space-y-6">
+          <div className="w-full py-8 flex flex-col space-y-6" key={department}>
             <Content key={department} size="header/sm" as="h3">
               {department}
             </Content>

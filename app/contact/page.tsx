@@ -48,6 +48,7 @@ export default async function Contact() {
           {Array.from({ length: 4 }).map((_, i) => (
             <Appear
               delay={0.8 + 0.1 * i}
+              key={i}
             >
               <Content
                 contentId={`contact-offices-${i}-title`}
