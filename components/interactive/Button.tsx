@@ -5,7 +5,7 @@ import {
   Button as NButton,
 } from "@nextui-org/react";
 import clsx from "clsx";
-import Content from "../server/Content";
+import Content from "./Content";
 
 export interface ButtonProps extends NButtonProps {
   contentId?: string;

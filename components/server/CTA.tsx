@@ -1,6 +1,6 @@
-import { Button, Content, Page } from "@/components/server";
+import { Page } from "@/components/server";
 import clsx from "clsx";
-import { Appear } from "../interactive";
+import { Appear, Button, Content } from "../interactive";
 
 interface CTAProps extends React.HTMLAttributes<HTMLDivElement> {
   action?: typeof Button.Props;

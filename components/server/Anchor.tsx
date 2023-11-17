@@ -1,4 +1,4 @@
-import { Content } from "@/components/server";
+import { Content } from "@/components/interactive";
 import { BaseColors, ThemeColors } from "@nextui-org/react";
 import clsx from "clsx";
 
@@ -24,7 +24,7 @@ export default function Anchor({
   const headersList = Object.fromEntries(headers().entries());
   const path = headersList["next-url"] || headersList["x-invoke-path"];
 
-  active = active || (autoActivate && path === props.href);
+  active = active || (autoActivate && path.includes(props.href!));
   return (
     <div>
       <a
@@ -44,7 +44,7 @@ export default function Anchor({
         </Content>
 
         <div
-          className={`w-full absolute top-100 h-3 -translate-y-2.5 bg-${color}-100 z-0 group-hover:scale-x-100 ${
+          className={`w-full absolute top-100 h-1 -translate-y-2.5 bg-${color}-100 z-0 group-hover:scale-x-100 ${
             !active && "scale-x-0"
           } transition duration-300 ease-soft-spring origin-bottom-left`}
         ></div>

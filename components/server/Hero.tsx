@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import Content from "./Content";
+import Content from "../interactive/Content";
 import { ThemeColors } from "@nextui-org/react";
 import Page from "./Page";
 import Box from "./Box";

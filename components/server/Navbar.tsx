@@ -22,9 +22,10 @@ const Navbar = ({
   action,
   children,
   logo = "https://placehold.co/200x80/EEE/31343C",
+  ...props
 }: NavbarProps) => {
   return (
-    <Page.PaddedContent>
+    <Page.PaddedContent {...props}>
       <nav className="flex justify-between align-center py-3">
         <Appear>
           <img src={logo} alt="logo" className="w-28" />

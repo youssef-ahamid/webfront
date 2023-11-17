@@ -1,4 +1,4 @@
-import { Content } from "@/components/server";
+import { Content } from "@/components/interactive";
 import clsx from "clsx";
 
 interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {}

@@ -22,6 +22,7 @@ export default function Content({
   contentId,
   children,
   contentEditable,
+  color,
   ...props
 }: ContentProps) {
   const { user } = useUser();
@@ -36,6 +37,7 @@ export default function Content({
       suppressContentEditableWarning
       style={{
         outline: "none",
+        color: color || "inherit",
         ...props.style,
       }}
       className={clsx(size && fontSizes[size], className, contentEditable && 'focus-within:underline', 'whitespace-pre-line')}

@@ -23,9 +23,14 @@ function Page({ children, className, cta = true, ...props }: PageProps) {
             color: "success",
           },
           {
-            href: "#business",
+            href: "/business",
             label: "Our Business",
             color: "primary",
+          },
+          {
+            href: "/careers",
+            label: "Careers",
+            color: "warning",
           },
           {
             href: "#press",
