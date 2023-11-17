@@ -38,11 +38,11 @@ export default function Content({
         outline: "none",
         ...props.style,
       }}
-      className={clsx(size && fontSizes[size], className, 'focus-within:underline')}
+      className={clsx(size && fontSizes[size], className, contentEditable && 'focus-within:underline', 'whitespace-pre-line')}
       contentEditable={contentEditable}
       onInput={(e) => {
         if (contentId) {
-          edit(contentId, e.currentTarget.textContent!);
+          edit(contentId, e.currentTarget.innerText!);
         }
       }}
     >
