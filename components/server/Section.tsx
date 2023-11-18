@@ -1,4 +1,5 @@
-import { Box, Button, Content, Page } from "@/components/server";
+import { Button, Content } from "@/components/interactive";
+import { Box, Page } from "@/components/server";
 import { ThemeColors } from "@nextui-org/react";
 import clsx from "clsx";
 import { ReactNode } from "react";

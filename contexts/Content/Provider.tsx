@@ -4,7 +4,7 @@ import ContentContext from "./Context";
 import { Page } from "@prisma/client";
 import { useUser } from "../User";
 import { Avatar, Card } from "@nextui-org/react";
-import { Button } from "@/components/interactive";
+import Button from "@/components/interactive/Button";
 import front from "@/utils/front";
 
 export default function ContentProvider({

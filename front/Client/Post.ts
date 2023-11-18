@@ -4,9 +4,15 @@ import { z } from "zod";
 const Post = new Object(
   "Post",
   {
-    name: z.string(),
+    id: z.string(),
+    title: z.string(),
+    description: z.string(),
     content: z.string(),
     slug: z.string(),
+    image: z.string().optional(),
+    published: z.boolean().default(false),
+    siteId: z.string(),
+    userId: z.string(),
   },
   "orm/post"
 );

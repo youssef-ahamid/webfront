@@ -8,6 +8,7 @@ import { getUser } from "@/auth";
 import { headers } from "next/headers";
 import { Analytics } from "@/northstar";
 import front from "@/utils/front";
+import { Page } from "@prisma/client";
 
 export const metadata: Metadata = {
   title: {
@@ -28,9 +29,14 @@ export const metadata: Metadata = {
 
 async function getPage() {
   const path = headers().get("front-pathname") || "/";
-  const page = await front.Page.methods.getOneBySlug(path);
-  console.log(page);
-  return page;
+  try {
+    const page = await front.Page.methods.getOneBySlug(path);
+    console.log(page);
+    return page as any;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
 }
 
 export default async function RootLayout({

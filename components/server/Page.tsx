@@ -9,6 +9,34 @@ export interface PageProps extends React.HTMLAttributes<HTMLDivElement> {
   cta?: boolean;
 }
 
+export const links = [
+  {
+    href: "#about",
+    label: "About us",
+    color: "success",
+  },
+  {
+    href: "/business",
+    label: "Our Business",
+    color: "primary",
+  },
+  {
+    href: "/careers",
+    label: "Careers",
+    color: "warning",
+  },
+  {
+    href: "/press",
+    label: "Press",
+    color: "danger",
+  },
+  {
+    href: "/contact",
+    label: "Get in touch",
+    color: "default",
+  },
+];
+
 function Page({ children, className, cta = true, ...props }: PageProps) {
   return (
     <main
@@ -16,33 +44,7 @@ function Page({ children, className, cta = true, ...props }: PageProps) {
       className={clsx("flex-grow flex flex-col items-start", className)}
     >
       <Navbar
-        links={[
-          {
-            href: "#about",
-            label: "About us",
-            color: "success",
-          },
-          {
-            href: "/business",
-            label: "Our Business",
-            color: "primary",
-          },
-          {
-            href: "/careers",
-            label: "Careers",
-            color: "warning",
-          },
-          {
-            href: "#press",
-            label: "Press",
-            color: "danger",
-          },
-          {
-            href: "/contact",
-            label: "Get in touch",
-            color: "default",
-          },
-        ]}
+        links={links}
         action={
           <div className="flex space-x-2">
             <Anchor href="?lang=en" color="primary" active>
@@ -63,28 +65,7 @@ function Page({ children, className, cta = true, ...props }: PageProps) {
         </CTA>
       )}
       <Footer
-        links={[
-          {
-            href: "#about",
-            label: "About us",
-            color: "success",
-          },
-          {
-            href: "#business",
-            label: "Our Business",
-            color: "primary",
-          },
-          {
-            href: "#press",
-            label: "Press",
-            color: "danger",
-          },
-          {
-            href: "#contact",
-            label: "Get in touch",
-            color: "default",
-          },
-        ]}
+        links={links}
         socialLinks={[]}
         action={
           cta && (

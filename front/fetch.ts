@@ -28,11 +28,16 @@ async function frontFetch<T>(
     method,
     headers: json ? { ...headers, "Content-Type": "application/json" } : headers,
     body: body ? (json ? JSON.stringify(body) : body) : undefined,
+    next: {revalidate:0}
   });
+
+  if (!res.ok) {
+    throw await res.text();
+  }
 
   const data = await res.json();
 
-  if (res.status < 200 || res.status >= 300) {
+  if (res.status < 200 || res.status >= 400) {
     throw data;
   }
 
