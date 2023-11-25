@@ -22,7 +22,7 @@ export default function Anchor({
   ...props
 }: AnchorProps) {
   const headersList = Object.fromEntries(headers().entries());
-  const path = headersList["next-url"] || headersList["x-invoke-path"] || "/"
+  const path = headersList["front-pathname"] || headersList["next-url"] || "/"
 
   active = active || (autoActivate && path.includes(props.href!));
   return (
