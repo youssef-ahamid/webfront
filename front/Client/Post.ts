@@ -13,6 +13,8 @@ const Post = new Object(
     published: z.boolean().default(false),
     siteId: z.string(),
     userId: z.string(),
+    createdAt: z.string(),
+    updatedAt: z.string(),
   },
   "orm/post"
 );

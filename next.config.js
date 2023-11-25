@@ -6,6 +6,11 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  images: {
+    domains: [
+      "front.memoized.tech",
+    ],
+  },
 };
 
 module.exports = nextConfig;
