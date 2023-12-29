@@ -171,7 +171,7 @@ export default function Home() {
                 <Content contentId={`company-${i}-description`} size="body/md">
                   {description}
                 </Content>
-                <Button size="sm" as="a" href={link} className="mt-4">
+                <Button size="sm" as="a" href={`/business${link}`} className="mt-4">
                   View
                 </Button>
               </div>
