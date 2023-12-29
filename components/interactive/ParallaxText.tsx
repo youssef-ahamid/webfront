@@ -12,7 +12,7 @@ import {
 } from "framer-motion";
 import { wrap } from "@motionone/utils";
 import clsx from "clsx";
-import { Content } from "../server";
+import { Content } from "../interactive";
 
 interface ParallaxProps extends React.HTMLAttributes<HTMLDivElement> {
   baseVelocity: number;

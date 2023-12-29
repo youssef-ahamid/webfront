@@ -58,30 +58,30 @@ export default async function Careers() {
 
         <ParallaxText baseVelocity={-0.13} className="text-background">
           <div className="flex items-end">
-            <div className="w-[120vw] h-24 bg-current opacity-5" />
+          <div className="w-[80vw] h-24 bg-current opacity-5" />
             <Content
               size=""
-              className="text-7xl font-bold mx-8 text-current"
+              className="whitespace-nowrap text-7xl font-bold mx-8 text-current"
               contentId="slider-text-1"
             />
           </div>
         </ParallaxText>
         <ParallaxText baseVelocity={0.13} className="text-background">
           <div className="flex items-end">
-            <div className="w-[180vw] h-24 bg-current opacity-5" />
+            <div className="w-[80vw] h-24 bg-current opacity-5" />
             <Content
               size=""
-              className="text-7xl font-bold mx-8 text-current"
+              className="whitespace-nowrap text-7xl font-bold mx-8 text-current"
               contentId="slider-text-2"
             />
           </div>
         </ParallaxText>
         <ParallaxText baseVelocity={-0.23} className="text-background">
           <div className="flex items-end">
-            <div className="w-[170vw] h-24 bg-current opacity-5" />
+          <div className="w-[80vw] h-24 bg-current opacity-5" />
             <Content
               size=""
-              className="text-7xl font-bold mx-8 text-current"
+              className="whitespace-nowrap text-7xl font-bold mx-8 text-current"
               contentId="slider-text-3"
             />
           </div>
