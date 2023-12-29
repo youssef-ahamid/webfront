@@ -28,7 +28,9 @@ const Navbar = ({
     <Page.PaddedContent {...props}>
       <nav className="flex justify-between align-center py-3">
         <Appear>
-          <img src={logo} alt="logo" className="w-28" />
+          <a href="/">
+            <img src={logo} alt="logo" className="w-28" />
+          </a>
         </Appear>
         <ul className="space-x-4 hidden md:flex">
           {links.map((link, i) => (
