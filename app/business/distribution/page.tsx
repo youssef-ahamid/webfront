@@ -1,4 +1,4 @@
-import { Page, Button, Hero, Reveal, Section } from "@/components";
+import { Page, Button, Hero, Reveal, Section, LogoCloud } from "@/components";
 
 const features = [
   {
@@ -53,6 +53,15 @@ export default function Distribution() {
           className="mb-16"
         />
       ))}
+
+      <LogoCloud
+        title="clients-title"
+        titleContent="Trusted by the Best"
+        items={Array.from({ length: 10 }, (_, i) => ({
+          name: `${i}`,
+          logo: "https://placehold.co/200x80/EEE/31343C",
+        }))}
+      />
     </Page>
   );
 }
