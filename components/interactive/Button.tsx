@@ -6,6 +6,7 @@ import {
 } from "@nextui-org/react";
 import clsx from "clsx";
 import Content from "./Content";
+import { useUser } from "@/contexts/User";
 
 export interface ButtonProps extends NButtonProps {
   contentId?: string;
@@ -17,9 +18,12 @@ export default function Button({
   contentId,
   ...props
 }: ButtonProps) {
+  const { user } = useUser();
+
   return (
     <NButton
       {...props}
+      isDisabled={!!contentId && !!user}
       size={size}
       radius="sm"
       className={clsx(`button-${size}`, className)}
