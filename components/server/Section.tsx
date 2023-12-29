@@ -10,9 +10,12 @@ interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {
   number?: string;
   header?: string;
   title?: string;
+  titleContent?: ReactNode;
   subtitle?: string;
+  subtitleContent?: ReactNode;
   action?: ReactNode;
   form?: ReactNode;
+  graphicUrl?: string;
 }
 
 export default function Section({
@@ -25,6 +28,9 @@ export default function Section({
   subtitle,
   action,
   form,
+  graphicUrl,
+  titleContent,
+  subtitleContent,
   ...props
 }: SectionProps) {
   return (
@@ -62,33 +68,57 @@ export default function Section({
                 {number}
               </Content>
             </Appear>
-            <Appear delay={0.2}>
-              <Content
-                as="h3"
-                size="caption/md"
-                className={clsx("max-w-2xl text-gray-700")}
-                contentId={header}
-                {...props}
-              />
-            </Appear>
+            {header && (
+              <Appear delay={0.2}>
+                <Content
+                  as="h3"
+                  size="caption/md"
+                  className={clsx("max-w-2xl text-gray-700")}
+                  contentId={header}
+                />
+              </Appear>
+            )}
           </div>
           <div className="flex flex-col sm:flex-row sm:justify-between w-full">
-            <Appear delay={0.5}>
-              <Content
-                as="h2"
-                size="header/lg"
-                className={clsx("max-w-2xl")}
-                contentId={title}
-                {...props}
-              />
-            </Appear>
-            <div className="flex flex-col space-y-12 items-start pt-6">
-              {subtitle && (
+            <div className="flex flex-col space-y-2">
+              <Appear delay={0.5}>
+                <Content
+                  as="h2"
+                  size="header/lg"
+                  className={clsx("max-w-2xl")}
+                  contentId={title}
+                >
+                  {titleContent}
+                </Content>
+              </Appear>
+              {graphicUrl && subtitle && (
                 <Appear delay={0.7}>
                   <Content
                     contentId={subtitle}
                     size="body/md"
-                    className="max-w-[300px] text-justify"
+                    className="max-w-[500px]"
+                  >
+                    {subtitleContent}
+                  </Content>
+                </Appear>
+              )}
+            </div>
+            <div className="flex flex-col space-y-12 items-start pt-6">
+              {!graphicUrl && subtitle && (
+                <Appear delay={0.7}>
+                  <Content
+                    contentId={subtitle}
+                    size="body/md"
+                    className="max-w-[500px] text-justify"
+                  />
+                </Appear>
+              )}
+              {graphicUrl && (
+                <Appear delay={0.7}>
+                  <img
+                    src={graphicUrl}
+                    alt="Hero graphic"
+                    className="w-full mx-auto my-8 md:my-0 md:pl-8 relative max-w-none"
                   />
                 </Appear>
               )}
