@@ -1,22 +1,4 @@
-// Headline : *Unlocking Global Opportunities*
-
-import { Button, Hero, LogoCloud, Page, Reveal, Section } from "@/components";
-
-// SubText  : Ayman Shahin Group extended its legacy with the establishment of "Ayman Shahin Export," in 2009. Committed to providing our clients with an international footprint, we empower brands to realize their full potential, fostering growth and development on a global scale.
-
-// What Sets Us Apart
-
-// *Decades of Expertise:*
-// With over 30 years of profound expertise in brand development and leveraging the extensive reach of Ayman Shahin Group, Ayman Shahin Export has emerged as a leading force in the export landscape of Egypt. Our longstanding commitment to excellence positions us as a reliable partner for brands aspiring to make a mark beyond borders.
-
-// *Adaptability and Innovation:*
-// Understanding the dynamic shifts in global markets, Ayman Shahin Export excels in adaptability, guiding clients to navigate challenging markets and providing them with robust tools to manage risks effectively. Insights, innovation, and technology form the pillars of our approach, allowing us to craft customized solutions that cater to the unique needs of each client in diverse markets.
-
-// Clients :
-
-// Countries we export to :
-
-// In line with our commitment to facilitating international trade and fostering strong partnerships, Ayman Shahin Export has proudly expanded its footprint across a diverse array of countries. Our export division has become a trusted partner in nations such as the United States, Palestine, Jordan, Libya, Lebanon, Iraq, Morocco, Saudi Arabia, Sudan, the United Arab Emirates, Kuwait, Canada, Yemen, Oman, Qatar, and Syria.
+import { Hero, LogoCloud, Page, Reveal, Section } from "@/components";
 
 export default function Export() {
   return (
