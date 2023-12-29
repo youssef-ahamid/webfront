@@ -110,7 +110,9 @@ export default function Section({
                     contentId={subtitle}
                     size="body/md"
                     className="max-w-[500px] text-justify"
-                  />
+                  >
+                    {subtitleContent}
+                  </Content>
                 </Appear>
               )}
               {graphicUrl && (
