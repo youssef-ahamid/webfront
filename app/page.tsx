@@ -9,22 +9,27 @@ import {
   Reveal,
   Anchor,
 } from "@/components";
+import { ASELogo, AstraLogo, AymanAfandyLogo, FundayProducts, Owner, PortSaid, Spring } from "@/images";
+import Image from "next/image";
 
 const companies = [
   {
     name: "Ayman Afandy LLC",
+    image: AymanAfandyLogo,
     link: "/distribution",
     description:
       "A distribution powerhouse with 350 vehicles that facilitate the seamless flow of products across 30,000 Points Of Sale",
   },
   {
     name: "Ayman Afandy For Export",
+    image: ASELogo,
     link: "/export",
     description:
       "Paves the way for the group's global influence by taking locally manufactured products to international markets",
   },
   {
     name: "Ayman Afandy Duty-Free",
+    image: FundayProducts,
     link: "/manufacturing",
     description:
       "A specialized force, enhances the travel retail experience with a portfolio of renowned products.",
@@ -34,16 +39,19 @@ const companies = [
 const factories = [
   {
     name: "Spring",
+    logo: Spring,
     description:
       "Our beverage factory, where diverse flavors come to life, capturing the very essence of quality and taste.",
   },
   {
     name: "Port Said",
+    logo: PortSaid,
     description:
       "The hub of packaging innovation, where we create an array of packed popcorn bags, cakes, and other confectionery wonders. Our expertise extends to providing white-label products for esteemed companies.",
   },
   {
     name: "Astra",
+    logo: AstraLogo,
     description:
       "Celebrating the art of confectionery, we specialize in crafting lollipops adorned with intricate, handmade designs. We add an artistic touch to your product portfolio.",
   },
@@ -56,7 +64,7 @@ export default function Home() {
         title="hp-hero-title"
         subtitle="hp-hero-subtitle"
         action={<Button contentId="hp-hero-cta" />}
-        graphicUrl="https://placehold.co/600x400/EEE/31343C"
+        graphicUrl={Owner}
       />
 
       <Page.PaddedContent>
@@ -158,10 +166,10 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {companies.map(({ name, description, link }, i) => (
             <Appear key={i} delay={0.6 + i * 0.2} className="h-full">
-              <img
-                src="https://placehold.co/600x400/EEE/31343C"
+              <Image
+                src={companies[i].image}
                 alt="Picture of the author"
-                className="w-full max-w-2xl h-auto"
+                className="w-full max-w-2xl max-h-32 object-contain object-left"
               />
               <div className="flex flex-col items-start space-y-2 pt-4 w-full">
                 <Content contentId={`company-${i}-name`} size="subheader/md">
@@ -186,10 +194,10 @@ export default function Home() {
           {factories.map(({ name, description }, i) => (
             <Appear key={i} delay={0.6 + i * 0.2}>
               <div className="flex flex-col items-center space-y-4">
-                <img
-                  src="https://placehold.co/600x400/EEE/31343C"
+                <Image
+                  src={factories[i].logo}
                   alt="Picture of the author"
-                  className="w-full max-w-2xl h-auto"
+                  className="w-full max-w-2xl max-h-20 object-contain object-left"
                 />
                 <div className="w-full">
                   <Content contentId={`factory-${i}-name`} size="subheader/md">

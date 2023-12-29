@@ -1,4 +1,17 @@
 import { Appear, Content, Hero, Page, Reveal } from "@/components";
+import {
+  Astra,
+  AstraGraphic,
+  AstraLollipops,
+  FundayPopcorn,
+  FundayProducts,
+  MoussyFactory,
+  MoussyGlass,
+  PortSaid,
+  Spring,
+  SpringFactory,
+} from "@/images";
+import Image from "next/image";
 
 export default function Manufacturing() {
   return (
@@ -6,7 +19,7 @@ export default function Manufacturing() {
       <Hero
         title="hero-title"
         subtitle="hero-subtitle"
-        graphicUrl="https://placehold.co/600x400/EEE/31343C"
+        graphicUrl={SpringFactory}
       />
 
       <Page.PaddedContent>
@@ -25,8 +38,9 @@ export default function Manufacturing() {
             <div className="lg:pr-4">
               <div className="lg:max-w-lg flex flex-col items-start">
                 <Appear delay={0.2}>
-                  <img
-                    src="https://placehold.co/600x400/EEE/31343C"
+                  <Image
+                    src={Spring}
+                    alt="Spring Factory"
                     className="max-h-20 w-full object-contain mb-4"
                   />
                 </Appear>
@@ -65,8 +79,9 @@ export default function Manufacturing() {
                     Our collaboration with these giants, along with our capacity
                     for large-scale production, highlights our role as a key
                     player in the beverage industry.{"\n\n"}
-                    <img
-                      src="https://placehold.co/600x400/EEE/31343C"
+                    <Image
+                      src={MoussyGlass}
+                      alt="Moussy Glass"
                       className="object-contain my-4"
                     />
                     {"\n\n"}
@@ -77,10 +92,10 @@ export default function Manufacturing() {
           </div>
           <div className="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
             <Appear delay={0.4}>
-              <img
-                className="w-[48rem] max-w-none rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
-                src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png"
-                alt=""
+              <Image
+                className="w-[48rem] max-w-none rounded-xl bg-transparent shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
+                src={MoussyFactory}
+                alt="Moussy Factory"
               />
             </Appear>
           </div>
@@ -103,8 +118,9 @@ export default function Manufacturing() {
             <div className="lg:pr-4">
               <div className="lg:max-w-lg flex flex-col items-start">
                 <Appear delay={0.2}>
-                  <img
-                    src="https://placehold.co/600x400/EEE/31343C"
+                  <Image
+                    src={Astra}
+                    alt="Astra Logo"
                     className="max-h-20 w-full object-contain mb-4"
                   />
                 </Appear>
@@ -130,8 +146,9 @@ export default function Manufacturing() {
                     confectionery experience. Our artisans skillfully produce a
                     variety of designs, making each candy a small work of art.
                     {"\n\n"}
-                    <img
-                      src="https://placehold.co/600x400/EEE/31343C"
+                    <Image
+                      src={AstraLollipops}
+                      alt="Astra Lollipops"
                       className="object-contain"
                     />
                     {"\n\n"}
@@ -143,11 +160,6 @@ export default function Manufacturing() {
                     Astra Factory has carved a niche in the confectionery
                     market, offering a delightful range of artistic and
                     flavorful treats.{"\n\n"}
-                    <img
-                      src="https://placehold.co/600x400/EEE/31343C"
-                      className="object-contain"
-                    />
-                    {"\n\n"}
                   </Content>
                 </Appear>
               </div>
@@ -155,10 +167,10 @@ export default function Manufacturing() {
           </div>
           <div className="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
             <Appear delay={0.4}>
-              <img
-                className="w-[48rem] max-w-none rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
-                src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png"
-                alt=""
+              <Image
+                className="w-[48rem] max-w-none rounded-xl bg-transparent shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
+                src={AstraGraphic}
+                alt="Astra Graphic"
               />
             </Appear>
           </div>
@@ -181,8 +193,9 @@ export default function Manufacturing() {
             <div className="lg:pr-4">
               <div className="lg:max-w-lg flex flex-col items-start">
                 <Appear delay={0.2}>
-                  <img
-                    src="https://placehold.co/600x400/EEE/31343C"
+                  <Image
+                    src={PortSaid}
+                    alt="Port Said Factory Logo"
                     className="max-h-20 w-full object-contain mb-4"
                   />
                 </Appear>
@@ -205,20 +218,22 @@ export default function Manufacturing() {
                     production hub churning out a diverse range of snacks. With
                     over 50 SKUs, including delightful cakes and popcorn, Funday
                     is a testament to our versatility and creativity in snack
-                    production. Operating under Ayman Afandy LLC&apos;s distribution
-                    wing, this factory is key to delivering a variety of
-                    high-quality, tasty treats.{"\n\n"}
+                    production. Operating under Ayman Afandy LLC&apos;s
+                    distribution wing, this factory is key to delivering a
+                    variety of high-quality, tasty treats.{"\n\n"}
                     Our production lines are tailored to handle the complexities
                     of creating multiple snack varieties, ensuring efficiency
-                    and quality in every package. The factory&apos;s commitment to
-                    maintaining a wide-ranging portfolio reflects our mission to
-                    cater to diverse consumer tastes.{"\n\n"}
-                    Funday&apos;s presence in the market, supported by Ayman Afandy
-                    LLC&apos;s robust distribution network, ensures our products are
-                    enjoyed far and wide, bringing smiles with every snack.
+                    and quality in every package. The factory&apos;s commitment
+                    to maintaining a wide-ranging portfolio reflects our mission
+                    to cater to diverse consumer tastes.{"\n\n"}
+                    Funday&apos;s presence in the market, supported by Ayman
+                    Afandy LLC&apos;s robust distribution network, ensures our
+                    products are enjoyed far and wide, bringing smiles with
+                    every snack.
                     {"\n\n"}
-                    <img
-                      src="https://placehold.co/600x400/EEE/31343C"
+                    <Image
+                      src={FundayProducts}
+                      alt="Funday Products"
                       className="object-contain my-4"
                     />
                     {"\n\n"}
@@ -229,10 +244,10 @@ export default function Manufacturing() {
           </div>
           <div className="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
             <Appear delay={0.4}>
-              <img
-                className="w-[48rem] max-w-none rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
-                src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png"
-                alt=""
+              <Image
+                className="w-[48rem] max-w-none rounded-xl bg-transparent shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
+                src={FundayPopcorn}
+                alt="Funday Popcorn"
               />
             </Appear>
           </div>

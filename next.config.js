@@ -9,6 +9,7 @@ const nextConfig = {
   images: {
     domains: [
       "front.memoized.tech",
+      "placehold.co",
     ],
   },
 };

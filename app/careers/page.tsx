@@ -10,6 +10,7 @@ import {
   Badge,
 } from "@/components";
 import { siteConfig } from "@/config/site";
+import { Speech } from "@/images";
 import front from "@/utils/front";
 import Link from "next/link";
 
@@ -35,7 +36,7 @@ export default async function Careers() {
             <Button contentId="hero-cta" />
           </Link>
         }
-        graphicUrl="https://placehold.co/600x400/EEE/31343C"
+        graphicUrl={Speech}
       />
 
       <div className="w-screen py-24 bg-default">
@@ -58,7 +59,7 @@ export default async function Careers() {
 
         <ParallaxText baseVelocity={-0.13} className="text-background">
           <div className="flex items-end">
-          <div className="w-[80vw] h-24 bg-current opacity-5" />
+            <div className="w-[80vw] h-24 bg-current opacity-5" />
             <Content
               size=""
               className="whitespace-nowrap text-7xl font-bold mx-8 text-current"
@@ -78,7 +79,7 @@ export default async function Careers() {
         </ParallaxText>
         <ParallaxText baseVelocity={-0.23} className="text-background">
           <div className="flex items-end">
-          <div className="w-[80vw] h-24 bg-current opacity-5" />
+            <div className="w-[80vw] h-24 bg-current opacity-5" />
             <Content
               size=""
               className="whitespace-nowrap text-7xl font-bold mx-8 text-current"

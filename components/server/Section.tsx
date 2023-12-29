@@ -4,6 +4,7 @@ import { ThemeColors } from "@nextui-org/react";
 import clsx from "clsx";
 import { ReactNode } from "react";
 import { Appear, Reveal } from "../interactive";
+import Image, { StaticImageData } from "next/image";
 
 interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {
   color?: keyof ThemeColors;
@@ -15,7 +16,7 @@ interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {
   subtitleContent?: ReactNode;
   action?: ReactNode;
   form?: ReactNode;
-  graphicUrl?: string;
+  graphicUrl?: string | StaticImageData;
 }
 
 export default function Section({
@@ -117,9 +118,11 @@ export default function Section({
               )}
               {graphicUrl && (
                 <Appear delay={0.7}>
-                  <img
+                  <Image
                     src={graphicUrl}
-                    alt="Hero graphic"
+                    width={1080}
+                    height={1080}
+                    alt={titleContent as string}
                     className="w-full mx-auto my-8 md:my-0 md:pl-8 relative max-w-none"
                   />
                 </Appear>

@@ -4,13 +4,14 @@ import { ThemeColors } from "@nextui-org/react";
 import Page from "./Page";
 import Box from "./Box";
 import { Appear, Reveal } from "../interactive";
+import Image, { StaticImageData } from "next/image";
 
 interface HeroProps {
   title: string;
   subtitle: string;
   action?: ReactNode;
   form?: ReactNode;
-  graphicUrl?: string;
+  graphicUrl?: string | StaticImageData;
   color?: keyof ThemeColors;
   boxes?: boolean;
   centered?: boolean;
@@ -63,8 +64,10 @@ export default function Hero({
           <div className={`w-full ${centered ? "" : "md:w-1/2"} pt-24 md:pt-0`}>
             <Appear delay={0.6}>
               {graphicUrl && (
-                <img
+                <Image
                   src={graphicUrl}
+                  width={1080}
+                  height={1080}
                   alt="Hero graphic"
                   className="w-full mx-auto my-8 md:my-0 md:pl-8 relative max-w-none"
                 />
