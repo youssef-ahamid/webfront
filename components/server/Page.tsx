@@ -16,8 +16,18 @@ export const links = [
     color: "success",
   },
   {
-    href: "/business",
-    label: "Our Business",
+    href: "/business/distribution",
+    label: "Distribution",
+    color: "primary",
+  },
+  {
+    href: "/business/manufacturing",
+    label: "Manufacturing",
+    color: "primary",
+  },
+  {
+    href: "/business/export",
+    label: "Export",
     color: "primary",
   },
   {
