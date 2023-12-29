@@ -7,7 +7,47 @@ import {
   Content,
   Appear,
   Reveal,
+  Anchor,
 } from "@/components";
+
+const companies = [
+  {
+    name: "Ayman Afandy LLC",
+    link: "/distribution",
+    description:
+      "A distribution powerhouse with 350 vehicles that facilitate the seamless flow of products across 30,000 Points Of Sale",
+  },
+  {
+    name: "Ayman Afandy For Export",
+    link: "/export",
+    description:
+      "Paves the way for the group's global influence by taking locally manufactured products to international markets",
+  },
+  {
+    name: "Ayman Afandy Duty-Free",
+    link: "/manufacturing",
+    description:
+      "A specialized force, enhances the travel retail experience with a portfolio of renowned products.",
+  },
+];
+
+const factories = [
+  {
+    name: "Spring",
+    description:
+      "Our beverage factory, where diverse flavors come to life, capturing the very essence of quality and taste.",
+  },
+  {
+    name: "Port Said",
+    description:
+      "The hub of packaging innovation, where we create an array of packed popcorn bags, cakes, and other confectionery wonders. Our expertise extends to providing white-label products for esteemed companies.",
+  },
+  {
+    name: "Astra",
+    description:
+      "Celebrating the art of confectionery, we specialize in crafting lollipops adorned with intricate, handmade designs. We add an artistic touch to your product portfolio.",
+  },
+];
 
 export default function Home() {
   return (
@@ -59,7 +99,7 @@ export default function Home() {
             <div className="w-[80vw] h-24 bg-current opacity-5" />
             <Content
               size=""
-              className="whitespace-nowrap shrink-0 text-5xl font-bold mx-8 text-current"
+              className="whitespace-nowrap shrink-0 text-7xl font-bold mx-8 text-current"
               contentId="hp-slider-text-1"
             />
           </div>
@@ -69,7 +109,7 @@ export default function Home() {
             <div className="w-[80vw] h-24 bg-current opacity-5" />
             <Content
               size=""
-              className="whitespace-nowrap shrink-0 text-5xl font-bold mx-8 text-current"
+              className="whitespace-nowrap shrink-0 text-7xl font-bold mx-8 text-current"
               contentId="hp-slider-text-2"
             />
           </div>
@@ -79,7 +119,7 @@ export default function Home() {
             <div className="w-[80vw] h-24 bg-current opacity-5" />
             <Content
               size=""
-              className="whitespace-nowrap shrink-0 text-5xl font-bold mx-8 text-current"
+              className="whitespace-nowrap shrink-0 text-7xl font-bold mx-8 text-current"
               contentId="hp-slider-text-3"
             />
           </div>
@@ -103,6 +143,71 @@ export default function Home() {
         subtitle="hp-section-2-subtitle"
         action={<Button contentId="hp-section-2-cta" />}
       />
+
+      <Page.PaddedContent>
+        <Appear delay={0.6} className="mb-16">
+          <Content
+            contentId="hp-section-3-header"
+            size="header/lg"
+            className="text-center"
+          >
+            Our Companies & Factories
+          </Content>
+        </Appear>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {companies.map(({ name, description, link }, i) => (
+            <Appear key={i} delay={0.6 + i * 0.2} className="h-full">
+              <img
+                src="https://placehold.co/600x400/EEE/31343C"
+                alt="Picture of the author"
+                className="w-full max-w-2xl h-auto"
+              />
+              <div className="flex flex-col items-start space-y-2 pt-4 w-full">
+                <Content contentId={`company-${i}-name`} size="subheader/md">
+                  {name}
+                </Content>
+
+                <Content contentId={`company-${i}-description`} size="body/md">
+                  {description}
+                </Content>
+                <Button size="sm" as="a" href={link} className="mt-4">
+                  View
+                </Button>
+              </div>
+              <div className="flex justify-between items-start space-x-4 w-full h-full pt-4"></div>
+            </Appear>
+          ))}
+        </div>
+      </Page.PaddedContent>
+
+      <Page.PaddedContent>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+          {factories.map(({ name, description }, i) => (
+            <Appear key={i} delay={0.6 + i * 0.2}>
+              <div className="flex flex-col items-center space-y-4">
+                <img
+                  src="https://placehold.co/600x400/EEE/31343C"
+                  alt="Picture of the author"
+                  className="w-full max-w-2xl h-auto"
+                />
+                <div className="w-full">
+                  <Content contentId={`factory-${i}-name`} size="subheader/md">
+                    {name}
+                  </Content>
+
+                  <Content
+                    contentId={`factory-${i}-description`}
+                    size="body/md"
+                  >
+                    {description}
+                  </Content>
+                </div>
+              </div>
+            </Appear>
+          ))}
+        </div>
+      </Page.PaddedContent>
     </Page>
   );
 }
