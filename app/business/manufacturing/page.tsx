@@ -205,16 +205,16 @@ export default function Manufacturing() {
                     production hub churning out a diverse range of snacks. With
                     over 50 SKUs, including delightful cakes and popcorn, Funday
                     is a testament to our versatility and creativity in snack
-                    production. Operating under Ayman Afandy LLC's distribution
+                    production. Operating under Ayman Afandy LLC&apos;s distribution
                     wing, this factory is key to delivering a variety of
                     high-quality, tasty treats.{"\n\n"}
                     Our production lines are tailored to handle the complexities
                     of creating multiple snack varieties, ensuring efficiency
-                    and quality in every package. The factory's commitment to
+                    and quality in every package. The factory&apos;s commitment to
                     maintaining a wide-ranging portfolio reflects our mission to
                     cater to diverse consumer tastes.{"\n\n"}
-                    Funday's presence in the market, supported by Ayman Afandy
-                    LLC's robust distribution network, ensures our products are
+                    Funday&apos;s presence in the market, supported by Ayman Afandy
+                    LLC&apos;s robust distribution network, ensures our products are
                     enjoyed far and wide, bringing smiles with every snack.
                     {"\n\n"}
                     <img
