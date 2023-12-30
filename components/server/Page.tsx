@@ -19,7 +19,7 @@ async function Page({ children, className, cta = true, ...props }: PageProps) {
 
   const links = [
     {
-      href: "#about",
+      href: "/about",
       label: t("about"),
       color: "success",
     },
