@@ -76,6 +76,7 @@ export default function ParallaxText({
         "overflow-hidden m-0 whitespace-nowrap flex flex-nowrap py-6",
         className
       )}
+      dir="ltr"
       {...props}
     >
       <motion.div className="flex whitespace-nowrap flex-nowrap" style={{ x }}>
