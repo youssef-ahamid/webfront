@@ -17,8 +17,8 @@ export default async function Press({
     <>
       <Page cta={false}>
         <Hero
-          title={post.title}
-          subtitle={post.description}
+          titleContent={post.title}
+          subtitleContent={post.description}
           color="danger"
           graphicUrl={post.image}
         />
