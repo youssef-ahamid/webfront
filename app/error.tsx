@@ -1,30 +1,30 @@
-'use client' 
- 
-import { useEffect } from 'react'
- 
+"use client";
+
+import { Button } from "@/components/interactive";
+import Hero from "@/components/server/Hero";
+import Link from "next/link";
+
 export default function Error({
   error,
   reset,
 }: {
-  error: Error
-  reset: () => void
+  error: Error;
+  reset: () => void;
 }) {
-  useEffect(() => {
-    // Log the error to an error reporting service
-    console.error(error)
-  }, [error])
- 
+  console.error(error);
   return (
-    <div>
-      <h2>Something went wrong!</h2>
-      <button
-        onClick={
-          // Attempt to recover by trying to re-render the segment
-          () => reset()
-        }
-      >
-        Try again
-      </button>
-    </div>
-  )
+    <Hero
+      titleContent="Something went wrong!"
+      boxes={false}
+      centered
+      action={
+        <div className="flex flex-row space-x-2">
+          <Button onClick={() => reset()}>Try again</Button>
+          <Link href="/">
+            <Button color="secondary">Back to home</Button>
+          </Link>
+        </div>
+      }
+    />
+  );
 }
