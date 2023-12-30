@@ -9,12 +9,15 @@ import front from "@/utils/front";
 import { siteConfig } from "@/config/site";
 import Badge from "./Badge";
 import { Content } from "../interactive";
+import clsx from "clsx";
+import { getLang } from "@/actions/lang";
 
 export async function Blogs({}: {}) {
   const articles = (await front.Post.getWhere("siteId", siteConfig.id)).filter(
     (p) => p.published
   );
 
+  const lang = await getLang();
   return (
     <>
       <Container className="mt-24 sm:mt-32 lg:mt-40 w-full">
@@ -30,7 +33,12 @@ export async function Blogs({}: {}) {
                           {article.title}
                         </Link>
                       </Content>
-                      <dl className="lg:absolute lg:left-0 lg:top-0 lg:w-1/3 lg:px-4">
+                      <dl
+                        className={clsx(
+                          "lg:absolute lg:top-0 lg:w-1/3 lg:px-4",
+                          lang === "en" ? "lg:left-0" : "lg:right-0"
+                        )}
+                      >
                         <dt className="sr-only">Published</dt>
                         <dd className="absolute left-0 top-0 text-sm text-neutral-950 lg:static">
                           <Badge>
