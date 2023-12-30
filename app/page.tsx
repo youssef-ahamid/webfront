@@ -1,3 +1,4 @@
+import { getLang } from "@/actions/lang";
 import {
   Page,
   Section,
@@ -18,6 +19,7 @@ import {
   PortSaid,
   Spring,
 } from "@/images";
+import clsx from "clsx";
 import Image from "next/image";
 
 const companies = [
@@ -65,7 +67,8 @@ const factories = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const lang = await getLang();
   return (
     <Page>
       <Hero
@@ -185,7 +188,10 @@ export default function Home() {
               <Image
                 src={companies[i].image}
                 alt="Picture of the author"
-                className="w-full max-w-2xl max-h-32 object-contain object-left"
+                className={clsx(
+                  "w-full max-w-2xl max-h-32 object-contain",
+                  lang === "en" ? "object-left" : "object-right"
+                )}
               />
               <div className="flex flex-col items-start space-y-2 pt-4 w-full">
                 <Content contentId={`company-${i}-name`} size="subheader/md">
@@ -218,7 +224,10 @@ export default function Home() {
                 <Image
                   src={factories[i].logo}
                   alt="Picture of the author"
-                  className="w-full max-w-2xl max-h-20 object-contain object-left"
+                  className={clsx(
+                    "w-full max-w-2xl max-h-20 object-contain",
+                    lang === "en" ? "object-left" : "object-right"
+                  )}
                 />
                 <div className="w-full">
                   <Content contentId={`factory-${i}-name`} size="subheader/md">
