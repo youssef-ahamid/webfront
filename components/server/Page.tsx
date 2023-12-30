@@ -10,45 +10,45 @@ export interface PageProps extends React.HTMLAttributes<HTMLDivElement> {
   cta?: boolean;
 }
 
-export const links = [
-  {
-    href: "#about",
-    label: t("about"),
-    color: "success",
-  },
-  {
-    href: "/business/distribution",
-    label: t("distribution"),
-    color: "primary",
-  },
-  {
-    href: "/business/manufacturing",
-    label: t("manufacturing"),
-    color: "primary",
-  },
-  {
-    href: "/business/export",
-    label: t("export"),
-    color: "primary",
-  },
-  {
-    href: "/careers",
-    label: t("careers"),
-    color: "warning",
-  },
-  {
-    href: "/press",
-    label: t("press"),
-    color: "danger",
-  },
-  {
-    href: "/contact",
-    label: t("contact"),
-    color: "default",
-  },
-];
-
 function Page({ children, className, cta = true, ...props }: PageProps) {
+  const links = [
+    {
+      href: "#about",
+      label: t("about"),
+      color: "success",
+    },
+    {
+      href: "/business/distribution",
+      label: t("distribution"),
+      color: "primary",
+    },
+    {
+      href: "/business/manufacturing",
+      label: t("manufacturing"),
+      color: "primary",
+    },
+    {
+      href: "/business/export",
+      label: t("export"),
+      color: "primary",
+    },
+    {
+      href: "/careers",
+      label: t("careers"),
+      color: "warning",
+    },
+    {
+      href: "/press",
+      label: t("press"),
+      color: "danger",
+    },
+    {
+      href: "/contact",
+      label: t("contact"),
+      color: "default",
+    },
+  ];
+  
   return (
     <main
       {...props}
