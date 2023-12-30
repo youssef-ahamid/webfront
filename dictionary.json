@@ -1,0 +1,42 @@
+{
+    "en": {
+        "about": "About Us",
+        "distribution": "Distribution",
+        "manufacturing": "Manufacturing",
+        "export": "Export",
+        "careers": "Careers",
+        "contact": "Contact Us",
+        "press": "Press",
+        "getInTouch": "Get In Touch",
+        "english": "English",
+        "arabic": "Arabic",
+        "view": "View",
+        "readMore": "Read More",
+        "submit": "Submit",
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone",
+        "message": "Message",
+        "company": "Company"
+    },
+    "ar": {
+        "about": "من نحن",
+        "distribution": "توزيع",
+        "manufacturing": "تصنيع",
+        "export": "تصدير",
+        "careers": "وظائف",
+        "press": "صحافة",
+        "contact": "اتصل بنا",
+        "getInTouch": "تواصل معنا",
+        "english": "الإنجليزية",
+        "arabic": "العربية",
+        "view": "اقرأ أكثر",
+        "readMore": "اقرأ أكثر",
+        "submit": "إرسال",
+        "name": "اسم",
+        "email": "البريد الإلكتروني",
+        "phone": "هاتف",
+        "message": "رسالة",
+        "company": "شركة"
+    }
+}
