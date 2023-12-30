@@ -22,13 +22,15 @@ async function frontFetch<T>(
   console.log(
     method.toLocaleUpperCase(),
     endpoint,
-    body ? (json ? JSON.stringify(body) : body) : "",
+    body ? (json ? JSON.stringify(body) : body) : ""
   );
   const res = await fetch(endpoint, {
     method,
-    headers: json ? { ...headers, "Content-Type": "application/json" } : headers,
+    headers: json
+      ? { ...headers, "Content-Type": "application/json" }
+      : headers,
     body: body ? (json ? JSON.stringify(body) : body) : undefined,
-    next: {revalidate:0}
+    next: { revalidate: 0 },
   });
 
   if (!res.ok) {

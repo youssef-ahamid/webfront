@@ -15,13 +15,8 @@ export default function ContentProvider({
 }: ComponentProps<"div"> & { page?: Page; lang: Lang }) {
   const [updatedContent, setUpdatedContent] = useState<object>({});
   function edit(id: string, value: string) {
-    if (!page?.content) return;
-    if ((page.content as any)[id] === value) {
-      const { [id]: _, ...rest } = updatedContent as any;
-      setUpdatedContent(rest);
-      return;
-    }
-    setUpdatedContent({ ...updatedContent, [id]: value });
+    if (!page?.content || id === value) return;
+    setUpdatedContent((curr) => ({ ...curr, [id]: value }));
   }
 
   const { user } = useUser();
@@ -40,6 +35,7 @@ export default function ContentProvider({
       })
       .catch((e) => {
         console.error(e);
+        location.reload();
         setPublishing(false);
       });
   }
