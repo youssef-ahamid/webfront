@@ -1,8 +1,8 @@
 import { Page, Button, Hero } from "@/components";
 import Link from "next/link";
 
-
 import { getSeoForPage } from "@/config/seo";
+import { t } from "@/utils/t";
 export const generateMetadata = getSeoForPage("/careers/thank-you");
 
 export default async function Contact() {
@@ -16,10 +16,10 @@ export default async function Contact() {
         action={
           <div className="flex flex-row space-x-2">
             <Link href="/">
-              <Button>Back to home</Button>
+              <Button>{t("backToHome")}</Button>
             </Link>
             <Link href="/contact">
-              <Button color="secondary">Read the blog</Button>
+              <Button color="secondary">{t("readTheBlog")}</Button>
             </Link>
           </div>
         }
