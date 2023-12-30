@@ -53,19 +53,7 @@ function Page({ children, className, cta = true, ...props }: PageProps) {
       {...props}
       className={clsx("flex-grow flex flex-col items-start", className)}
     >
-      <Navbar
-        links={links}
-        action={
-          <div className="flex space-x-2">
-            <Anchor href="?lang=en" color="primary" active>
-              EN
-            </Anchor>
-            <Anchor href="?lang=ar" color="danger">
-              AR
-            </Anchor>
-          </div>
-        }
-      />
+      <Navbar links={links} action />
       {children}
 
       {cta && (

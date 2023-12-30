@@ -3,6 +3,8 @@ import Anchor from "./Anchor";
 import Image from "next/image";
 import Page from "./Page";
 import { Appear } from "../interactive";
+import LangActions from "./LangActions";
+import { getLang } from "@/actions/lang";
 
 export type NavbarLink = {
   href: string;
@@ -14,16 +16,17 @@ export type NavbarLink = {
 interface NavbarProps extends React.HTMLAttributes<HTMLDivElement> {
   links: NavbarLink[];
   logo?: string;
-  action?: React.ReactNode;
+  action?: boolean;
 }
 
-const Navbar = ({
+const Navbar = async ({
   links,
-  action,
+  action = true,
   children,
   logo = "https://placehold.co/200x80/EEE/31343C",
   ...props
 }: NavbarProps) => {
+  const lang = await getLang();
   return (
     <Page.PaddedContent {...props}>
       <nav className="flex justify-between align-center py-3">
@@ -43,7 +46,9 @@ const Navbar = ({
         </ul>
         {action && (
           <div>
-            <Appear delay={0.6}>{action}</Appear>
+            <Appear delay={0.6}>
+              <LangActions lang={lang} />
+            </Appear>
           </div>
         )}
       </nav>
