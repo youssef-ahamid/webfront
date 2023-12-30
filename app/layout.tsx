@@ -63,7 +63,7 @@ export default async function RootLayout({
           fontSans.className
         )}
       >
-        <Providers themeProps={{ attribute: "class" }} user={user!} page={page}>
+        <Providers themeProps={{ attribute: "class" }} user={user!} page={page} lang={lang}>
           <div className="relative flex flex-col">{children}</div>
         </Providers>
       </body>

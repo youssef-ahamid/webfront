@@ -6,11 +6,13 @@ import { useUser } from "../User";
 import { Avatar, Card } from "@nextui-org/react";
 import Button from "@/components/interactive/Button";
 import front from "@/utils/front";
+import { Lang } from "@/app/layout";
 
 export default function ContentProvider({
   children,
   page,
-}: ComponentProps<"div"> & { page?: Page }) {
+  lang,
+}: ComponentProps<"div"> & { page?: Page; lang: Lang }) {
   const [updatedContent, setUpdatedContent] = useState<object>({});
   function edit(id: string, value: string) {
     if (!page?.content) return;
@@ -31,13 +33,15 @@ export default function ContentProvider({
       pageId: page.id,
       userId: user.id,
       content: updatedContent,
-    }).then(() => {
-      location.reload();
-      setPublishing(false);
-    }).catch((e) => {
-      console.error(e);
-      setPublishing(false);
     })
+      .then(() => {
+        location.reload();
+        setPublishing(false);
+      })
+      .catch((e) => {
+        console.error(e);
+        setPublishing(false);
+      });
   }
 
   const isEdited = useMemo(() => {
@@ -46,7 +50,7 @@ export default function ContentProvider({
 
   return (
     <ContentContext.Provider
-      value={{ content: page?.content as any, edit, isEdited, publish }}
+      value={{ content: page?.content as any, edit, isEdited, publish, lang }}
     >
       {children}
       {user && (
