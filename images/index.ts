@@ -1,5 +1,6 @@
 export { default as AlTahya } from "./altahya.jpg";
 export { default as ASELogo } from "./ase-logo.jpg";
+export { default as ASGLogoNoBG } from "./asg-logo-no-bg.png";
 export { default as AstraGraphic } from "./astra-graphic.jpeg";
 export { default as AstraLogo } from "./astra-logo.png";
 export { default as AstraLollipops } from "./astra-lollipops.jpg";
