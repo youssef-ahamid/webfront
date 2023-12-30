@@ -114,40 +114,32 @@ export default async function Home() {
           </Appear>
         </Page.PaddedContent>
 
-        <ParallaxText
-          baseVelocity={-0.13}
-          className="text-background"
-          dir="ltr"
-        >
-          <div className="flex items-end translate-x-8">
+        <ParallaxText baseVelocity={-0.13} className="text-background">
+          <div className="flex items-end translate-x-8 min-w-screen">
             <div className="w-[80vw] h-24 bg-current opacity-5" />
             <Content
               size=""
-              className="whitespace-nowrap shrink-0 text-7xl font-bold mx-8 text-current"
+              className="whitespace-nowrap shrink-0 text-4xl sm:text-7xl font-bold mx-8 text-current"
               contentId="hp-slider-text-1"
             />
           </div>
         </ParallaxText>
-        <ParallaxText baseVelocity={0.13} className="text-background" dir="ltr">
-          <div className="flex items-end">
+        <ParallaxText baseVelocity={0.13} className="text-background">
+          <div className="flex items-end min-w-screen">
             <div className="w-[80vw] h-24 bg-current opacity-5" />
             <Content
               size=""
-              className="whitespace-nowrap shrink-0 text-7xl font-bold mx-8 text-current"
+              className="whitespace-nowrap shrink-0 text-4xl sm:text-7xl font-bold mx-8 text-current"
               contentId="hp-slider-text-2"
             />
           </div>
         </ParallaxText>
-        <ParallaxText
-          baseVelocity={-0.23}
-          className="text-background"
-          dir="ltr"
-        >
-          <div className="flex items-end">
+        <ParallaxText baseVelocity={-0.23} className="text-background">
+          <div className="flex items-end min-w-screen">
             <div className="w-[80vw] h-24 bg-current opacity-5" />
             <Content
               size=""
-              className="whitespace-nowrap shrink-0 text-7xl font-bold mx-8 text-current"
+              className="whitespace-nowrap shrink-0 text-4xl sm:text-7xl font-bold mx-8 text-current"
               contentId="hp-slider-text-3"
             />
           </div>
@@ -208,7 +200,7 @@ export default async function Home() {
                   href={`/business${link}`}
                   className="mt-4"
                 >
-                  {t('view')}
+                  {t("view")}
                 </Button>
               </div>
               <div className="flex justify-between items-start space-x-4 w-full h-full pt-4"></div>

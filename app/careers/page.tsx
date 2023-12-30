@@ -57,32 +57,32 @@ export default async function Careers() {
           </Appear>
         </Page.PaddedContent>
 
-        <ParallaxText baseVelocity={-0.13} className="text-background" dir="ltr">
+        <ParallaxText baseVelocity={-0.13} className="text-background">
           <div className="flex items-end">
             <div className="w-[80vw] h-24 bg-current opacity-5" />
             <Content
               size=""
-              className="whitespace-nowrap text-7xl font-bold mx-8 text-current"
+              className="whitespace-nowrap shrink-0 text-4xl sm:text-7xl font-bold mx-8 text-current"
               contentId="slider-text-1"
             />
           </div>
         </ParallaxText>
-        <ParallaxText baseVelocity={0.13} className="text-background" dir="ltr">
+        <ParallaxText baseVelocity={0.13} className="text-background">
           <div className="flex items-end">
             <div className="w-[80vw] h-24 bg-current opacity-5" />
             <Content
               size=""
-              className="whitespace-nowrap text-7xl font-bold mx-8 text-current"
+              className="whitespace-nowrap shrink-0 text-4xl sm:text-7xl font-bold mx-8 text-current"
               contentId="slider-text-2"
             />
           </div>
         </ParallaxText>
-        <ParallaxText baseVelocity={-0.23} className="text-background" dir="ltr">
+        <ParallaxText baseVelocity={-0.23} className="text-background">
           <div className="flex items-end">
             <div className="w-[80vw] h-24 bg-current opacity-5" />
             <Content
               size=""
-              className="whitespace-nowrap text-7xl font-bold mx-8 text-current"
+              className="whitespace-nowrap shrink-0 text-4xl sm:text-7xl font-bold mx-8 text-current"
               contentId="slider-text-3"
             />
           </div>
