@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 export function ContactUsForm(form: typeof front.Form.Type) {
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
+  const t = useTranslation();
   return (
     <form
       action={async (formData: FormData) =>
@@ -35,7 +36,7 @@ export function ContactUsForm(form: typeof front.Form.Type) {
         variant="shadow"
         className="ring-2 ring-background"
       >
-        submit
+        {t("submit")}
       </Button>
     </form>
   );
@@ -44,6 +45,7 @@ export function ContactUsForm(form: typeof front.Form.Type) {
 export function JobApplicationForm(job: typeof front.JobPosting.Type) {
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
+  const t = useTranslation();
   return (
     <form
       id="apply"
@@ -77,7 +79,7 @@ export function JobApplicationForm(job: typeof front.JobPosting.Type) {
         variant="shadow"
         className="ring-2 ring-background"
       >
-        submit
+        {t("submit")}
       </Button>
     </form>
   );
@@ -85,6 +87,7 @@ export function JobApplicationForm(job: typeof front.JobPosting.Type) {
 
 import clsx from "clsx";
 import { toast } from "sonner";
+import { useTranslation } from "@/utils/useTranslation";
 
 export default function Field({
   id,
@@ -92,6 +95,7 @@ export default function Field({
   title,
   type,
 }: (typeof front.Form.Type)["fields"][number]) {
+  const t = useTranslation();
   const defultInputClasses =
     "appearance-none outline-none block w-full rounded-md border-0 py-2.5 text-default ring-0 focus:ring-0 sm:text-base sm:leading-6 bg-transparent w-full";
   return (
@@ -100,7 +104,7 @@ export default function Field({
         htmlFor={id}
         className="block text-lg font-semibold leading-6 text-default"
       >
-        {title}
+        {t(title.toLowerCase())}
       </label>
       {type === "textarea" ? (
         <textarea

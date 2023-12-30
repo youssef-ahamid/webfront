@@ -11,6 +11,7 @@ import Badge from "./Badge";
 import { Content } from "../interactive";
 import clsx from "clsx";
 import { getLang } from "@/actions/lang";
+import { t } from "@/utils/t";
 
 export async function Blogs({}: {}) {
   const articles = (await front.Post.getWhere("siteId", siteConfig.id)).filter(
@@ -78,7 +79,7 @@ export async function Blogs({}: {}) {
                           className="mt-8"
                           size="md"
                         >
-                          Read more
+                          {t("readMore")}
                         </Button>
                       </Link>
                     </div>

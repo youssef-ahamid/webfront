@@ -19,6 +19,7 @@ import {
   PortSaid,
   Spring,
 } from "@/images";
+import { t } from "@/utils/t";
 import clsx from "clsx";
 import Image from "next/image";
 
@@ -207,7 +208,7 @@ export default async function Home() {
                   href={`/business${link}`}
                   className="mt-4"
                 >
-                  View
+                  {t('view')}
                 </Button>
               </div>
               <div className="flex justify-between items-start space-x-4 w-full h-full pt-4"></div>
