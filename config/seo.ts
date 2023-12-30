@@ -60,10 +60,10 @@ export const getSeoForPage = (path: string) => {
         ...baseSeo.openGraph,
         title: `Ayman Shahin Group | ${page.title}`,
         description: page.description,
-        images: page.previewImage
+        images: page.image
           ? [
               {
-                url: page.previewImage,
+                url: page.image,
                 width: 800,
                 height: 600,
                 alt: page.title,

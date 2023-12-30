@@ -7,7 +7,7 @@ const Page = new Object(
     title: z.string(),
     content: z.string(),
     description: z.string(),
-    previewImage: z.string(),
+    image: z.string(),
     slug: z.string(),
   },
   "orm/page",
