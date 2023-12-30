@@ -102,8 +102,31 @@ export const getSeoForBlogPost = () => {
   };
 };
 
-import { Blog } from "schema-dts";
+export const getSeoForJobPosting = () => {
+  return async ({ params }: { params: { id: string } }) => {
+    const job = await front.JobPosting.getOne(params.id);
+
+    return {
+      ...baseSeo,
+      title: {
+        absolute: `Apply for ${job.title} | Careers | Ayman Shahin Group`,
+      },
+      description: job.description,
+      openGraph: {
+        ...baseSeo.openGraph,
+        title: {
+          absolute: `Apply for ${job.title} | Careers | Ayman Shahin Group`,
+        },
+        description: job.description,
+        images: baseSeo.openGraph?.images,
+      },
+    };
+  };
+};
+
+import { Blog, JobPosting } from "schema-dts";
 import { siteConfig } from "./site";
+
 export const BlogPostLD = (post: typeof front.Post.Type): Blog => {
   return {
     "@type": "Blog",
@@ -142,5 +165,48 @@ export const BlogPostLD = (post: typeof front.Post.Type): Blog => {
 
     countryOfOrigin: "Egypt",
     inLanguage: "en",
+  };
+};
+
+export const JobPostingLD = (job: typeof front.JobPosting.Type): JobPosting => {
+  return {
+    "@type": "JobPosting",
+    title: job.title,
+    description: job.description,
+    datePosted: job.createdAt,
+    hiringOrganization: {
+      "@type": "Organization",
+      name: "Ayman Shahin Group",
+      sameAs: `https://${siteConfig.domain}`,
+      logo: {
+        "@type": "ImageObject",
+        url: `https://${siteConfig.domain}/logo.png`,
+      },
+    },
+    jobLocation: {
+      "@type": "Place",
+      address: {
+        "@type": "PostalAddress",
+        addressCountry: "Egypt",
+        addressLocality: "Cairo",
+        addressRegion: "Cairo",
+      },
+    },
+    employmentType: job.location,
+    industry: job.department,
+    workHours: "Full-time",
+    responsibilities: job.content,
+    qualifications: job.content,
+    skills: job.content,
+    experienceRequirements: job.content,
+    educationRequirements: job.content,
+    occupationalCategory: job.department,
+    jobBenefits: job.content,
+    jobLocationType: job.location,
+
+    applicantLocationRequirements: {
+      "@type": "Country",
+      name: "Egypt",
+    },
   };
 };

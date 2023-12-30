@@ -1,4 +1,3 @@
-import { fieldSchema } from "./Form";
 import Object from "./Object";
 import { z } from "zod";
 
@@ -11,6 +10,7 @@ const jobPostingSchema = {
   department: z.string(),
   userId: z.string(),
   siteId: z.string(),
+  createdAt: z.string(),
 };
 
 const JobPosting = new Object("JobPosting", jobPostingSchema, "orm/jobPosting");
