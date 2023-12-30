@@ -26,7 +26,7 @@ export default function LangActions({ lang }: { lang: Lang }) {
         onClick={() => setMyLang("ar")}
         className={clsx(lang === "ar" && "font-bold", "relative")}
       >
-        <p className="text-sm font-mono mx-2 relative z-10">AR</p>
+        <p className="text-sm font-mono mx-2 relative z-10">عربي</p>
         <div
           className={`w-full absolute top-100 h-1 -translate-y-2.5 bg-danger-100 z-0 group-hover:scale-x-100 ${
             lang !== "ar" && "scale-x-0"
