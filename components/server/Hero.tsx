@@ -79,6 +79,8 @@ export default async function Hero({
                   src={graphicUrl}
                   width={1080}
                   height={1080}
+                  priority
+                  placeholder="blur"
                   alt="Hero graphic"
                   className="w-full mx-auto my-8 md:my-0 md:pl-8 relative max-w-none"
                 />
