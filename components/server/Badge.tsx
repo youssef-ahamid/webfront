@@ -1,9 +1,11 @@
 import { Content } from "@/components/interactive";
 import clsx from "clsx";
 
-interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
+  contentId?: string;
+}
 
-export default function Badge({ children, className, ...props }: BadgeProps) {
+export default function Badge({ children, className, contentId, ...props }: BadgeProps) {
   return (
     <div
       {...props}
@@ -12,7 +14,7 @@ export default function Badge({ children, className, ...props }: BadgeProps) {
         className
       )}
     >
-      <Content as="span" size="caption/sm" className="whitespace-nowrap" color="gray-600">
+      <Content as="span" size="caption/sm" className="whitespace-nowrap" color="gray-600" contentId={contentId}>
         {children}
       </Content>
     </div>
