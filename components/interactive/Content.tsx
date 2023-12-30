@@ -11,7 +11,7 @@ export interface ContentProps
     | HTMLQuoteElement
   > {
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "q";
-  size?: FontSize | ""
+  size?: FontSize | "";
   contentId?: string;
 }
 
@@ -26,11 +26,14 @@ export default function Content({
   ...props
 }: ContentProps) {
   const { user } = useUser();
-  const { edit, content } = useContent();
-  if (contentId) {
-    children = (content as any)?.[contentId] || children || contentId;
+  const { edit, content, lang } = useContent();
+
+  const id = !contentId ? null : contentId + (lang === "en" ? "" : `@${lang}`);
+  if (id) {
+    children = (content as any)?.[id] || children || id;
     contentEditable = !!user;
   }
+
   return (
     <Component
       {...props}
@@ -39,11 +42,16 @@ export default function Content({
         outline: "none",
         ...props.style,
       }}
-      className={clsx(size && fontSizes[size], className, contentEditable && 'focus-within:underline', 'whitespace-pre-line')}
+      className={clsx(
+        size && fontSizes[size],
+        className,
+        contentEditable && "focus-within:underline",
+        "whitespace-pre-line"
+      )}
       contentEditable={contentEditable}
       onInput={(e) => {
-        if (contentId) {
-          edit(contentId, e.currentTarget.innerText!);
+        if (id) {
+          edit(id, e.currentTarget.innerText!);
         }
       }}
     >
