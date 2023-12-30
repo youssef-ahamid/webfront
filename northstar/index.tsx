@@ -7,6 +7,7 @@ export const Analytics = () => {
       async
       src={`${northstarConfig.baseUrl}/script.js`}
       data-website-id={northstarConfig.websiteId}
+      strategy="worker"
     />
   );
 };

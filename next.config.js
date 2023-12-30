@@ -2,6 +2,7 @@
 const nextConfig = {
   experimental: {
     serverActions: true,
+    nextScriptWorkers: true,
   },
   typescript: {
     ignoreBuildErrors: true,
