@@ -1,6 +1,10 @@
 import { Page, Button, Hero } from "@/components";
 import Link from "next/link";
 
+
+import { getSeoForPage } from "@/config/seo";
+export const generateMetadata = getSeoForPage("/contact/thank-you");
+
 export default async function Contact() {
   return (
     <Page cta={false}>

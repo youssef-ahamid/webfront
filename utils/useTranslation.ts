@@ -1,4 +1,3 @@
-"use client";
 import { useContent } from "@/contexts/Content";
 import { DictionaryKey, dictionary } from "./dictionary";
 

@@ -9,6 +9,10 @@ import {
   SweetLife,
 } from "@/images";
 
+
+import { getSeoForPage } from "@/config/seo";
+export const generateMetadata = getSeoForPage("/business/export");
+
 export default function Export() {
   return (
     <Page>

@@ -4,8 +4,10 @@ import { z } from "zod";
 const Page = new Object(
   "Page",
   {
-    name: z.string(),
+    title: z.string(),
     content: z.string(),
+    description: z.string(),
+    previewImage: z.string(),
     slug: z.string(),
   },
   "orm/page",

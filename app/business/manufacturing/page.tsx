@@ -13,6 +13,9 @@ import {
 } from "@/images";
 import Image from "next/image";
 
+import { getSeoForPage } from "@/config/seo";
+export const generateMetadata = getSeoForPage("/business/manufacturing");
+
 export default function Manufacturing() {
   return (
     <Page>

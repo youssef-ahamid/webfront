@@ -10,6 +10,7 @@ import { Analytics } from "@/northstar";
 import front from "@/utils/front";
 import { Page } from "@prisma/client";
 import { getLang } from "@/actions/lang";
+import { baseSeo } from "@/config/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -17,11 +18,7 @@ export const metadata: Metadata = {
     template: `%s - ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
-  },
+  ...baseSeo,
 };
 
 export type Lang = "en" | "ar";
@@ -59,7 +56,12 @@ export default async function RootLayout({
           fontSans.className
         )}
       >
-        <Providers themeProps={{ attribute: "class" }} user={user!} page={page} lang={lang}>
+        <Providers
+          themeProps={{ attribute: "class" }}
+          user={user!}
+          page={page}
+          lang={lang}
+        >
           <div className="relative flex flex-col">{children}</div>
         </Providers>
       </body>

@@ -8,7 +8,6 @@ import {
   Content,
   Appear,
   Reveal,
-  Anchor,
   PaddedContent,
 } from "@/components";
 import {
@@ -23,6 +22,9 @@ import {
 import { t } from "@/utils/t";
 import clsx from "clsx";
 import Image from "next/image";
+
+import { getSeoForPage } from "@/config/seo";
+export const generateMetadata = getSeoForPage("/");
 
 const companies = [
   {

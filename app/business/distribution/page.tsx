@@ -100,6 +100,10 @@ const clients = [
   { name: "Hersheys", logo: Hersheys },
 ];
 
+
+import { getSeoForPage } from "@/config/seo";
+export const generateMetadata = getSeoForPage("/business/distribution");
+
 export default function Distribution() {
   return (
     <Page>

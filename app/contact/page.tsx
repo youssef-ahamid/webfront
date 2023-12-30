@@ -13,6 +13,10 @@ import front from "@/utils/front";
 import Link from "next/link";
 import { ContactUsForm } from "./form";
 
+
+import { getSeoForPage } from "@/config/seo";
+export const generateMetadata = getSeoForPage("/contact");
+
 export default async function Contact() {
   const form = await front.Form.getOneWhere("siteId", siteConfig.id, {
     included: ["fields"],

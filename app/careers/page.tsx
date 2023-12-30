@@ -15,6 +15,10 @@ import { Speech } from "@/images";
 import front from "@/utils/front";
 import Link from "next/link";
 
+
+import { getSeoForPage } from "@/config/seo";
+export const generateMetadata = getSeoForPage("/careers");
+
 export default async function Careers() {
   const postings = await front.JobPosting.getWhere("siteId", siteConfig.id);
 

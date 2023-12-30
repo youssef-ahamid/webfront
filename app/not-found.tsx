@@ -1,13 +1,8 @@
 import { Button } from "@/components/interactive";
 import Hero from "@/components/server/Hero";
 import Page from "@/components/server/Page";
-import Link from "next/link";
-import { useEffect } from "react";
 
 export default function Error404() {
-  useEffect(() => {
-    throw new Error("404");
-  }, []);
   return (
     <Page cta={false}>
       <Hero
