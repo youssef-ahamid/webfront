@@ -48,3 +48,29 @@ export const baseSeo: Metadata = {
     icon: "/favicon.ico",
   },
 };
+
+export const getSeoForPage = (path: string) => {
+  return async () => {
+    const page = await front.Page.methods.getOneBySlug(path);
+    return {
+      ...baseSeo,
+      title: `Ayman Shahin Group | ${page.title}`,
+      description: page.description,
+      openGraph: {
+        ...baseSeo.openGraph,
+        title: `Ayman Shahin Group | ${page.title}`,
+        description: page.description,
+        images: page.previewImage
+          ? [
+              {
+                url: page.previewImage,
+                width: 800,
+                height: 600,
+                alt: page.title,
+              },
+            ]
+          : baseSeo.openGraph?.images,
+      },
+    };
+  };
+};
