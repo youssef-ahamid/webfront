@@ -13,10 +13,14 @@ declare const schema: {
         "view": "View",
         "readMore": "Read More",
         "submit": "Submit",
+        "apply": "Apply now",
         "name": "Name",
         "email": "Email",
         "phone": "Phone",
         "message": "Message",
+        "resume": "CV",
+        "linkedin": "LinkedIn/Social Profile",
+        "coverLetter": "Cover Letter",
         "company": "Company"
     },
     "ar": {
@@ -32,11 +36,15 @@ declare const schema: {
         "arabic": "العربية",
         "view": "اقرأ أكثر",
         "readMore": "اقرأ أكثر",
+        "apply": "قدم الآن",
         "submit": "إرسال",
         "name": "اسم",
         "email": "البريد الإلكتروني",
         "phone": "هاتف",
         "message": "رسالة",
+        "resume": "سيرة ذاتية",
+        "linkedin": "LinkedIn / ملف اجتماعي",
+        "coverLetter": "رسالة تغطية",
         "company": "شركة"
     }
 }; export default schema;

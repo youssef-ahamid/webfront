@@ -92,7 +92,6 @@ import { useTranslation } from "@/utils/useTranslation";
 export default function Field({
   id,
   required,
-  title,
   type,
 }: (typeof front.Form.Type)["fields"][number]) {
   const t = useTranslation();
@@ -104,7 +103,7 @@ export default function Field({
         htmlFor={id}
         className="block text-lg font-semibold leading-6 text-default"
       >
-        {t(title.toLowerCase())}
+        {t(id)}
       </label>
       {type === "textarea" ? (
         <textarea
