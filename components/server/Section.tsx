@@ -123,7 +123,7 @@ export default function Section({
                     width={1080}
                     height={1080}
                     alt={titleContent as string}
-                    className="w-full mx-auto my-8 md:my-0 md:pl-8 relative max-w-none"
+                    className="w-full mx-auto my-8 md:my-0 md:pl-8 relative max-w-xl"
                   />
                 </Appear>
               )}
