@@ -57,7 +57,7 @@ export default async function Careers() {
           </Appear>
         </Page.PaddedContent>
 
-        <ParallaxText baseVelocity={-0.13} className="text-background">
+        <ParallaxText baseVelocity={-0.13} className="text-background" dir="ltr">
           <div className="flex items-end">
             <div className="w-[80vw] h-24 bg-current opacity-5" />
             <Content
@@ -67,7 +67,7 @@ export default async function Careers() {
             />
           </div>
         </ParallaxText>
-        <ParallaxText baseVelocity={0.13} className="text-background">
+        <ParallaxText baseVelocity={0.13} className="text-background" dir="ltr">
           <div className="flex items-end">
             <div className="w-[80vw] h-24 bg-current opacity-5" />
             <Content
@@ -77,7 +77,7 @@ export default async function Careers() {
             />
           </div>
         </ParallaxText>
-        <ParallaxText baseVelocity={-0.23} className="text-background">
+        <ParallaxText baseVelocity={-0.23} className="text-background" dir="ltr">
           <div className="flex items-end">
             <div className="w-[80vw] h-24 bg-current opacity-5" />
             <Content

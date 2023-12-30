@@ -9,7 +9,15 @@ import {
   Reveal,
   Anchor,
 } from "@/components";
-import { ASELogo, AstraLogo, AymanAfandyLogo, FundayProducts, Owner, PortSaid, Spring } from "@/images";
+import {
+  ASELogo,
+  AstraLogo,
+  AymanAfandyLogo,
+  FundayProducts,
+  Owner,
+  PortSaid,
+  Spring,
+} from "@/images";
 import Image from "next/image";
 
 const companies = [
@@ -102,7 +110,11 @@ export default function Home() {
           </Appear>
         </Page.PaddedContent>
 
-        <ParallaxText baseVelocity={-0.13} className="text-background">
+        <ParallaxText
+          baseVelocity={-0.13}
+          className="text-background"
+          dir="ltr"
+        >
           <div className="flex items-end translate-x-8">
             <div className="w-[80vw] h-24 bg-current opacity-5" />
             <Content
@@ -112,7 +124,7 @@ export default function Home() {
             />
           </div>
         </ParallaxText>
-        <ParallaxText baseVelocity={0.13} className="text-background">
+        <ParallaxText baseVelocity={0.13} className="text-background" dir="ltr">
           <div className="flex items-end">
             <div className="w-[80vw] h-24 bg-current opacity-5" />
             <Content
@@ -122,7 +134,11 @@ export default function Home() {
             />
           </div>
         </ParallaxText>
-        <ParallaxText baseVelocity={-0.23} className="text-background">
+        <ParallaxText
+          baseVelocity={-0.23}
+          className="text-background"
+          dir="ltr"
+        >
           <div className="flex items-end">
             <div className="w-[80vw] h-24 bg-current opacity-5" />
             <Content
@@ -179,7 +195,12 @@ export default function Home() {
                 <Content contentId={`company-${i}-description`} size="body/md">
                   {description}
                 </Content>
-                <Button size="sm" as="a" href={`/business${link}`} className="mt-4">
+                <Button
+                  size="sm"
+                  as="a"
+                  href={`/business${link}`}
+                  className="mt-4"
+                >
                   View
                 </Button>
               </div>
