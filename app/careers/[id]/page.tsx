@@ -1,6 +1,7 @@
 import { JobApplicationForm } from "@/app/contact/form";
 import { Page, Hero, Button } from "@/components";
 import front from "@/utils/front";
+import { t } from "@/utils/t";
 import Link from "next/link";
 import Markdown from "react-markdown";
 
@@ -10,11 +11,11 @@ export default async function Contact({ params }: { params: { id: string } }) {
   return (
     <Page cta={false}>
       <Hero
-        title={job.title}
-        subtitle={job.description}
+        titleContent={job.title}
+        subtitleContent={job.description}
         action={
           <Link href="#apply">
-            <Button>Apply now</Button>
+            <Button>{t('apply')}</Button>
           </Link>
         }
       />
