@@ -5,6 +5,8 @@ import Page from "./Page";
 import Box from "./Box";
 import { Appear, Reveal } from "../interactive";
 import Image, { StaticImageData } from "next/image";
+import { getLang } from "@/actions/lang";
+import clsx from "clsx";
 
 interface HeroProps {
   title: string;
@@ -17,7 +19,7 @@ interface HeroProps {
   centered?: boolean;
 }
 
-export default function Hero({
+export default async function Hero({
   title,
   subtitle,
   action,
@@ -27,6 +29,7 @@ export default function Hero({
   boxes = true,
   centered = false,
 }: HeroProps) {
+  const lang = await getLang();
   return (
     <div className="relative w-full min-h-[90vh] pt-16">
       <Page.PaddedContent className="pb-24 mb-12 z-10 relative">
@@ -78,7 +81,12 @@ export default function Hero({
         </div>
       </Page.PaddedContent>
       {boxes && (
-        <div className="absolute right-0 md:top-0 w-full md:w-1/2 z-0">
+        <div
+          className={clsx(
+            "absolute md:top-0 w-full md:w-1/2 z-0",
+            lang === "en" ? "right-0" : "left-0"
+          )}
+        >
           <Reveal
             direction="top-to-bottom"
             duration={0.8}
