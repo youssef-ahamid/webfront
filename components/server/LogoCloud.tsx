@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import { Appear, Content } from "../interactive";
 import Page from "./Page";
 import Image, { StaticImageData } from "next/image";
+import { PaddedContent } from ".";
 
 export default function LogoCloud({
   items,
@@ -14,7 +15,7 @@ export default function LogoCloud({
 }) {
   return (
     <div className="w-full py-16 bg-white">
-      <Page.PaddedContent>
+      <PaddedContent>
         <Appear>
           <Content
             size="header/md"
@@ -38,7 +39,7 @@ export default function LogoCloud({
             </Appear>
           ))}
         </div>
-      </Page.PaddedContent>
+      </PaddedContent>
     </div>
   );
 }

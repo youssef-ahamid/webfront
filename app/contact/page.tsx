@@ -6,6 +6,7 @@ import {
   Content,
   Appear,
   Reveal,
+  PaddedContent,
 } from "@/components";
 import { siteConfig } from "@/config/site";
 import front from "@/utils/front";
@@ -27,7 +28,7 @@ export default async function Contact() {
       />
 
       <div className="w-screen py-24 bg-default">
-        <Page.PaddedContent>
+        <PaddedContent>
           <Reveal
             direction="left-to-right"
             duration={1.4}
@@ -42,9 +43,9 @@ export default async function Contact() {
               className="text-background"
             />
           </Appear>
-        </Page.PaddedContent>
+        </PaddedContent>
 
-        <Page.PaddedContent className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 text-base leading-7 sm:grid-cols-2 sm:gap-y-16 lg:mx-auto pl-6 lg:grid-cols-4">
+        <PaddedContent className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 text-base leading-7 sm:grid-cols-2 sm:gap-y-16 lg:mx-auto pl-6 lg:grid-cols-4">
           {Array.from({ length: 4 }).map((_, i) => (
             <Appear
               delay={0.8 + 0.1 * i}
@@ -61,7 +62,7 @@ export default async function Contact() {
               </address>
             </Appear>
           ))}
-        </Page.PaddedContent>
+        </PaddedContent>
       </div>
     </Page>
   );

@@ -8,6 +8,7 @@ import {
   Appear,
   Reveal,
   Badge,
+  PaddedContent,
 } from "@/components";
 import { siteConfig } from "@/config/site";
 import { Speech } from "@/images";
@@ -40,7 +41,7 @@ export default async function Careers() {
       />
 
       <div className="w-screen py-24 bg-default">
-        <Page.PaddedContent>
+        <PaddedContent>
           <Reveal
             direction="left-to-right"
             duration={1.4}
@@ -55,7 +56,7 @@ export default async function Careers() {
               className="text-background"
             />
           </Appear>
-        </Page.PaddedContent>
+        </PaddedContent>
 
         <ParallaxText baseVelocity={-0.13} className="text-background">
           <div className="flex items-end">
@@ -88,7 +89,7 @@ export default async function Careers() {
           </div>
         </ParallaxText>
       </div>
-      <Page.PaddedContent className="w-full flex flex-col items-center space-y-8 py-20">
+      <PaddedContent className="w-full flex flex-col items-center space-y-8 py-20">
         <Content contentId="jobs-list-header" as="h2" size="header/md" />
 
         {Object.entries(byDepartment).map(([department, postings]) => (
@@ -118,7 +119,7 @@ export default async function Careers() {
             </div>
           </div>
         ))}
-      </Page.PaddedContent>
+      </PaddedContent>
     </Page>
   );
 }

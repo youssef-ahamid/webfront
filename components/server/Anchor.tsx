@@ -9,8 +9,6 @@ interface AnchorProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   label?: string;
   contentId?: string;
 }
-import { headers } from "next/headers";
-
 export default function Anchor({
   color = "primary",
   active = false,
@@ -21,10 +19,14 @@ export default function Anchor({
   autoActivate = false,
   ...props
 }: AnchorProps) {
-  const headersList = Object.fromEntries(headers().entries());
-  const path = headersList["front-pathname"] || headersList["next-url"] || "/"
-
-  active = active || (autoActivate && path.includes(props.href!));
+  if (typeof window === "undefined" && autoActivate) {
+    import("next/headers").then(({ headers }) => {
+      const headersList = Object.fromEntries(headers().entries());
+      const path =
+        headersList["front-pathname"] || headersList["next-url"] || "/";
+      active = active || path.includes(props.href!);
+    });
+  }
   return (
     <div>
       <a
@@ -37,7 +39,9 @@ export default function Anchor({
         <Content
           as="span"
           size="caption/md"
-          className={`whitespace-nowrap z-10 relative ${active ? "font-bold" : ""}`}
+          className={`whitespace-nowrap z-10 relative ${
+            active ? "font-bold" : ""
+          }`}
           contentId={contentId}
         >
           {children}
@@ -53,6 +57,7 @@ export default function Anchor({
   );
 }
 
-const colors = "bg-primary-100 bg-warning-100 bg-success-100 bg-danger-100 bg-default-100";
+const colors =
+  "bg-primary-100 bg-warning-100 bg-success-100 bg-danger-100 bg-default-100";
 
 Anchor.Props = {} as AnchorProps;

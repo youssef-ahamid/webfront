@@ -1,16 +1,22 @@
 import clsx from "clsx";
 import Navbar from "./Navbar";
-import Anchor from "./Anchor";
+// import Anchor from "./Anchor";
 import Footer from "./Footer";
 import Button from "../interactive/Button";
 import CTA from "./CTA";
-import { t } from "@/utils/t";
+// import { t } from "@/utils/t";
+import dictionary from "@/dictionary.json";
+import { Lang } from "@/app/layout";
+import { getLang } from "@/actions/lang";
 
 export interface PageProps extends React.HTMLAttributes<HTMLDivElement> {
   cta?: boolean;
 }
 
-function Page({ children, className, cta = true, ...props }: PageProps) {
+async function Page({ children, className, cta = true, ...props }: PageProps) {
+  const lang = await getLang();
+  const t = (key: keyof (typeof dictionary)[Lang]) => dictionary[lang][key];
+
   const links = [
     {
       href: "#about",
@@ -48,7 +54,7 @@ function Page({ children, className, cta = true, ...props }: PageProps) {
       color: "default",
     },
   ];
-  
+
   return (
     <main
       {...props}
@@ -88,7 +94,11 @@ function Page({ children, className, cta = true, ...props }: PageProps) {
 
 Page.Props = {} as PageProps;
 
-function PagePaddedContent({ children, className, ...props }: PageProps) {
+export function PagePaddedContent({
+  children,
+  className,
+  ...props
+}: PageProps) {
   return (
     <div
       {...props}
@@ -98,7 +108,5 @@ function PagePaddedContent({ children, className, ...props }: PageProps) {
     </div>
   );
 }
-
-Page.PaddedContent = PagePaddedContent;
 
 export default Page;

@@ -5,4 +5,3 @@ export { default as Reveal } from "./Reveal";
 export { default as Content } from "./Content";
 export { default as Cursor } from "./Cursor";
 export { default as ParallaxText } from "./ParallaxText";
-export { default as World } from "./World";

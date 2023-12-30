@@ -9,6 +9,7 @@ import {
   Appear,
   Reveal,
   Anchor,
+  PaddedContent,
 } from "@/components";
 import {
   ASELogo,
@@ -79,7 +80,7 @@ export default async function Home() {
         graphicUrl={Owner}
       />
 
-      <Page.PaddedContent>
+      <PaddedContent>
         <Reveal
           direction="left-to-right"
           duration={1.4}
@@ -87,7 +88,7 @@ export default async function Home() {
         >
           <div className="w-full h-px bg-foreground/40 mb-1 mt-32" />
         </Reveal>
-      </Page.PaddedContent>
+      </PaddedContent>
       <Section
         title="hp-section-1-title"
         number="01"
@@ -97,7 +98,7 @@ export default async function Home() {
         action={<Button contentId="hp-section-1-cta" />}
       />
       <div className="w-screen py-24 bg-default">
-        <Page.PaddedContent>
+        <PaddedContent>
           <Reveal
             direction="left-to-right"
             duration={1.4}
@@ -112,7 +113,7 @@ export default async function Home() {
               className="text-background"
             />
           </Appear>
-        </Page.PaddedContent>
+        </PaddedContent>
 
         <ParallaxText baseVelocity={-0.13} className="text-background">
           <div className="flex items-end translate-x-8 min-w-screen">
@@ -145,7 +146,7 @@ export default async function Home() {
           </div>
         </ParallaxText>
 
-        {/* <Page.PaddedContent>
+        {/* <PaddedContent>
           <Appear delay={0.6}>
             <img
               src="https://placehold.co/800x400/EEE/31343C"
@@ -153,7 +154,7 @@ export default async function Home() {
               className="w-full max-w-2xl h-auto pt-16"
             />
           </Appear>
-        </Page.PaddedContent> */}
+        </PaddedContent> */}
       </div>
 
       <Section
@@ -164,7 +165,7 @@ export default async function Home() {
         action={<Button contentId="hp-section-2-cta" />}
       />
 
-      <Page.PaddedContent>
+      <PaddedContent>
         <Appear delay={0.6} className="mb-16">
           <Content
             contentId="hp-section-3-header"
@@ -207,9 +208,9 @@ export default async function Home() {
             </Appear>
           ))}
         </div>
-      </Page.PaddedContent>
+      </PaddedContent>
 
-      <Page.PaddedContent>
+      <PaddedContent>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
           {factories.map(({ name, description }, i) => (
             <Appear key={i} delay={0.6 + i * 0.2}>
@@ -238,7 +239,7 @@ export default async function Home() {
             </Appear>
           ))}
         </div>
-      </Page.PaddedContent>
+      </PaddedContent>
     </Page>
   );
 }

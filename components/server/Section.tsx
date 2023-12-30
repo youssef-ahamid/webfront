@@ -1,5 +1,5 @@
 import { Button, Content } from "@/components/interactive";
-import { Box, Page } from "@/components/server";
+import { Box, PaddedContent, Page } from "@/components/server";
 import { ThemeColors } from "@nextui-org/react";
 import clsx from "clsx";
 import { ReactNode } from "react";
@@ -54,7 +54,7 @@ export default function Section({
           />
         </Reveal>
       </div>
-      <Page.PaddedContent className="relative z-10 py-6">
+      <PaddedContent className="relative z-10 py-6">
         <div className="flex flex-col space-y-12">
           <div className="flex flex-col max-w-fit">
             <Reveal direction="left-to-right" delay={0.4} duration={0.3}>
@@ -133,7 +133,7 @@ export default function Section({
           </div>
         </div>
         {children}
-      </Page.PaddedContent>
+      </PaddedContent>
     </section>
   );
 }

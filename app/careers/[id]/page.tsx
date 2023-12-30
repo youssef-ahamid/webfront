@@ -1,5 +1,5 @@
 import { JobApplicationForm } from "@/app/contact/form";
-import { Page, Hero, Button } from "@/components";
+import { Page, Hero, Button, PaddedContent } from "@/components";
 import front from "@/utils/front";
 import { t } from "@/utils/t";
 import Link from "next/link";
@@ -20,11 +20,11 @@ export default async function Contact({ params }: { params: { id: string } }) {
         }
       />
 
-      <Page.PaddedContent>
+      <PaddedContent>
         <Markdown className="w-full max-w-2xl mx-auto py-24 prose">
           {job.content}
         </Markdown>
-      </Page.PaddedContent>
+      </PaddedContent>
       <JobApplicationForm {...job} />
     </Page>
   );

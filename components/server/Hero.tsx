@@ -7,6 +7,7 @@ import { Appear, Reveal } from "../interactive";
 import Image, { StaticImageData } from "next/image";
 import { getLang } from "@/actions/lang";
 import clsx from "clsx";
+import { PaddedContent } from ".";
 
 interface HeroProps {
   title?: string;
@@ -36,7 +37,7 @@ export default async function Hero({
   const lang = await getLang();
   return (
     <div className="relative w-full min-h-[90vh] pt-16">
-      <Page.PaddedContent className="pb-24 mb-12 z-10 relative">
+      <PaddedContent className="pb-24 mb-12 z-10 relative">
         <div
           className={`container mx-auto flex flex-col ${
             centered
@@ -89,7 +90,7 @@ export default async function Hero({
             </Appear>
           </div>
         </div>
-      </Page.PaddedContent>
+      </PaddedContent>
       {boxes && (
         <div
           className={clsx(

@@ -1,4 +1,4 @@
-import { Hero, LogoCloud, Page, Reveal, Section } from "@/components";
+import { Hero, LogoCloud, PaddedContent, Page, Reveal, Section } from "@/components";
 import {
   ASELogo,
   AlTahya,
@@ -18,7 +18,7 @@ export default function Export() {
         graphicUrl={ASELogo}
       />
 
-      <Page.PaddedContent>
+      <PaddedContent>
         <Reveal
           direction="left-to-right"
           duration={1.4}
@@ -26,7 +26,7 @@ export default function Export() {
         >
           <div className="w-full h-px bg-foreground/40 mb-1 mt-32" />
         </Reveal>
-      </Page.PaddedContent>
+      </PaddedContent>
 
       <Section
         title="section-1-title"

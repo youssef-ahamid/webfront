@@ -5,6 +5,7 @@ import Page from "./Page";
 import { Appear } from "../interactive";
 import LangActions from "./LangActions";
 import { getLang } from "@/actions/lang";
+import { PaddedContent } from ".";
 
 export type NavbarLink = {
   href: string;
@@ -28,7 +29,7 @@ const Navbar = async ({
 }: NavbarProps) => {
   const lang = await getLang();
   return (
-    <Page.PaddedContent {...props}>
+    <PaddedContent {...props}>
       <nav className="flex justify-between align-center py-3">
         <Appear>
           <a href="/">
@@ -53,7 +54,7 @@ const Navbar = async ({
         )}
       </nav>
       {children}
-    </Page.PaddedContent>
+    </PaddedContent>
   );
 };
 

@@ -1,4 +1,4 @@
-import { Anchor, CTA, Navbar, Page, World } from "@/components";
+// import { Anchor, CTA, Navbar, Page } from "@/components";
 
 export default function Business() {
   return (
@@ -17,7 +17,7 @@ export default function Business() {
           </div>
         }
       /> */}
-      <World />
+      {/* <World /> */}
     </>
   );
 }

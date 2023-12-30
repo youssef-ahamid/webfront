@@ -1,4 +1,4 @@
-import { Page, Button, Hero, Reveal, Section, LogoCloud } from "@/components";
+import { Page, Button, Hero, Reveal, Section, LogoCloud, PaddedContent } from "@/components";
 import {
   AlTahya,
   AymanAfandyLogo,
@@ -110,7 +110,7 @@ export default function Distribution() {
         graphicUrl={AymanAfandyLogo}
       />
 
-      <Page.PaddedContent>
+      <PaddedContent>
         <Reveal
           direction="left-to-right"
           duration={1.4}
@@ -118,7 +118,7 @@ export default function Distribution() {
         >
           <div className="w-full h-px bg-foreground/40 mb-1 mt-32" />
         </Reveal>
-      </Page.PaddedContent>
+      </PaddedContent>
 
       {features.map(({ title, description, image }, i) => (
         <Section

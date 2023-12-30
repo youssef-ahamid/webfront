@@ -1,4 +1,4 @@
-import { Page } from "@/components/server";
+import { PaddedContent, Page } from "@/components/server";
 import clsx from "clsx";
 import { Appear, Button, Content } from "../interactive";
 
@@ -14,7 +14,7 @@ export default function CTA({
 }: CTAProps) {
   return (
     <Appear duration={1} className="w-screen" startingY={100}>
-      <Page.PaddedContent className="min-h-[70vh] flex items-center">
+      <PaddedContent className="min-h-[70vh] flex items-center">
         <div
           {...props}
           className={clsx(
@@ -26,7 +26,7 @@ export default function CTA({
             {children}
           </div>
         </div>
-      </Page.PaddedContent>
+      </PaddedContent>
     </Appear>
   );
 }

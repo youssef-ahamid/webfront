@@ -1,4 +1,4 @@
-import { Hero, Page, Reveal } from "@/components";
+import { Hero, PaddedContent, Page, Reveal } from "@/components";
 import front from "@/utils/front";
 import Markdown from "react-markdown";
 
@@ -18,7 +18,7 @@ export default async function Press({
         graphicUrl={post.image}
       />
 
-      <Page.PaddedContent>
+      <PaddedContent>
         <Reveal
           direction="left-to-right"
           duration={1.4}
@@ -26,7 +26,7 @@ export default async function Press({
         >
           <div className="w-full h-px bg-foreground/40 mb-1 mt-32" />
         </Reveal>
-      </Page.PaddedContent>
+      </PaddedContent>
 
       <Markdown className="w-full max-w-2xl mx-auto py-24 prose">
         {post.content}

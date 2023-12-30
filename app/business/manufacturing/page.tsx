@@ -1,4 +1,4 @@
-import { Appear, Content, Hero, Page, Reveal } from "@/components";
+import { Appear, Content, Hero, PaddedContent, Page, Reveal } from "@/components";
 import {
   Astra,
   AstraGraphic,
@@ -22,7 +22,7 @@ export default function Manufacturing() {
         graphicUrl={SpringFactory}
       />
 
-      <Page.PaddedContent>
+      <PaddedContent>
         <Reveal
           direction="left-to-right"
           duration={1.4}
@@ -30,10 +30,10 @@ export default function Manufacturing() {
         >
           <div className="w-full h-px bg-foreground/40 mb-1 mt-32" />
         </Reveal>
-      </Page.PaddedContent>
+      </PaddedContent>
 
       <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
-        <Page.PaddedContent className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+        <PaddedContent className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
           <div className="lg:pr-4">
             <div className="lg:max-w-lg flex flex-col items-start">
               <Appear delay={0.2}>
@@ -89,7 +89,7 @@ export default function Manufacturing() {
               </Appear>
             </div>
           </div>
-        </Page.PaddedContent>
+        </PaddedContent>
         <div className="lg:-ml-12 -mt-12 py-12 pr-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 overflow-hidden">
           <Appear delay={0.4}>
             <Image
@@ -101,7 +101,7 @@ export default function Manufacturing() {
         </div>
       </div>
 
-      <Page.PaddedContent>
+      <PaddedContent>
         <Reveal
           direction="left-to-right"
           duration={1.4}
@@ -109,10 +109,10 @@ export default function Manufacturing() {
         >
           <div className="w-full h-px bg-foreground/40 mb-1 mt-32" />
         </Reveal>
-      </Page.PaddedContent>
+      </PaddedContent>
 
       <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
-        <Page.PaddedContent className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+        <PaddedContent className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
           <div className="lg:pr-4">
             <div className="lg:max-w-lg flex flex-col items-start">
               <Appear delay={0.2}>
@@ -163,7 +163,7 @@ export default function Manufacturing() {
               </Appear>
             </div>
           </div>
-        </Page.PaddedContent>
+        </PaddedContent>
         <div className="lg:-ml-12 -mt-12 py-12 pr-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 overflow-hidden">
           <Appear delay={0.4}>
             <Image
@@ -175,7 +175,7 @@ export default function Manufacturing() {
         </div>
       </div>
 
-      <Page.PaddedContent>
+      <PaddedContent>
         <Reveal
           direction="left-to-right"
           duration={1.4}
@@ -183,10 +183,10 @@ export default function Manufacturing() {
         >
           <div className="w-full h-px bg-foreground/40 mb-1 mt-32" />
         </Reveal>
-      </Page.PaddedContent>
+      </PaddedContent>
 
       <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
-        <Page.PaddedContent className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+        <PaddedContent className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
           <div className="lg:pr-4">
             <div className="lg:max-w-lg flex flex-col items-start">
               <Appear delay={0.2}>
@@ -241,7 +241,7 @@ export default function Manufacturing() {
               </Appear>
             </div>
           </div>
-        </Page.PaddedContent>
+        </PaddedContent>
         <div className="lg:-ml-12 -mt-12 py-12 pr-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 overflow-hidden">
           <Appear delay={0.4}>
             <Image
