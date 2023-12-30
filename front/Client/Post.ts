@@ -1,3 +1,4 @@
+import { siteConfig } from "@/config/site";
 import Object from "./Object";
 import { z } from "zod";
 
@@ -16,7 +17,14 @@ const Post = new Object(
     createdAt: z.string(),
     updatedAt: z.string(),
   },
-  "orm/post"
+  "orm/post",
+  {
+    getOneBySlug: async (here, slug: string) => {
+      return (await here.getWhere("slug", encodeURIComponent(slug))).filter(
+        (p) => p.siteId === siteConfig.id
+      )[0];
+    },
+  }
 );
 
 export default Post;
