@@ -1,6 +1,7 @@
 import { Content } from "@/components/interactive";
 import { BaseColors, ThemeColors } from "@nextui-org/react";
 import clsx from "clsx";
+import { headers } from "next/headers";
 
 interface AnchorProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   color?: keyof ThemeColors | keyof BaseColors;
@@ -9,6 +10,7 @@ interface AnchorProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   label?: string;
   contentId?: string;
 }
+
 export default function Anchor({
   color = "primary",
   active = false,
@@ -19,14 +21,13 @@ export default function Anchor({
   autoActivate = false,
   ...props
 }: AnchorProps) {
-  if (typeof window === "undefined" && autoActivate) {
-    import("next/headers").then(({ headers }) => {
-      const headersList = Object.fromEntries(headers().entries());
-      const path =
-        headersList["front-pathname"] || headersList["next-url"] || "/";
-      active = active || path.includes(props.href!);
-    });
+  if (autoActivate) {
+    const headersList = Object.fromEntries(headers().entries());
+    const path =
+      headersList["front-pathname"] || headersList["next-url"] || "/";
+    active = active || path.includes(props.href!);
   }
+
   return (
     <div>
       <a

@@ -1,7 +1,6 @@
 import React, { ReactNode } from "react";
 import Content from "../interactive/Content";
 import { ThemeColors } from "@nextui-org/react";
-import Page from "./Page";
 import Box from "./Box";
 import { Appear, Reveal } from "../interactive";
 import Image, { StaticImageData } from "next/image";
