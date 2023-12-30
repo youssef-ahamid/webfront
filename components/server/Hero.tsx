@@ -9,8 +9,10 @@ import { getLang } from "@/actions/lang";
 import clsx from "clsx";
 
 interface HeroProps {
-  title: string;
-  subtitle: string;
+  title?: string;
+  titleContent?: ReactNode;
+  subtitle?: string;
+  subtitleContent?: ReactNode;
   action?: ReactNode;
   form?: ReactNode;
   graphicUrl?: string | StaticImageData;
@@ -22,6 +24,8 @@ interface HeroProps {
 export default async function Hero({
   title,
   subtitle,
+  titleContent,
+  subtitleContent,
   action,
   graphicUrl,
   form,
@@ -51,14 +55,18 @@ export default async function Hero({
                 size="header/xl"
                 className="max-w-md"
                 contentId={title}
-              />
+              >
+                {titleContent}
+              </Content>
             </Appear>
             <Appear delay={0.2}>
               <Content
                 size="body/lg"
                 className="mb-6 max-w-xl"
                 contentId={subtitle}
-              />
+              >
+                {subtitleContent}
+              </Content>
             </Appear>
             <Appear delay={0.4} className="flex">
               {action}
