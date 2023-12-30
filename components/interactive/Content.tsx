@@ -3,6 +3,7 @@
 import { FontSize, fontSizes } from "@/config/fontSizes";
 import clsx from "clsx";
 import { useContent, useUser } from "@/contexts";
+import { useEffect } from "react";
 export interface ContentProps
   extends React.HTMLAttributes<
     | HTMLHeadingElement
@@ -13,6 +14,7 @@ export interface ContentProps
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "q";
   size?: FontSize | "";
   contentId?: string;
+  textContent?: string;
 }
 
 export default function Content({
@@ -23,6 +25,7 @@ export default function Content({
   children,
   contentEditable,
   color,
+  textContent,
   ...props
 }: ContentProps) {
   const { user } = useUser();
@@ -33,6 +36,16 @@ export default function Content({
     children = (content as any)?.[id] || children || id;
     contentEditable = !!user;
   }
+
+  useEffect(() => {
+    if (contentEditable && id && !content?.[id] && children) {
+      if (textContent) {
+        edit(id, textContent);
+      } else if (typeof children === "string") {
+        edit(id, children);
+      }
+    }
+  }, [id]);
 
   return (
     <Component

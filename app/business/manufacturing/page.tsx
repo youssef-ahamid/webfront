@@ -58,6 +58,7 @@ export default function Manufacturing() {
                     size="body/lg"
                     className="mb-6"
                     contentId="factory-1-subtitle"
+                    textContent="At the Spring Factory, we specialize in producing glass-bottled beverages, combining precision with eco-friendly practices. Our bottling line is a marvel of modern technology, filling high-quality glass bottles that preserve the taste and freshness of each beverage. This process is central to our operation, ensuring we meet our goal of sustainable packaging and product longevity. \n\n Our facility, staffed by a dedicated team of professionals, is outfitted with state-of-the-art equipment. This enables us to efficiently produce a significant volume of bottles daily, while maintaining the highest standards of quality. Our workforce, skilled in various aspects of production, is the backbone of our operation, ensuring that each bottle meets our rigorous quality checks. \n\n Proud partners of industry leaders like Moussy and PepsiCo, the Spring Factory is a testament to our commitment to excellence and our ability to meet diverse market demands. \n\n"
                   >
                     At the Spring Factory, we specialize in producing
                     glass-bottled beverages, combining precision with
@@ -138,6 +139,7 @@ export default function Manufacturing() {
                     size="body/lg"
                     className="mb-6"
                     contentId="factory-2-subtitle"
+                    textContent="Astra Factory specializes in creating hand-drawn lollipops and hard candies, where each piece is a blend of flavor and design. With techniques and insights gained from our collaboration with Astra Sweets, we ensure a unique confectionery experience. Our artisans skillfully produce a variety of designs, making each candy a small work of art. \n\n Equipped for large-scale production, our facility seamlessly combines traditional artistry with modern efficiency. Our team is dedicated to crafting candies that are not only delicious but also visually stunning. \n\n As a testament to our commitment to quality and innovation, Astra Factory has carved a niche in the confectionery market, offering a delightful range of artistic and flavorful treats. \n\n"
                   >
                     Astra Factory specializes in creating hand-drawn lollipops
                     and hard candies, where each piece is a blend of flavor and
@@ -213,6 +215,9 @@ export default function Manufacturing() {
                     size="body/lg"
                     className="mb-6"
                     contentId="factory-3-subtitle"
+                    textContent={
+                      "Home to the Funday brand, the Port Said Factory is a dynamic production hub churning out a diverse range of snacks. With over 50 SKUs, including delightful cakes and popcorn, Funday is a testament to our versatility and creativity in snack production. Operating under Ayman Afandy LLC&apos;s distribution wing, this factory is key to delivering a variety of high-quality, tasty treats.\n\n Our production lines are tailored to handle the complexities of creating multiple snack varieties, ensuring efficiency and quality in every package. The factory&apos;s commitment to maintaining a wide-ranging portfolio reflects our mission to cater to diverse consumer tastes.\n\n Funday&apos;s presence in the market, supported by Ayman Afandy LLC&apos;s robust distribution network, ensures our products are enjoyed far and wide, bringing smiles with every snack. \n\n"
+                    }
                   >
                     Home to the Funday brand, the Port Said Factory is a dynamic
                     production hub churning out a diverse range of snacks. With
