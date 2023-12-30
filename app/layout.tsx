@@ -5,10 +5,11 @@ import { fontSans } from "@/config/fonts";
 import { Providers } from "./providers";
 import clsx from "clsx";
 import { getUser } from "@/auth";
-import { headers } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { Analytics } from "@/northstar";
 import front from "@/utils/front";
 import { Page } from "@prisma/client";
+import { getLang } from "@/actions/lang";
 
 export const metadata: Metadata = {
   title: {
@@ -27,11 +28,12 @@ export const metadata: Metadata = {
   },
 };
 
+export type Lang = "en" | "ar";
+
 async function getPage() {
   const path = headers().get("front-pathname") || "/";
   try {
     const page = await front.Page.methods.getOneBySlug(path);
-    console.log(page);
     return page as any;
   } catch (error) {
     console.error(error);
@@ -44,10 +46,15 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const lang = await getLang();
   const page = await getPage();
   const user = getUser();
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang={lang}
+      dir={lang === "ar" ? "rtl" : "ltr"}
+      suppressHydrationWarning
+    >
       <head />
       <Analytics />
       <body
