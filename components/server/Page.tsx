@@ -4,6 +4,7 @@ import Anchor from "./Anchor";
 import Footer from "./Footer";
 import Button from "../interactive/Button";
 import CTA from "./CTA";
+import { t } from "@/utils/t";
 
 export interface PageProps extends React.HTMLAttributes<HTMLDivElement> {
   cta?: boolean;
@@ -12,37 +13,37 @@ export interface PageProps extends React.HTMLAttributes<HTMLDivElement> {
 export const links = [
   {
     href: "#about",
-    label: "About us",
+    label: t("about"),
     color: "success",
   },
   {
     href: "/business/distribution",
-    label: "Distribution",
+    label: t("distribution"),
     color: "primary",
   },
   {
     href: "/business/manufacturing",
-    label: "Manufacturing",
+    label: t("manufacturing"),
     color: "primary",
   },
   {
     href: "/business/export",
-    label: "Export",
+    label: t("export"),
     color: "primary",
   },
   {
     href: "/careers",
-    label: "Careers",
+    label: t("careers"),
     color: "warning",
   },
   {
     href: "/press",
-    label: "Press",
+    label: t("press"),
     color: "danger",
   },
   {
     href: "/contact",
-    label: "Get in touch",
+    label: t("contact"),
     color: "default",
   },
 ];
@@ -76,7 +77,7 @@ function Page({ children, className, cta = true, ...props }: PageProps) {
                 </div>
               }
             >
-              Get in touch
+              {t("getInTouch")}
             </Button>
           )
         }
