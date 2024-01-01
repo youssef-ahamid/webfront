@@ -62,6 +62,7 @@ export default function Content({
         "whitespace-pre-line"
       )}
       contentEditable={contentEditable}
+      onKeyDown={(e) => e.stopPropagation()}
       onInput={(e) => {
         if (id) {
           edit(id, e.currentTarget.innerText!);
