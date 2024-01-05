@@ -65,7 +65,7 @@ export function JobApplicationForm(job: typeof front.JobPosting.Type) {
         <Field id="phone" title="Phone" type="tel" required />
         <Field
           id="linkedin"
-          title="Linkedin/Social Profile"
+          title="Linkedin"
           type="text"
           required
         />
@@ -97,7 +97,7 @@ export default function Field({
 }: (typeof front.Form.Type)["fields"][number]) {
   const t = useTranslation();
   const defultInputClasses =
-    "appearance-none outline-none block w-full rounded-md border-0 py-2.5 text-default ring-0 focus:ring-0 sm:text-base sm:leading-6 bg-transparent w-full";
+    "appearance-none outline-none block w-full rounded-md border-0 py-2.5 text-default ring-0 focus:ring-0 sm:text-base sm:leading-6 bg-transparent w-full file:mr-2 file:py-1 file:px-3 file:text-sm file:font-medium file:cursor-pointer file:bg-default file:text-white file:rounded-md file:hover:bg-default/80 file:focus:outline-none file:transition file:duration-200 file:ease-in-out file:disabled:opacity-50 file:disabled:cursor-not-allowed";
   return (
     <div className="relative px-3 pb-1.5 pt-2.5 ring-1 ring-inset ring-default/80 focus-within:z-10 focus-within:ring-2 focus-within:ring-default bg-secondary w-full max-w-3xl">
       <label
