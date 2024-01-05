@@ -8,11 +8,11 @@ import Button from "@/components/interactive/Button";
 import front from "@/utils/front";
 import { Lang } from "@/app/layout";
 import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
+  Drawer,
+  DrawerContent,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
 } from "@/content/components";
 
 import * as images from "@/images";
@@ -74,50 +74,75 @@ export default function ContentProvider({
         openImageSelector: setPreviewedImage,
       }}
     >
-      <Sheet
+      <Drawer
         defaultOpen
         open={!!previewedImage}
         onOpenChange={(isOpen) => {
-          setSelectedImage(null);
           if (!isOpen) setPreviewedImage(null);
         }}
       >
-        <SheetContent>
-          <SheetHeader>
-            <SheetTitle>Edit Image</SheetTitle>
-          </SheetHeader>
-          <hr />
-          <br />
-          <p className="text-xl font-bold pb-2">Local images</p>
-          <div className="flex flex-wrap max-w-xl w-full">
-            {Object.entries(images).map(([name, img], i) => (
-              <div
-                key={i}
-                className={clsx(
-                  "p-2 opacity-75 hover:opacity-90 hover:scale-105 transition rounded-lg",
-                  selectedImage === name && "opacity-100 scale-100"
-                )}
-              >
-                <Image
-                  alt={name}
-                  src={img}
-                  className={clsx(
-                    "w-auto block h-24 object-cover transition rounded-lg",
-                    selectedImage === name &&
-                      "ring-2 ring-offset-2 ring-offset-transparent ring-purple-600",
-                    previewedImage &&
-                      page?.content?.[
-                        previewedImage as keyof typeof page.content
-                      ] === name &&
-                      "ring-2 ring-offset-2 ring-offset-transparent ring-blue-600"
-                  )}
-                  onClick={() => selectImage(name)}
-                />
+        <DrawerContent className="lg:overflow-y-scroll block pointer-events-auto z-50">
+          <DrawerHeader>
+            <DrawerTitle>Edit Image</DrawerTitle>
+            <hr />
+          </DrawerHeader>
+          <div className="w-full lg:overflow-y-scroll pointer-events-auto z-50">
+            <div>
+              <p className="text-sm font-bold p-4">Local images</p>
+              <div className="flex space-x-4 py-2 overflow-x-scroll">
+                {Object.entries(images).map(([name, img], i) => (
+                  <Image
+                    alt={name}
+                    src={img}
+                    key={i}
+                    className={clsx(
+                      "w-auto block h-24 object-cover transition rounded-lg shrink-0 cursor-pointer",
+                      selectedImage === name &&
+                        "ring-2 ring-offset-2 ring-offset-transparent ring-purple-600",
+                      previewedImage &&
+                        page?.content?.[
+                          previewedImage as keyof typeof page.content
+                        ] === name &&
+                        "ring-2 ring-offset-2 ring-offset-transparent ring-blue-600"
+                    )}
+                    onClick={() => selectImage(name)}
+                  />
+                ))}
               </div>
-            ))}
+            </div>
+            <div>
+              <p className="text-sm font-bold p-4">Uploaded images</p>
+              <div className="flex overflow-x-scroll">
+                {Object.entries(images).map(([name, img], i) => (
+                  <div
+                    key={i}
+                    className={clsx("p-2 shrink-0 transition rounded-lg")}
+                  >
+                    <Image
+                      alt={name}
+                      src={img}
+                      className={clsx(
+                        "w-auto block h-24 object-cover transition rounded-lg",
+                        selectedImage === name &&
+                          "ring-2 ring-offset-2 ring-offset-transparent ring-purple-600",
+                        previewedImage &&
+                          page?.content?.[
+                            previewedImage as keyof typeof page.content
+                          ] === name &&
+                          "ring-2 ring-offset-2 ring-offset-transparent ring-blue-600"
+                      )}
+                      onClick={() => selectImage(name)}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-        </SheetContent>
-      </Sheet>
+          <DrawerFooter>
+            <Button type="submit">Save changes</Button>
+          </DrawerFooter>
+        </DrawerContent>
+      </Drawer>
 
       {children}
 

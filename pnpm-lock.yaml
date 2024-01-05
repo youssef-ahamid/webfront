@@ -49,6 +49,7 @@ specifiers:
   tailwindcss: 3.3.3
   tailwindcss-animate: ^1.0.7
   typescript: 5.0.4
+  vaul: ^0.8.0
   zod: ^3.22.4
 
 dependencies:
@@ -93,6 +94,7 @@ dependencies:
   tailwindcss: 3.3.3
   tailwindcss-animate: 1.0.7_tailwindcss@3.3.3
   typescript: 5.0.4
+  vaul: 0.8.0_zkisbtryv3xtasf42ecsrjh3ky
   zod: 3.22.4
 
 devDependencies:
@@ -8030,6 +8032,20 @@ packages:
   /vary/1.1.2:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
+    dev: false
+
+  /vaul/0.8.0_zkisbtryv3xtasf42ecsrjh3ky:
+    resolution: {integrity: sha512-9nUU2jIObJvJZxeQU1oVr/syKo5XqbRoOMoTEt0hHlWify4QZFlqTh6QSN/yxoKzNrMeEQzxbc3XC/vkPLOIqw==}
+    peerDependencies:
+      react: ^16.8 || ^17.0 || ^18.0
+      react-dom: ^16.8 || ^17.0 || ^18.0
+    dependencies:
+      '@radix-ui/react-dialog': 1.0.5_zkisbtryv3xtasf42ecsrjh3ky
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    transitivePeerDependencies:
+      - '@types/react'
+      - '@types/react-dom'
     dev: false
 
   /vfile-message/4.0.2:
