@@ -30,7 +30,7 @@ export default function LogoCloud({
             <Appear key={i} delay={i * 0.1}>
               <Image
                 key={i}
-                className="col-span-2 max-h-20 w-full object-contain justify-center mx-auto lg:col-span-1"
+                className="col-span-2 max-h-20 sm:max-h-28 w-full object-contain justify-center mx-auto lg:col-span-1"
                 src={client.logo}
                 width={200}
                 height={200}
