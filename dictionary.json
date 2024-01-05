@@ -24,7 +24,7 @@
         "message": "Message",
         "resume": "CV",
         "linkedin": "LinkedIn/Social Profile",
-        "coverLetter": "Cover Letter",
+        "cover-letter": "Cover Letter",
         "company": "Company"
     },
     "ar": {
@@ -52,7 +52,7 @@
         "message": "رسالة",
         "resume": "سيرة ذاتية",
         "linkedin": "LinkedIn / ملف اجتماعي",
-        "coverLetter": "رسالة تغطية",
+        "cover-letter": "رسالة تغطية",
         "company": "شركة"
     }
 }

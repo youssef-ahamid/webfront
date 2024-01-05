@@ -1,4 +1,4 @@
--E declare const schema: {
+declare const schema: {
     "en": {
         "pageNotFound": "Page Not Found",
         "pageNotFoundDescription": "The page you are looking for does not exist. Please check the link or go back to the home page.",
@@ -24,7 +24,7 @@
         "message": "Message",
         "resume": "CV",
         "linkedin": "LinkedIn/Social Profile",
-        "coverLetter": "Cover Letter",
+        "cover-letter": "Cover Letter",
         "company": "Company"
     },
     "ar": {
@@ -52,7 +52,7 @@
         "message": "رسالة",
         "resume": "سيرة ذاتية",
         "linkedin": "LinkedIn / ملف اجتماعي",
-        "coverLetter": "رسالة تغطية",
+        "cover-letter": "رسالة تغطية",
         "company": "شركة"
     }
 }; export default schema;
