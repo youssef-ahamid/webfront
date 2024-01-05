@@ -7,11 +7,13 @@ export type ContentCTX = {
   edit: (id: string, value: string) => void;
   isEdited: boolean;
   publish: () => void;
+  openImageSelector: (id: string) => void;
 };
 
 const ContentContext = createContext<ContentCTX>({
   edit: () => {},
   publish: () => {},
+  openImageSelector: () => {},
   isEdited: false,
   lang: "en",
 });
