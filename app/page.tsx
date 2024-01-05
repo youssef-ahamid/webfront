@@ -226,7 +226,7 @@ export default async function Home() {
                     lang === "en" ? "object-left" : "object-right"
                   )}
                 />
-                <div className="w-full">
+                <div className="flex flex-col items-start space-y-2 pt-4">
                   <Content contentId={`factory-${i}-name`} size="subheader/md">
                     {name}
                   </Content>
@@ -237,6 +237,15 @@ export default async function Home() {
                   >
                     {description}
                   </Content>
+
+                  <Button
+                    size="sm"
+                    as="a"
+                    href="/business/manufacturing"
+                    className="mt-4"
+                  >
+                    {t("view")}
+                  </Button>
                 </div>
               </div>
             </Appear>
