@@ -1,3 +1,5 @@
+"use client";
+
 import { ComponentProps, useMemo, useState } from "react";
 import ContentContext from "./Context";
 

@@ -1,3 +1,5 @@
+"use client";
+
 import { Lang } from "@/app/layout";
 import { createContext } from "react";
 

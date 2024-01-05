@@ -15,8 +15,6 @@ export interface ProvidersProps {
   children: React.ReactNode;
   themeProps?: ThemeProviderProps;
   user?: User;
-  page?: Page;
-  assets?: typeof front.Asset.Type[];
   lang: Lang;
 }
 
@@ -24,20 +22,16 @@ export function Providers({
   children,
   themeProps,
   user,
-  page,
-  assets,
   lang,
 }: ProvidersProps) {
   return (
     <NextUIProvider>
       <NextThemesProvider {...themeProps}>
         <UserProvider user={user}>
-          <ContentProvider page={page} lang={lang} assets={assets}>
             {/* <MouseProvider> */}
             {/* <Cursor /> */}
             {children}
             {/* </MouseProvider> */}
-          </ContentProvider>
         </UserProvider>
       </NextThemesProvider>
     </NextUIProvider>
