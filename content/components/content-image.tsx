@@ -5,7 +5,7 @@ import { useContent, useUser } from "@/contexts";
 import { useEffect, useMemo } from "react";
 import Image from "next/image";
 
-export type ContentImageProps<T extends "img" | typeof Image> = {
+export type ContentImageProps<T extends "img" | typeof Image = typeof Image> = {
   as?: T;
   contentId?: string;
   textContent?: string;
@@ -13,8 +13,8 @@ export type ContentImageProps<T extends "img" | typeof Image> = {
 
 import * as images from "@/images";
 
-export function ContentImage<T extends "img" | typeof Image>({
-  as: Component = "p" as any,
+export function ContentImage<T extends "img" | typeof Image = typeof Image>({
+  as: Component = Image as any,
   className,
   contentId,
   children,
