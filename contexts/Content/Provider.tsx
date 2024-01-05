@@ -81,7 +81,6 @@ export default function ContentProvider({
       }}
     >
       <Drawer
-        defaultOpen
         open={!!previewedImage}
         onOpenChange={(isOpen) => {
           if (!isOpen) setPreviewedImage(null);

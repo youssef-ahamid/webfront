@@ -25,7 +25,6 @@ export { default as Haribo } from "./haribo.jpg";
 export { default as Hersheys } from "./hersheys.jpeg";
 export { default as Holsten } from "./holsten.jpg";
 export { default as Kavli } from "./kavli.jpg";
-export { default as Kellogs } from "./kellogs.jpeg";
 export { default as Kikkoman } from "./kikkoman.jpg";
 export { default as Loacker } from "./loacker.png";
 export { default as Lotus } from "./lotus.jpg";
