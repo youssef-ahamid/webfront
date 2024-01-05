@@ -1,7 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
-
 export default function Loading() {
   return (
     <div className="w-screen h-screen bg-white flex justify-center items-center fixed">

@@ -42,9 +42,9 @@ export default async function Hero({
   const lang = await getLang();
   return (
     <div className="relative w-full min-h-[90vh] pt-16">
-      <PaddedContent className="pb-24 mb-12 z-10 relative">
+      <div className="pb-24 mb-12 z-10 relative">
         <div
-          className={`container mx-auto flex flex-col ${
+          className={`container mx-auto flex flex-col w-full ${
             centered
               ? "justify-center items-center pt-12"
               : "justify-between items-start md:flex-row"
@@ -95,7 +95,7 @@ export default async function Hero({
             </Appear>
           </div>
         </div>
-      </PaddedContent>
+      </div>
       {boxes && (
         <div
           className={clsx(
