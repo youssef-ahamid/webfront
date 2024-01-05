@@ -13,6 +13,7 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerTitle,
+  ImageWithFallback,
 } from "@/content/components";
 
 import * as images from "@/images";
@@ -22,8 +23,13 @@ import clsx from "clsx";
 export default function ContentProvider({
   children,
   page,
+  assets = [],
   lang,
-}: ComponentProps<"div"> & { page?: Page; lang: Lang }) {
+}: ComponentProps<"div"> & {
+  page?: Page;
+  lang: Lang;
+  assets: (typeof front.Asset.Type)[];
+}) {
   const [updatedContent, setUpdatedContent] = useState<object>({});
   const [previewedImage, setPreviewedImage] = useState<string | null>(null);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -111,36 +117,45 @@ export default function ContentProvider({
               </div>
             </div>
             <div>
-              <p className="text-sm font-bold p-4">Uploaded images</p>
-              <div className="flex overflow-x-scroll">
-                {Object.entries(images).map(([name, img], i) => (
-                  <div
-                    key={i}
-                    className={clsx("p-2 shrink-0 transition rounded-lg")}
-                  >
-                    <Image
-                      alt={name}
-                      src={img}
+              <div className="flex items-center">
+                <p className="text-sm font-bold p-4">Uploaded images</p>
+                <Button
+                  href="https://front.memoized.tech/assets"
+                  target="_blank"
+                  size="sm"
+                  className="max-w-fit"
+                  as="a"
+                >
+                  Add
+                </Button>
+              </div>
+              <div className="flex space-x-4 py-2 overflow-x-scroll">
+                {assets.map((asset, i) => {
+                  const src = `https://front.memoized.tech/assets/${asset.slug}`;
+                  return (
+                    <ImageWithFallback
+                      alt={asset.name}
+                      src={`https://front.memoized.tech/assets/${asset.slug}`}
+                      key={i}
+                      width={200}
+                      height={200}
                       className={clsx(
-                        "w-auto block h-24 object-cover transition rounded-lg",
-                        selectedImage === name &&
+                        "w-auto block h-24 object-cover transition rounded-lg shrink-0 cursor-pointer",
+                        selectedImage === src &&
                           "ring-2 ring-offset-2 ring-offset-transparent ring-purple-600",
                         previewedImage &&
                           page?.content?.[
                             previewedImage as keyof typeof page.content
-                          ] === name &&
+                          ] === src &&
                           "ring-2 ring-offset-2 ring-offset-transparent ring-blue-600"
                       )}
-                      onClick={() => selectImage(name)}
+                      onClick={() => selectImage(src)}
                     />
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </div>
-          <DrawerFooter>
-            <Button type="submit">Save changes</Button>
-          </DrawerFooter>
         </DrawerContent>
       </Drawer>
 
