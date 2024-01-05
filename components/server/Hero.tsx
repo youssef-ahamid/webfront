@@ -7,6 +7,8 @@ import Image, { StaticImageData } from "next/image";
 import { getLang } from "@/actions/lang";
 import clsx from "clsx";
 import { PaddedContent } from ".";
+import { ContentImage } from "@/content/components";
+import * as images from "@/images";
 
 interface HeroProps {
   title?: string;
@@ -15,7 +17,9 @@ interface HeroProps {
   subtitleContent?: ReactNode;
   action?: ReactNode;
   form?: ReactNode;
-  graphicUrl?: string | StaticImageData;
+  graphicUrl?: keyof typeof images | Omit<string, keyof typeof images>;
+  graphicAlt?: string;
+  graphicId?: string;
   color?: keyof ThemeColors;
   boxes?: boolean;
   centered?: boolean;
@@ -28,6 +32,8 @@ export default async function Hero({
   subtitleContent,
   action,
   graphicUrl,
+  graphicAlt = "Hero graphic",
+  graphicId,
   form,
   color = "primary",
   boxes = true,
@@ -75,12 +81,13 @@ export default async function Hero({
           <div className={`w-full ${centered ? "" : "md:w-1/2"} pt-24 md:pt-0`}>
             <Appear delay={0.6}>
               {graphicUrl && (
-                <Image
-                  src={graphicUrl}
+                <ContentImage
+                  src={graphicUrl as any}
+                  contentId={graphicId}
                   width={1080}
                   height={1080}
                   priority
-                  alt="Hero graphic"
+                  alt={graphicAlt}
                   className="w-full mx-auto my-8 md:my-0 md:pl-8 relative max-w-none"
                 />
               )}

@@ -79,7 +79,8 @@ export default async function Home() {
         title="hp-hero-title"
         subtitle="hp-hero-subtitle"
         action={<Button contentId="hp-hero-cta" />}
-        graphicUrl={Owner}
+        graphicUrl="Owner"
+        graphicId="hero-graphic"
       />
 
       <PaddedContent>
