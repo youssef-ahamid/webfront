@@ -14,9 +14,8 @@ import {
   ASELogo,
   AstraLogo,
   AymanAfandyLogo,
+  Funday,
   FundayProducts,
-  Owner,
-  PortSaid,
   Spring,
 } from "@/images";
 import { t } from "@/utils/t";
@@ -59,7 +58,7 @@ const factories = [
   },
   {
     name: "Port Said",
-    logo: PortSaid,
+    logo: Funday,
     description:
       "The hub of packaging innovation, where we create an array of packed popcorn bags, cakes, and other confectionery wonders. Our expertise extends to providing white-label products for esteemed companies.",
   },
