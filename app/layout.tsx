@@ -42,6 +42,9 @@ export default async function RootLayout({
   const lang = await getLang();
   const page = await getPage();
   const user = getUser();
+  const assets = await front.Asset.getWhere("siteId", siteConfig.id).catch(
+    console.error
+  );
   return (
     <html
       lang={lang}
@@ -60,6 +63,7 @@ export default async function RootLayout({
           themeProps={{ attribute: "class" }}
           user={user!}
           page={page}
+          assets={assets}
           lang={lang}
         >
           <div className="relative flex flex-col">{children}</div>

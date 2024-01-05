@@ -9,12 +9,14 @@ import Cursor from "@/components/interactive/Cursor";
 import { Page, User } from "@prisma/client";
 import ContentProvider from "@/contexts/Content/Provider";
 import { Lang } from "./layout";
+import front from "@/utils/front";
 
 export interface ProvidersProps {
   children: React.ReactNode;
   themeProps?: ThemeProviderProps;
   user?: User;
   page?: Page;
+  assets?: typeof front.Asset.Type[];
   lang: Lang;
 }
 
@@ -23,13 +25,14 @@ export function Providers({
   themeProps,
   user,
   page,
+  assets,
   lang,
 }: ProvidersProps) {
   return (
     <NextUIProvider>
       <NextThemesProvider {...themeProps}>
         <UserProvider user={user}>
-          <ContentProvider page={page} lang={lang}>
+          <ContentProvider page={page} lang={lang} assets={assets}>
             {/* <MouseProvider> */}
             {/* <Cursor /> */}
             {children}
