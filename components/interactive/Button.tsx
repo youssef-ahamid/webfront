@@ -20,6 +20,7 @@ export default function Button({
 }: ButtonProps) {
   const { user } = useUser();
 
+  if (!!props.href) props.as = "a";
   return (
     <NButton
       {...props}

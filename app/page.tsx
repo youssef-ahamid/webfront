@@ -78,7 +78,7 @@ export default async function Home() {
       <Hero
         title="hp-hero-title"
         subtitle="hp-hero-subtitle"
-        action={<Button contentId="hp-hero-cta" />}
+        action={<Button href="/contact" contentId="hp-hero-cta" />}
         graphicUrl="Owner"
         graphicId="hero-graphic"
       />
@@ -98,7 +98,7 @@ export default async function Home() {
         header="hp-section-1-header"
         color="success"
         subtitle="hp-section-1-subtitle"
-        action={<Button contentId="hp-section-1-cta" />}
+        action={<Button href="/about" contentId="hp-section-1-cta" />}
       />
       <div className="w-screen py-24 bg-default">
         <PaddedContent>
@@ -165,7 +165,7 @@ export default async function Home() {
         number="02"
         header="hp-section-2-header"
         subtitle="hp-section-2-subtitle"
-        action={<Button contentId="hp-section-2-cta" />}
+        action={<Button href='/business/manufacturing' contentId="hp-section-2-cta" />}
       />
 
       <PaddedContent>

@@ -7,7 +7,6 @@ import clsx from "clsx";
 export default function LangActions({ lang }: { lang: Lang }) {
   const setMyLang = async (lang: Lang) => {
     await setLang(lang);
-    location.reload();
   };
   return (
     <div className="flex space-x-2">

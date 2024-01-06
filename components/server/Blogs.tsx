@@ -76,15 +76,14 @@ export async function Blogs({}: {}) {
                         <Content className="mt-6 max-w-2xl">
                           {article.description}
                         </Content>
-                        <Link href={`/press/${article.slug}`}>
-                          <Button
-                            aria-label={`Read more: ${article.title}`}
-                            className="mt-8"
-                            size="md"
-                          >
-                            {t("readMore")}
-                          </Button>
-                        </Link>
+                        <Button
+                          aria-label={`Read more: ${article.title}`}
+                          className="mt-8"
+                          size="md"
+                          href={`/press/${article.slug}`}
+                        >
+                          {t("readMore")}
+                        </Button>
                       </div>
                     </div>
                   </Border>

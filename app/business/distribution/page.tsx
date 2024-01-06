@@ -108,7 +108,7 @@ export default function Distribution() {
       <Hero
         title="hp-hero-title"
         subtitle="hp-hero-subtitle"
-        action={<Button contentId="hp-hero-cta" />}
+        action={<Button href="/contact" contentId="hp-hero-cta" />}
         graphicUrl={"AymanAfandyLogo"}
       />
 

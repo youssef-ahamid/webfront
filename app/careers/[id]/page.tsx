@@ -19,11 +19,7 @@ export default async function Contact({ params }: { params: { id: string } }) {
         <Hero
           titleContent={job.title}
           subtitleContent={job.description}
-          action={
-            <Link href="#apply">
-              <Button>{t("apply")}</Button>
-            </Link>
-          }
+          action={<Button href="#apply"> {t("apply")}</Button>}
         />
 
         <PaddedContent>

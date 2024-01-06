@@ -40,11 +40,7 @@ export default async function Careers() {
           title="hero-title"
           subtitle="hero-subtitle"
           color="warning"
-          action={
-            <Link href="#jobs-list">
-              <Button contentId="hero-cta" />
-            </Link>
-          }
+          action={<Button href="#jobs-list" contentId="hero-cta" />}
           graphicUrl={"Speech"}
         />
 
@@ -97,6 +93,7 @@ export default async function Careers() {
             </div>
           </ParallaxText>
         </div>
+        <section className="w-full" id="jobs-list">
         <PaddedContent className="w-full flex flex-col items-center space-y-8 py-20">
           <Content contentId="jobs-list-header" as="h2" size="header/md" />
 
@@ -131,6 +128,7 @@ export default async function Careers() {
             </div>
           ))}
         </PaddedContent>
+        </section>
       </Page>
     </>
   );

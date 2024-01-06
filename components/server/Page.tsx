@@ -86,7 +86,7 @@ async function Page({ children, className, cta = true, ...props }: PageProps) {
         {cta && (
           <CTA>
             <CTA.Title contentId="main-cta-title" />
-            <CTA.Action contentId="main-cta-action" />
+            <CTA.Action contentId="main-cta-action" href="/contact" />
           </CTA>
         )}
         <Footer
@@ -95,6 +95,7 @@ async function Page({ children, className, cta = true, ...props }: PageProps) {
           action={
             cta && (
               <Button
+                href="/contact"
                 size="md"
                 startContent={
                   <div className="relative mr-1">

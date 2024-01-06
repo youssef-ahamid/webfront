@@ -15,12 +15,10 @@ export default async function Contact() {
         centered
         action={
           <div className="flex flex-row space-x-2">
-            <Link href="/">
-              <Button>{t("backToHome")}</Button>
-            </Link>
-            <Link href="/contact">
-              <Button color="secondary">{t("readTheBlog")}</Button>
-            </Link>
+            <Button href="/">{t("backToHome")}</Button>
+            <Button href="/contact" color="secondary">
+              {t("readTheBlog")}
+            </Button>
           </div>
         }
       />
