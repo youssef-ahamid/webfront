@@ -5,6 +5,7 @@ import { NavbarLink } from "./Navbar";
 import Box from "./Box";
 import Page from "./Page";
 import { Appear, Reveal } from "../interactive";
+import { ContentImage } from "@/content/components";
 
 interface FooterProps extends React.HTMLAttributes<HTMLDivElement> {
   links: NavbarLink[];
@@ -26,7 +27,7 @@ const Footer = ({
         <div className="w-full bg-foreground/10 h-px" />
         <div className="flex flex-col space-y-8 sm:space-y-0 sm:flex-row sm:justify-between align-start py-3 my-12">
           <Appear>
-            <img src={logo} alt="logo" className="w-32" />
+            <ContentImage src="ASGLogoNoBG" alt="logo" className="w-32" />
           </Appear>
           <ul className="flex flex-col">
             {links.map((link, i) => (

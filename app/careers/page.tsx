@@ -45,7 +45,7 @@ export default async function Careers() {
               <Button contentId="hero-cta" />
             </Link>
           }
-          graphicUrl={Speech}
+          graphicUrl={"Speech"}
         />
 
         <div className="w-screen py-24 bg-default">

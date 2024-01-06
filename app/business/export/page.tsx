@@ -1,4 +1,11 @@
-import { Hero, LogoCloud, PaddedContent, Page, Reveal, Section } from "@/components";
+import {
+  Hero,
+  LogoCloud,
+  PaddedContent,
+  Page,
+  Reveal,
+  Section,
+} from "@/components";
 import {
   ASELogo,
   AlTahya,
@@ -9,7 +16,6 @@ import {
   SweetLife,
 } from "@/images";
 
-
 import { getSeoForPage } from "@/config/seo";
 export const generateMetadata = getSeoForPage("/business/export");
 
@@ -19,7 +25,7 @@ export default function Export() {
       <Hero
         title="export-hero-title"
         subtitle="export-hero-subtitle"
-        graphicUrl={ASELogo}
+        graphicUrl={"ASELogo"}
       />
 
       <PaddedContent>
@@ -55,13 +61,13 @@ export default function Export() {
         title="clients-title"
         titleContent="Our Export Partners"
         items={[
-          { name: "SweetLife", logo: SweetLife },
-          { name: "Fisherman", logo: Fisherman },
-          { name: "AlTahya", logo: AlTahya },
-          { name: "Astra", logo: AstraLogo },
-          { name: "Moussy", logo: Moussy },
-          { name: "Funday", logo: Funday },
-        ]}
+          "SweetLife",
+          "Fisherman",
+          "AlTahya",
+          "Astra",
+          "Moussy",
+          "Funday",
+        ].map((name) => ({ name, logo: name }))}
       />
 
       <Section

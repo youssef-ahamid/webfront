@@ -23,26 +23,27 @@ import clsx from "clsx";
 import Image from "next/image";
 
 import { getSeoForPage } from "@/config/seo";
+import { ContentImage } from "@/content/components";
 export const generateMetadata = getSeoForPage("/");
 
 const companies = [
   {
     name: "Ayman Afandy LLC",
-    image: AymanAfandyLogo,
+    image: "AymanAfandyLogo",
     link: "/distribution",
     description:
       "A distribution powerhouse with 350 vehicles that facilitate the seamless flow of products across 30,000 Points Of Sale",
   },
   {
     name: "Ayman Afandy For Export",
-    image: ASELogo,
+    image: "ASELogo",
     link: "/export",
     description:
       "Paves the way for the group's global influence by taking locally manufactured products to international markets",
   },
   {
     name: "Ayman Afandy Duty-Free",
-    image: FundayProducts,
+    image: "FundayProducts",
     link: "/manufacturing",
     description:
       "A specialized force, enhances the travel retail experience with a portfolio of renowned products.",
@@ -52,19 +53,19 @@ const companies = [
 const factories = [
   {
     name: "Spring",
-    logo: Spring,
+    logo: "Spring",
     description:
       "Our beverage factory, where diverse flavors come to life, capturing the very essence of quality and taste.",
   },
   {
     name: "Port Said",
-    logo: Funday,
+    logo: "Funday",
     description:
       "The hub of packaging innovation, where we create an array of packed popcorn bags, cakes, and other confectionery wonders. Our expertise extends to providing white-label products for esteemed companies.",
   },
   {
     name: "Astra",
-    logo: AstraLogo,
+    logo: "AstraLogo",
     description:
       "Celebrating the art of confectionery, we specialize in crafting lollipops adorned with intricate, handmade designs. We add an artistic touch to your product portfolio.",
   },
@@ -181,7 +182,8 @@ export default async function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {companies.map(({ name, description, link }, i) => (
             <Appear key={i} delay={0.6 + i * 0.2} className="h-full">
-              <Image
+              <ContentImage
+                contentId={`company-${i}-image`}
                 src={companies[i].image}
                 alt="Picture of the author"
                 className={clsx(
@@ -217,7 +219,8 @@ export default async function Home() {
           {factories.map(({ name, description }, i) => (
             <Appear key={i} delay={0.6 + i * 0.2}>
               <div className="flex flex-col items-center space-y-4">
-                <Image
+                <ContentImage
+                  contentId={`factory-${i}-image`}
                   src={factories[i].logo}
                   alt="Picture of the author"
                   className={clsx(

@@ -5,6 +5,7 @@ import clsx from "clsx";
 import { ReactNode } from "react";
 import { Appear, Reveal } from "../interactive";
 import Image, { StaticImageData } from "next/image";
+import { ContentImage } from "@/content/components";
 
 interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {
   color?: keyof ThemeColors;
@@ -17,6 +18,7 @@ interface SectionProps extends React.HTMLAttributes<HTMLDivElement> {
   action?: ReactNode;
   form?: ReactNode;
   graphicUrl?: string | StaticImageData;
+  graphicId?: string;
 }
 
 export default function Section({
@@ -30,6 +32,7 @@ export default function Section({
   action,
   form,
   graphicUrl,
+  graphicId,
   titleContent,
   subtitleContent,
   ...props
@@ -118,7 +121,8 @@ export default function Section({
               )}
               {graphicUrl && (
                 <Appear delay={0.7}>
-                  <Image
+                  <ContentImage
+                    contentId={graphicId}
                     src={graphicUrl}
                     width={1080}
                     height={1080}

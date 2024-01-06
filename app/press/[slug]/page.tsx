@@ -20,6 +20,7 @@ export default async function Press({
           titleContent={post.title}
           subtitleContent={post.description}
           color="danger"
+          graphicId=""
           graphicUrl={post.image}
         />
 

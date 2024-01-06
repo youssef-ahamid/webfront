@@ -10,6 +10,7 @@ export type ContentCTX = {
   isEdited: boolean;
   publish: () => void;
   openImageSelector: (id: string) => void;
+  previewedImage: string | null;
 };
 
 const ContentContext = createContext<ContentCTX>({
@@ -18,6 +19,7 @@ const ContentContext = createContext<ContentCTX>({
   openImageSelector: () => {},
   isEdited: false,
   lang: "en",
+  previewedImage: null,
 });
 
 export default ContentContext;

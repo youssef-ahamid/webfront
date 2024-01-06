@@ -8,6 +8,7 @@ import { getLang } from "@/actions/lang";
 import { PaddedContent } from ".";
 import { ASGLogoNoBG } from "@/images";
 import clsx from "clsx";
+import { ContentImage } from "@/content/components";
 
 export type NavbarLink = {
   href: string;
@@ -26,7 +27,7 @@ const Navbar = async ({
   links,
   action = true,
   children,
-  logo = ASGLogoNoBG,
+  logo,
   ...props
 }: NavbarProps) => {
   const lang = await getLang();
@@ -35,8 +36,8 @@ const Navbar = async ({
       <nav className="flex justify-between align-center py-3">
         <Appear className="">
           <a href="/">
-            <Image
-              src={logo}
+            <ContentImage
+              src={"ASGLogoNoBG"}
               alt="logo"
               className={clsx(
                 "w-full min-h-24 object-contain max-h-32 md:max-h-48 -mt-12 md:-mt-16 shrink-0",

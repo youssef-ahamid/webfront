@@ -80,6 +80,7 @@ export default function ContentProvider({
         publish,
         lang,
         openImageSelector: setPreviewedImage,
+        previewedImage,
       }}
     >
       <Drawer

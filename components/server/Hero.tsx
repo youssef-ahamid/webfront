@@ -33,7 +33,7 @@ export default async function Hero({
   action,
   graphicUrl,
   graphicAlt = "Hero graphic",
-  graphicId,
+  graphicId = "hero-graphic",
   form,
   color = "primary",
   boxes = true,

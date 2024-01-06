@@ -14,6 +14,7 @@ import {
 import Image from "next/image";
 
 import { getSeoForPage } from "@/config/seo";
+import { ContentImage } from "@/content/components";
 export const generateMetadata = getSeoForPage("/business/manufacturing");
 
 export default function Manufacturing() {
@@ -22,7 +23,7 @@ export default function Manufacturing() {
       <Hero
         title="hero-title"
         subtitle="hero-subtitle"
-        graphicUrl={SpringFactory}
+        graphicUrl={"SpringFactory"}
       />
 
       <PaddedContent>
@@ -40,8 +41,9 @@ export default function Manufacturing() {
           <div className="lg:pr-4">
             <div className="lg:max-w-lg flex flex-col items-start">
               <Appear delay={0.2}>
-                <Image
-                  src={Spring}
+                <ContentImage
+                  contentId="factory-1-image"
+                  src={"Spring"}
                   alt="Spring Factory"
                   className="max-h-20 w-full object-contain mb-4"
                 />
@@ -82,8 +84,9 @@ export default function Manufacturing() {
                   collaboration with these giants, along with our capacity for
                   large-scale production, highlights our role as a key player in
                   the beverage industry.{"\n\n"}
-                  <Image
-                    src={MoussyGlass}
+                  <ContentImage
+                    contentId="factory-1-product-image-1"
+                    src={"MoussyGlass"}
                     alt="Moussy Glass"
                     className="object-contain my-4"
                   />
@@ -95,9 +98,10 @@ export default function Manufacturing() {
         </PaddedContent>
         <div className="lg:-ml-12 -mt-12 py-12 pr-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 overflow-hidden">
           <Appear delay={0.4}>
-            <Image
+            <ContentImage
               className="w-[48rem] max-w-none rounded-xl bg-transparent shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
-              src={MoussyFactory}
+              src={"MoussyFactory"}
+              contentId="factory-1-product-image-2"
               alt="Moussy Factory"
             />
           </Appear>
@@ -119,8 +123,9 @@ export default function Manufacturing() {
           <div className="lg:pr-4">
             <div className="lg:max-w-lg flex flex-col items-start">
               <Appear delay={0.2}>
-                <Image
-                  src={Astra}
+                <ContentImage
+                  contentId="factory-2-image"
+                  src={"Astra"}
                   alt="Astra Logo"
                   className="max-h-20 w-full object-contain mb-4"
                 />
@@ -148,8 +153,9 @@ export default function Manufacturing() {
                   confectionery experience. Our artisans skillfully produce a
                   variety of designs, making each candy a small work of art.
                   {"\n\n"}
-                  <Image
-                    src={AstraLollipops}
+                  <ContentImage
+                    contentId="factory-2-product-image-1"
+                    src={"AstraLollipops"}
                     alt="Astra Lollipops"
                     className="object-contain"
                   />
@@ -169,9 +175,10 @@ export default function Manufacturing() {
         </PaddedContent>
         <div className="lg:-ml-12 -mt-12 py-12 pr-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 overflow-hidden">
           <Appear delay={0.4}>
-            <Image
+            <ContentImage
               className="w-[48rem] max-w-none rounded-xl bg-transparent shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
-              src={AstraGraphic}
+              src={"AstraGraphic"}
+              contentId="factory-2-product-image-2"
               alt="Astra Graphic"
             />
           </Appear>
@@ -193,8 +200,9 @@ export default function Manufacturing() {
           <div className="lg:pr-4">
             <div className="lg:max-w-lg flex flex-col items-start">
               <Appear delay={0.2}>
-                <Image
-                  src={PortSaid}
+                <ContentImage
+                  contentId="factory-3-image"
+                  src={"PortSaid"}
                   alt="Port Said Factory Logo"
                   className="max-h-20 w-full object-contain mb-4"
                 />
@@ -234,8 +242,9 @@ export default function Manufacturing() {
                   products are enjoyed far and wide, bringing smiles with every
                   snack.
                   {"\n\n"}
-                  <Image
-                    src={FundayProducts}
+                  <ContentImage
+                    contentId="factory-3-product-image-1"
+                    src={"FundayProducts"}
                     alt="Funday Products"
                     className="object-contain my-4"
                   />
@@ -247,9 +256,10 @@ export default function Manufacturing() {
         </PaddedContent>
         <div className="lg:-ml-12 -mt-12 py-12 pr-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 overflow-hidden">
           <Appear delay={0.4}>
-            <Image
+            <ContentImage
               className="w-[48rem] max-w-none rounded-xl bg-transparent shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
-              src={FundayPopcorn}
+              src={"FundayPopcorn"}
+              contentId="factory-3-product-image-2"
               alt="Funday Popcorn"
             />
           </Appear>

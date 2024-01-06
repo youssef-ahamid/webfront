@@ -2,6 +2,7 @@ import Image, { StaticImageData } from "next/image";
 import { Badge, PaddedContent } from ".";
 import { Appear, Content } from "../interactive";
 import clsx from "clsx";
+import { ContentImage } from "@/content/components";
 
 export type TimelineEvent = {
   title: string;
@@ -66,7 +67,8 @@ export default function Timeline({ events }: { events: TimelineEvent[] }) {
           {event.image && (
             <div className="w-full md:max-w-[50%] px-4 md:px-12">
               <Appear delay={0.4}>
-                <Image
+                <ContentImage
+                  contentId={event.title + "-image"}
                   src={event.image}
                   width={500}
                   height={500}
