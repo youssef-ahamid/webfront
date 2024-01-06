@@ -1,4 +1,12 @@
-import { Page, Button, Hero, Reveal, Section, LogoCloud, PaddedContent } from "@/components";
+import {
+  Page,
+  Button,
+  Hero,
+  Reveal,
+  Section,
+  LogoCloud,
+  PaddedContent,
+} from "@/components";
 import {
   AlTahya,
   AymanAfandyLogo,
@@ -98,7 +106,6 @@ const clients = [
   "Hersheys",
 ];
 
-
 import { getSeoForPage } from "@/config/seo";
 export const generateMetadata = getSeoForPage("/business/distribution");
 
@@ -122,24 +129,53 @@ export default function Distribution() {
         </Reveal>
       </PaddedContent>
 
-      {features.map(({ title, description, image }, i) => (
-        <Section
-          key={i}
-          title={`feature-${i}-title`}
-          titleContent={title}
-          subtitle={`feature-${i}-description`}
-          subtitleContent={description}
-          graphicUrl={image}
-          graphicId={`feature-${i}-image`}
-          number={`0${i + 1}`}
-          className="mb-16"
-        />
-      ))}
-
+      <Section
+        key={1}
+        title={`feature-0-title`}
+        titleContent={features[0].title}
+        subtitle={`feature-0-description`}
+        subtitleContent={features[0].description}
+        graphicUrl={features[0].image}
+        graphicId={`feature-0-image`}
+        number={`01`}
+        className="mb-16"
+      />
       <LogoCloud
         title="clients-title"
         titleContent="Trusted by the Best"
         items={clients.map((name) => ({ name, logo: name }))}
+      />
+      <Section
+        key={2}
+        title={`feature-1-title`}
+        titleContent={features[1].title}
+        subtitle={`feature-1-description`}
+        subtitleContent={features[1].description}
+        graphicUrl={features[1].image}
+        graphicId={`feature-1-image`}
+        number={`02`}
+        
+      />
+       <PaddedContent>
+        <Reveal
+          direction="left-to-right"
+          duration={1.4}
+          className="max-w-none w-full"
+        >
+          <div className="w-full h-px bg-foreground/40 -mt-16" />
+        </Reveal>
+      </PaddedContent>
+      <Section
+        key={3}
+        className="mt-0 mb-0"
+        color="default"
+        title={`feature-2-title`}
+        titleContent={features[2].title}
+        subtitle={`feature-2-description`}
+        subtitleContent={features[2].description}
+        graphicUrl={features[2].image}
+        graphicId={`feature-2-image`}
+        number={`03`}
       />
     </Page>
   );
