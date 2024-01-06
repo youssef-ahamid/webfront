@@ -33,7 +33,6 @@ export function ContentImage<T extends "img" | typeof Image = typeof Image>({
   }
 
   const src = useMemo(() => {
-    console.log(content);
     if (type !== "image") return;
     if (id && (content as any)?.[id]) {
       if ((content as any)?.[id] in images)
