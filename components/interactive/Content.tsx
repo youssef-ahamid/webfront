@@ -32,12 +32,11 @@ export default function Content({
   const { edit, content, lang } = useContent();
 
   const id = !contentId ? null : contentId + (lang === "en" ? "" : `@${lang}`);
-  if (id) {
-    children = (content as any)?.[id] || children || id;
-    contentEditable = !!user;
-  }
+  contentEditable = !!user && !!id;
 
   useEffect(() => {
+    if (id) children = (content as any)?.[id] || children || id;
+
     if (contentEditable && id && !content?.[id] && children) {
       if (textContent) {
         edit(id, textContent);
