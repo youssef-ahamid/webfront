@@ -75,6 +75,7 @@ export default function ContentProvider({
     <ContentContext.Provider
       value={{
         content: { ...(page?.content as any), ...updatedContent } as any,
+        baseContent: page?.content as any,
         edit,
         isEdited,
         publish,

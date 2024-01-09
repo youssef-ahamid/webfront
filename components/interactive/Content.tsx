@@ -29,15 +29,14 @@ export default function Content({
   ...props
 }: ContentProps) {
   const { user } = useUser();
-  const { edit, content, lang } = useContent();
+  const { edit, baseContent, lang } = useContent();
 
   const id = !contentId ? null : contentId + (lang === "en" ? "" : `@${lang}`);
   contentEditable = !!user && !!id;
 
+  if (id) children = (baseContent as any)?.[id] || children || id;
   useEffect(() => {
-    if (id) children = (content as any)?.[id] || children || id;
-
-    if (contentEditable && id && !content?.[id] && children) {
+    if (contentEditable && id && !baseContent?.[id] && children) {
       if (textContent) {
         edit(id, textContent);
       } else if (typeof children === "string") {

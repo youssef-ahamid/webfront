@@ -5,6 +5,7 @@ import { createContext } from "react";
 
 export type ContentCTX = {
   content?: Record<string, any>;
+  baseContent?: Record<string, any>;
   lang: Lang;
   edit: (id: string, value: string) => void;
   isEdited: boolean;
