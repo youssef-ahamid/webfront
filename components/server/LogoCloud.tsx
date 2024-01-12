@@ -32,7 +32,7 @@ export default function LogoCloud({
               <ContentImage
                 key={i}
                 contentId={client.name + "-logo" + i}
-                className="grayscale hover:grayscale-0 col-span-2 max-h-20 sm:max-h-28 w-full object-contain justify-center mx-auto lg:col-span-1"
+                className="grayscale hover:grayscale-0 transition duration-400 ease-soft-spring col-span-2 max-h-20 sm:max-h-28 w-full object-contain justify-center mx-auto lg:col-span-1"
                 src={client.logo}
                 width={200}
                 height={200}
