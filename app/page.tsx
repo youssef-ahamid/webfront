@@ -9,6 +9,7 @@ import {
   Appear,
   Reveal,
   PaddedContent,
+  LogoCloud,
 } from "@/components";
 import {
   ASELogo,
@@ -25,6 +26,44 @@ import Image from "next/image";
 import { getSeoForPage } from "@/config/seo";
 import { ContentImage } from "@/content/components";
 export const generateMetadata = getSeoForPage("/");
+
+
+const clients = [
+  "Zanetti",
+  "Milka",
+  "AlTahya",
+  "BettyCrocker",
+  "Bonny",
+  "CaliforniaGarden",
+  "Haribo",
+  "Tchibe",
+  "Rauch",
+  "StDalfour",
+  "SweetLife",
+  "Tabasco",
+  "Twinnings",
+  "Pinar",
+  "Mentos",
+  "Mazola",
+  "Moussy",
+  "OldAmsterdam",
+  "Papadopoulos",
+  "PowerHorse",
+  "Kikkoman",
+  "Holsten",
+  "CavendishAndHarvey",
+  "Kavli",
+  "Bahlsen",
+  "Lotus",
+  "Loacker",
+  "Castania",
+  "ChupaChups",
+  "Davidoff",
+  "Fisherman",
+  "Funday",
+  "Guylian",
+  "Hersheys",
+];
 
 const companies = [
   {
@@ -92,6 +131,13 @@ export default async function Home() {
           <div className="w-full h-px bg-foreground/40 mb-1 mt-32" />
         </Reveal>
       </PaddedContent>
+
+      <LogoCloud
+        title="clients-title"
+        titleContent="Trusted by the Best"
+        items={clients.map((name) => ({ name, logo: name }))}
+      />
+
       <Section
         title="hp-section-1-title"
         number="01"
