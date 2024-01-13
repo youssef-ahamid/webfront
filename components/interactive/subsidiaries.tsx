@@ -21,8 +21,11 @@ export function Subsidiaries() {
     <div className="grid grid-cols-1 w-full gap-16 mx-auto">
       {links.map((link, i) => (
         <Appear
+          key={i}
           delay={1}
-          className={i % 2 === 1 ? "sm:justify-self-end" : "sm:justify-self-start"}
+          className={
+            i % 2 === 1 ? "sm:justify-self-end" : "sm:justify-self-start"
+          }
         >
           <Subsidiary link={link} id={i + 1} />
         </Appear>
