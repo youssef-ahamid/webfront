@@ -25,6 +25,7 @@ import Image from "next/image";
 
 import { getSeoForPage } from "@/config/seo";
 import { ContentImage } from "@/content/components";
+import { Subsidiaries } from "@/components/interactive/subsidiaries";
 export const generateMetadata = getSeoForPage("/");
 
 const clients = [
@@ -199,80 +200,7 @@ export default async function Home() {
           </Content>
         </Appear>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {companies.map(({ name, description, link }, i) => (
-            <Appear key={i} delay={0.6 + i * 0.2} className="h-full">
-              <ContentImage
-                contentId={`company-${i}-image`}
-                src={companies[i].image}
-                alt="Picture of the author"
-                className={clsx(
-                  "w-full max-w-2xl max-h-32 object-contain",
-                  lang === "en" ? "object-left" : "object-right"
-                )}
-              />
-              <div className="flex flex-col items-start space-y-2 pt-4 w-full">
-                <Content contentId={`company-${i}-name`} size="subheader/md">
-                  {name}
-                </Content>
-
-                <Content contentId={`company-${i}-description`} size="body/md">
-                  {description}
-                </Content>
-                <Button
-                  size="sm"
-                  as="a"
-                  href={`/business${link}`}
-                  className="mt-4"
-                >
-                  {t("view")}
-                </Button>
-              </div>
-              <div className="flex justify-between items-start space-x-4 w-full h-full pt-4"></div>
-            </Appear>
-          ))}
-        </div>
-      </PaddedContent>
-
-      <PaddedContent>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-          {factories.map(({ name, description }, i) => (
-            <Appear key={i} delay={0.6 + i * 0.2}>
-              <div className="flex flex-col items-center space-y-4">
-                <ContentImage
-                  contentId={`factory-${i}-image`}
-                  src={factories[i].logo}
-                  alt="Picture of the author"
-                  className={clsx(
-                    "w-full max-w-2xl max-h-20 object-contain",
-                    lang === "en" ? "object-left" : "object-right"
-                  )}
-                />
-                <div className="flex flex-col items-start space-y-2 pt-4">
-                  <Content contentId={`factory-${i}-name`} size="subheader/md">
-                    {name}
-                  </Content>
-
-                  <Content
-                    contentId={`factory-${i}-description`}
-                    size="body/md"
-                  >
-                    {description}
-                  </Content>
-
-                  <Button
-                    size="sm"
-                    as="a"
-                    href="/business/manufacturing"
-                    className="mt-4"
-                  >
-                    {t("view")}
-                  </Button>
-                </div>
-              </div>
-            </Appear>
-          ))}
-        </div>
+        <Subsidiaries />
       </PaddedContent>
     </Page>
   );

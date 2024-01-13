@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect, ReactNode } from "react";
+import { useInView } from "framer-motion";
+import { useState, useEffect, ReactNode, useRef } from "react";
 
 export default function Typewriter({
   delay = 0,
@@ -19,13 +20,16 @@ export default function Typewriter({
   const length = text.length;
   const interval = duration / length;
 
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true });
+
   useEffect(() => {
-    if (!started) {
+    if (!started && inView) {
       setTimeout(() => {
         setStarted(true);
       }, delay * 1000);
     }
-  }, []);
+  }, [inView]);
 
   useEffect(() => {
     if (started) {
@@ -36,5 +40,5 @@ export default function Typewriter({
     }
   }, [currentIndex, started]);
 
-  return currentText;
+  return <span ref={ref}>{currentText}</span>;
 }
