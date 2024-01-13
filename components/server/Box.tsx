@@ -19,7 +19,7 @@ export default function Box({
     <div
       {...props}
       className={clsx(
-        "group p-8 flex flex-col justify-center",
+        "group p-8 flex flex-col justify-center transition",
         className,
         light ? `bg-${color}-100` : `bg-${color}`,
         size

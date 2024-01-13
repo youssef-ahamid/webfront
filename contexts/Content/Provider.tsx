@@ -104,6 +104,8 @@ export default function ContentProvider({
                     alt={name}
                     src={img}
                     key={i}
+                    width={200}
+                    height={200}
                     className={clsx(
                       "w-auto block h-24 object-cover transition rounded-lg shrink-0 cursor-pointer",
                       selectedImage === name &&

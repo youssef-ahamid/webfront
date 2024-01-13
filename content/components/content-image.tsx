@@ -55,6 +55,8 @@ export function ContentImage<T extends "img" | typeof Image = typeof Image>({
   return (
     <Component
       {...(props as any)}
+      width={props.width ?? 800}
+      height={props.height ?? 800}
       src={src}
       onClick={() => {
         if (!contentEditable || !id) return;

@@ -1,4 +1,6 @@
-import React, { ReactNode } from "react";
+"use client";
+
+import React, { ReactNode, use, useEffect, useState } from "react";
 import Content from "../interactive/Content";
 import { ThemeColors } from "@nextui-org/react";
 import Box from "./Box";
@@ -23,9 +25,11 @@ interface HeroProps {
   color?: keyof ThemeColors;
   boxes?: boolean;
   centered?: boolean;
+  alternateColor?: boolean;
+  lang?: string;
 }
 
-export default async function Hero({
+export default function Hero({
   title,
   subtitle,
   titleContent,
@@ -35,11 +39,32 @@ export default async function Hero({
   graphicAlt = "Hero graphic",
   graphicId = "hero-graphic",
   form,
-  color = "primary",
+  color: defaultColor = "primary",
   boxes = true,
   centered = false,
+  lang = "en",
+  alternateColor,
 }: HeroProps) {
-  const lang = await getLang();
+  const colors = [
+    "warning",
+    "primary",
+    "success",
+    "default",
+    "danger",
+  ] as const;
+  const [color, setColor] = useState(defaultColor);
+
+  useEffect(() => {
+    if (alternateColor) {
+      setTimeout(() => {
+        setColor(
+          (currentColor) =>
+            colors[colors.findIndex((c) => c == currentColor) + 1] || colors[0]
+        );
+      }, 3000);
+    }
+  }, [color]);
+
   return (
     <div className="relative w-full min-h-[90vh] pt-16">
       <div className="pb-24 mb-12 z-10 relative">
@@ -58,6 +83,7 @@ export default async function Hero({
             <Appear>
               <Content
                 typewriter
+                typingDuration={1.2}
                 as="h1"
                 size="header/xl"
                 className="max-w-md"
@@ -66,8 +92,11 @@ export default async function Hero({
                 {titleContent}
               </Content>
             </Appear>
-            <Appear delay={0.2}>
+            <Appear delay={1.2}>
               <Content
+                typewriter
+                typingDelay={1.2}
+                typingDuration={1.5}
                 size="body/lg"
                 className="mb-6 max-w-xl"
                 contentId={subtitle}
@@ -75,12 +104,12 @@ export default async function Hero({
                 {subtitleContent}
               </Content>
             </Appear>
-            <Appear delay={0.4} className="flex">
+            <Appear delay={2.8} className="flex">
               {action}
             </Appear>
           </div>
           <div className={`w-full ${centered ? "" : "md:w-1/2"} pt-24 md:pt-0`}>
-            <Appear delay={0.6}>
+            <Appear>
               {graphicUrl && (
                 <ContentImage
                   src={graphicUrl as any}
@@ -107,7 +136,7 @@ export default async function Hero({
           <Reveal
             direction="top-to-bottom"
             duration={0.8}
-            delay={0.3}
+            delay={2.9}
             className="absolute xl:left-56 right-0 md:top-0 bottom-40"
           >
             <Box
@@ -119,7 +148,7 @@ export default async function Hero({
           </Reveal>
           <Reveal
             direction="top-to-bottom"
-            delay={0.2}
+            delay={3.2}
             className="absolute bottom-20 md:top-60 lg:top-72 left-0"
           >
             <Box

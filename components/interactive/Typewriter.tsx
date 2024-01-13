@@ -3,27 +3,38 @@
 import { useState, useEffect, ReactNode } from "react";
 
 export default function Typewriter({
-  delay = 50,
+  delay = 0,
+  duration = 0.8,
   children,
   ...props
 }: {
   delay?: number;
+  duration?: number;
   children?: ReactNode;
 }) {
   const [currentText, setCurrentText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [started, setStarted] = useState(false);
   const text = (children as string) || "";
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (currentIndex < text.length) {
-      const timeout = setTimeout(() => {
-        setCurrentText((prevText) => prevText + text[currentIndex]);
-        setCurrentIndex((prevIndex) => prevIndex + 1);
-      }, delay);
+  const length = text.length;
+  const interval = duration / length;
 
-      return () => clearTimeout(timeout);
+  useEffect(() => {
+    if (!started) {
+      setTimeout(() => {
+        setStarted(true);
+      }, delay * 1000);
     }
-  }, [currentIndex, delay, text]);
+  }, []);
+
+  useEffect(() => {
+    if (started) {
+      setTimeout(() => {
+        setCurrentText(text.slice(0, currentIndex));
+        setCurrentIndex(currentIndex + 1);
+      }, interval * 1000);
+    }
+  }, [currentIndex, started]);
 
   return currentText;
 }

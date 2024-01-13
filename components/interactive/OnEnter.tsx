@@ -26,6 +26,7 @@ export default function OnEnter({
             },
           } as any
         }
+        viewport={{ once: true }}
         transition={spring}
       >
         {children}

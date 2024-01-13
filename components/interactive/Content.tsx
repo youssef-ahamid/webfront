@@ -14,6 +14,8 @@ export interface ContentProps
   > {
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "q";
   typewriter?: boolean;
+  typingDelay?: number;
+  typingDuration?: number;
   size?: FontSize | "";
   contentId?: string;
   textContent?: string;
@@ -28,6 +30,8 @@ export default function Content({
   contentEditable,
   color,
   typewriter,
+  typingDelay,
+  typingDuration,
   textContent,
   ...props
 }: ContentProps) {
@@ -70,7 +74,13 @@ export default function Content({
         }
       }}
     >
-      {typewriter ? <Typewriter>{children}</Typewriter> : children}
+      {typewriter && !contentEditable ? (
+        <Typewriter delay={typingDelay} duration={typingDuration}>
+          {children}
+        </Typewriter>
+      ) : (
+        children
+      )}
     </Component>
   );
 }

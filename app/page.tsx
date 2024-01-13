@@ -27,7 +27,6 @@ import { getSeoForPage } from "@/config/seo";
 import { ContentImage } from "@/content/components";
 export const generateMetadata = getSeoForPage("/");
 
-
 const clients = [
   "Zanetti",
   "Milka",
@@ -92,6 +91,7 @@ export default async function Home() {
         action={<Button href="/contact" contentId="hp-hero-cta" />}
         graphicUrl="Owner"
         graphicId="hero-graphic"
+        alternateColor
       />
 
       <PaddedContent>
@@ -183,7 +183,9 @@ export default async function Home() {
         number="02"
         header="hp-section-2-header"
         subtitle="hp-section-2-subtitle"
-        action={<Button href='/business/manufacturing' contentId="hp-section-2-cta" />}
+        action={
+          <Button href="/business/manufacturing" contentId="hp-section-2-cta" />
+        }
       />
 
       <PaddedContent>
