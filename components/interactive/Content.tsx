@@ -4,6 +4,7 @@ import { FontSize, fontSizes } from "@/config/fontSizes";
 import clsx from "clsx";
 import { useContent, useUser } from "@/contexts";
 import { useEffect } from "react";
+import Typewriter from "./Typewriter";
 export interface ContentProps
   extends React.HTMLAttributes<
     | HTMLHeadingElement
@@ -12,6 +13,7 @@ export interface ContentProps
     | HTMLQuoteElement
   > {
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "q";
+  typewriter?: boolean;
   size?: FontSize | "";
   contentId?: string;
   textContent?: string;
@@ -25,6 +27,7 @@ export default function Content({
   children,
   contentEditable,
   color,
+  typewriter,
   textContent,
   ...props
 }: ContentProps) {
@@ -67,7 +70,7 @@ export default function Content({
         }
       }}
     >
-      {children}
+      {typewriter ? <Typewriter>{children}</Typewriter> : children}
     </Component>
   );
 }

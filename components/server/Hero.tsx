@@ -57,6 +57,7 @@ export default async function Hero({
           >
             <Appear>
               <Content
+                typewriter
                 as="h1"
                 size="header/xl"
                 className="max-w-md"
