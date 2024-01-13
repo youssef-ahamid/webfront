@@ -18,9 +18,12 @@ const links = [
 ];
 export function Subsidiaries() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16">
+    <div className="grid grid-cols-1 w-full gap-16 mx-auto">
       {links.map((link, i) => (
-        <Appear>
+        <Appear
+          delay={1}
+          className={i % 2 === 1 ? "sm:justify-self-end" : "sm:justify-self-start"}
+        >
           <Subsidiary link={link} id={i + 1} />
         </Appear>
       ))}
@@ -28,10 +31,13 @@ export function Subsidiaries() {
   );
 }
 
-function Subsidiary({ id, link }: any) {
+function Subsidiary({ id, link, className }: any) {
   return (
-    <Card isFooterBlurred className="w-full h-[300px] relative">
-      <CardHeader className="absolute z-10 justify-between top-1">
+    <Card
+      isFooterBlurred
+      className={`w-full lg:w-[70vw] max-w-3xl h-[400px] relative ${className}`}
+    >
+      <CardHeader className="absolute z-10 justify-between top-0 pt-1 bg-gradient-to-b from-black">
         <div className="flex flex-col items-start">
           <Content
             contentId={`subsidiary-${id}-preheader`}
@@ -50,17 +56,17 @@ function Subsidiary({ id, link }: any) {
           <ContentImage
             alt="Ayman Shahin Group Subsidiary"
             src="AymanAfandyLogo"
-            className="rounded-lg w-32 h-auto bg-black object-contain"
+            className="rounded-lg h-16 w-[100px] p-1 bg-white object-contain"
             contentId={`subsidiary-${id}-logo`}
           />
         </Appear>
       </CardHeader>
       <ContentImage
         alt="Subsidiary Background"
-        className="z-0 w-full h-full object-cover"
+        className="z-0 w-full h-full object-cover bg-black"
         src="https://nextui.org/images/card-example-5.jpeg"
-        width={1200}
-        height={1200}
+        width={1600}
+        height={1600}
         contentId={`subsidiary-${id}-background`}
       />
       <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">

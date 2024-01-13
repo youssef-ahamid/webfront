@@ -74,7 +74,7 @@ export default function Content({
         }
       }}
     >
-      {typewriter && !contentEditable ? (
+      {typewriter ? (
         <Typewriter delay={typingDelay} duration={typingDuration}>
           {children}
         </Typewriter>
