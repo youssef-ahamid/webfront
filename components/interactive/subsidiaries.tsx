@@ -14,7 +14,6 @@ const links = [
   "/business/manufacturing",
   "/business/manufacturing",
   "/business/manufacturing",
-  "/business/manufacturing",
 ];
 export function Subsidiaries() {
   return (
