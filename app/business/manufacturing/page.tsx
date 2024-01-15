@@ -120,7 +120,7 @@ export default function Manufacturing() {
         <div className="lg:-ml-12 -mt-12 py-12 pr-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 overflow-hidden">
           <Appear delay={0.4}>
             <ContentImage
-              className="w-[48rem] max-w-none rounded-xl bg-transparent shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
+              className="w-[48rem] max-w-none rounded-xl bg-transparent sm:w-[57rem]"
               src={"MoussyFactory"}
               contentId="factory-1-product-image-2"
               alt="Moussy Factory"
@@ -197,7 +197,7 @@ export default function Manufacturing() {
         <div className="lg:-ml-12 -mt-12 py-12 pr-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 overflow-hidden">
           <Appear delay={0.4}>
             <ContentImage
-              className="w-[48rem] max-w-none rounded-xl bg-transparent shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
+              className="w-[48rem] max-w-none rounded-xl bg-transparent sm:w-[57rem]"
               src={"AstraGraphic"}
               contentId="factory-2-product-image-2"
               alt="Astra Graphic"
@@ -278,7 +278,7 @@ export default function Manufacturing() {
         <div className="lg:-ml-12 -mt-12 py-12 pr-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 overflow-hidden">
           <Appear delay={0.4}>
             <ContentImage
-              className="w-[48rem] max-w-none rounded-xl bg-transparent shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
+              className="w-[48rem] max-w-none rounded-xl bg-transparent sm:w-[57rem]"
               src={"FundayPopcorn"}
               contentId="factory-3-product-image-2"
               alt="Funday Popcorn"

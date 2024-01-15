@@ -8,6 +8,8 @@ import { ContentImage } from "@/content/components";
 import Button from "./Button";
 import Appear from "./Appear";
 import { useUser } from "@/contexts";
+import { cn } from "tailwind-variants";
+import clsx from "clsx";
 
 const links = [
   "/business/distribution",
@@ -18,80 +20,87 @@ const links = [
 ];
 export function Subsidiaries() {
   return (
-    <div className="grid grid-cols-1 w-full gap-16 mx-auto">
+    <div className="grid grid-cols-1 w-full gap-16 lg:gap-24 mx-auto">
       {links.map((link, i) => (
-        <Appear
-          key={i}
-          delay={1}
-          className={
-            i % 2 === 1 ? "sm:justify-self-end" : "sm:justify-self-start"
-          }
-        >
-          <Subsidiary link={link} id={i + 1} />
+        <Appear key={i} delay={1}>
+          <Subsidiary
+            link={link}
+            id={i + 1}
+            direction={i % 2 === 0 ? "left" : "right"}
+          />
         </Appear>
       ))}
     </div>
   );
 }
 
-function Subsidiary({ id, link, className }: any) {
+function Subsidiary({ id, link, className, direction = "right" }: any) {
   const { user } = useUser();
   return (
-    <Card
-      isFooterBlurred
-      isPressable
-      onPress={() =>
-        !user && typeof window !== "undefined" && window.open(link, "_self")
-      }
-      className={`w-full lg:w-[70vw] max-w-3xl h-[400px] relative ${className}`}
+    <div
+      className={clsx(
+        "flex w-full flex-col justify-between mx-auto",
+        direction === "right" ? "lg:flex-row-reverse" : "lg:flex-row"
+      )}
     >
-      <CardHeader className="absolute z-10 justify-between top-0 pt-1 bg-gradient-to-b from-black">
-        <div className="flex flex-col items-start">
-          <Content
-            contentId={`subsidiary-${id}-preheader`}
-            typewriter
-            as="span"
-            className="text-tiny text-white/60 uppercase font-bold"
-          />
-          <Content
-            as="h3"
-            typewriter
-            contentId={`subsidiary-${id}-title`}
-            className="text-white/90 font-bold text-2xl"
-          />
-        </div>
-        <Appear delay={0.2}>
-          <ContentImage
-            alt="Ayman Shahin Group Subsidiary"
-            src="AymanAfandyLogo"
-            className="rounded-lg h-16 w-[100px] p-1 bg-white object-contain"
-            contentId={`subsidiary-${id}-logo`}
-          />
-        </Appear>
-      </CardHeader>
-      <ContentImage
-        alt="Subsidiary Background"
-        className="z-0 w-full h-full object-cover bg-black"
-        src="https://nextui.org/images/card-example-5.jpeg"
-        width={1600}
-        height={1600}
-        contentId={`subsidiary-${id}-background`}
-      />
-      <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
-        <div className="flex flex-grow gap-2 items-center pr-6">
-          <div className="flex flex-col">
+      <Card
+        isFooterBlurred
+        isPressable
+        onPress={() =>
+          !user && typeof window !== "undefined" && window.open(link, "_self")
+        }
+        className={`w-full lg:w-[70vw] max-w-3xl h-[400px] shrink-0 relative ${className}`}
+      >
+        <CardHeader className="absolute z-10 justify-between top-0 pt-1 pb-24 bg-gradient-to-b from-white">
+          <div className="flex flex-col items-start">
             <Content
+              contentId={`subsidiary-${id}-preheader`}
               typewriter
-              typingDuration={1.5}
-              contentId={`subsidiary-${id}-description`}
-              className="text-base text-white/90 font-semibold"
+              as="span"
+              size="caption/sm"
+              className="text-black/60 uppercase font-bold"
+            />
+            <Content
+              as="h3"
+              typewriter
+              contentId={`subsidiary-${id}-title`}
+              size="header/md"
+              className="text-black/90 text-left font-bold"
             />
           </div>
-        </div>
-        <Button href={link} radius="full" size="sm" color="secondary">
-          View
-        </Button>
-      </CardFooter>
-    </Card>
+          <Appear delay={0.2}>
+            <ContentImage
+              alt="Ayman Shahin Group Subsidiary"
+              src="AymanAfandyLogo"
+              className="rounded-lg h-16 w-[100px] p-1 bg-white object-contain"
+              contentId={`subsidiary-${id}-logo`}
+            />
+          </Appear>
+        </CardHeader>
+        <ContentImage
+          alt="Subsidiary Background"
+          className="z-0 w-full h-full object-cover bg-white"
+          src="https://nextui.org/images/card-example-5.jpeg"
+          width={1600}
+          height={1600}
+          contentId={`subsidiary-${id}-background`}
+        />
+      </Card>
+      <div
+        className={`w-full max-w-lg pt-16 pb-8 px-4 ${
+          direction === "right" ? "lg:pr-16 lg:px-0" : "lg:pl-16 lg:px-0"
+        }`}
+      >
+        <Appear delay={0.7}>
+          <Content
+            contentId={`subsidiary-${id}-description`}
+            size="body/md"
+            typewriter
+            typingDuration={2}
+            className="max-w-[500px] text-justify"
+          />
+        </Appear>
+      </div>
+    </div>
   );
 }
