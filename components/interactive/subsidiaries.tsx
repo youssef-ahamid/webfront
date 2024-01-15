@@ -7,6 +7,7 @@ import Content from "./Content";
 import { ContentImage } from "@/content/components";
 import Button from "./Button";
 import Appear from "./Appear";
+import { useUser } from "@/contexts";
 
 const links = [
   "/business/distribution",
@@ -34,9 +35,14 @@ export function Subsidiaries() {
 }
 
 function Subsidiary({ id, link, className }: any) {
+  const { user } = useUser();
   return (
     <Card
       isFooterBlurred
+      isPressable
+      onPress={() =>
+        !user && typeof window !== "undefined" && window.open(link, "_self")
+      }
       className={`w-full lg:w-[70vw] max-w-3xl h-[400px] relative ${className}`}
     >
       <CardHeader className="absolute z-10 justify-between top-0 pt-1 bg-gradient-to-b from-black">
