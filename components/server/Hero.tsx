@@ -46,11 +46,32 @@ export default function Hero({
   alternateColor,
 }: HeroProps) {
   const colors = [
-    "warning",
+    "default",
     "primary",
     "success",
+    "warning",
     "default",
     "danger",
+    "success",
+    "primary",
+    "default",
+    "success",
+    "default",
+    "primary",
+    "success",
+    "warning",
+    "default",
+    "danger",
+    "success",
+    "primary",
+    "default",
+    "success",
+    "warning",
+    "danger",
+    "primary",
+    "warning",
+    "danger",
+    "primary",
   ] as const;
   const [color, setColor] = useState(defaultColor);
 
@@ -61,7 +82,7 @@ export default function Hero({
           (currentColor) =>
             colors[colors.findIndex((c) => c == currentColor) + 1] || colors[0]
         );
-      }, 3000);
+      }, 1500);
     }
   }, [color]);
 
