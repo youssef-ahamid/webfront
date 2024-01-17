@@ -88,7 +88,7 @@ function Subsidiary({ id, link, className, direction = "right" }: any) {
       </Card>
       <div
         className={`w-full max-w-lg pt-16 pb-8 px-4 ${
-          direction === "right" ? "lg:pr-16 lg:px-0" : "lg:pl-16 lg:px-0"
+          direction === "right" ? "ltr:lg:pr-16 rtl:pl-16 lg:px-0" : "ltr:lg:pl-16 rtl:pr-16 lg:px-0"
         }`}
       >
         <Appear delay={0.7}>
