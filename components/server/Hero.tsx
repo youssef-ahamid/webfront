@@ -6,7 +6,6 @@ import { ThemeColors } from "@nextui-org/react";
 import Box from "./Box";
 import { Appear, Reveal } from "../interactive";
 import Image, { StaticImageData } from "next/image";
-import { getLang } from "@/actions/lang";
 import clsx from "clsx";
 import { PaddedContent } from ".";
 import { ContentImage } from "@/content/components";
@@ -26,7 +25,6 @@ interface HeroProps {
   boxes?: boolean;
   centered?: boolean;
   alternateColor?: boolean;
-  lang?: string;
 }
 
 export default function Hero({
@@ -42,7 +40,6 @@ export default function Hero({
   color: defaultColor = "primary",
   boxes = true,
   centered = false,
-  lang = "en",
   alternateColor,
 }: HeroProps) {
   const colors = [
@@ -150,8 +147,7 @@ export default function Hero({
       {boxes && (
         <div
           className={clsx(
-            "absolute md:top-0 w-full md:w-1/2 z-0",
-            lang === "en" ? "right-0" : "left-0"
+            "absolute md:top-0 w-full md:w-1/2 z-0 ltr:right-0 rtl:left-0"
           )}
         >
           <Reveal
