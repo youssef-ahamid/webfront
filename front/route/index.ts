@@ -22,7 +22,7 @@ export function createFrontRouteHandler(client: FrontClient) {
       } catch (e){
         console.log(e);
         return NextResponse.redirect(
-          "https://front.memoized.tech/login/?redirect=" +
+          "https://front-12nz.vercel.app/login/?redirect=" +
             encodeURIComponent(url.href)
         );
       }

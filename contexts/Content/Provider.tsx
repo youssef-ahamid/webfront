@@ -125,7 +125,7 @@ export default function ContentProvider({
               <div className="flex items-center">
                 <p className="text-sm font-bold p-4">Uploaded images</p>
                 <Button
-                  href="https://front.memoized.tech/assets"
+                  href="https://front-12nz.vercel.app/assets"
                   target="_blank"
                   size="sm"
                   className="max-w-fit"
@@ -136,11 +136,11 @@ export default function ContentProvider({
               </div>
               <div className="flex space-x-4 py-2 overflow-x-scroll">
                 {assets.map((asset, i) => {
-                  const src = `https://front.memoized.tech/assets/${asset.slug}`;
+                  const src = `https://front-12nz.vercel.app/assets/${asset.slug}`;
                   return (
                     <ImageWithFallback
                       alt={asset.name}
-                      src={`https://front.memoized.tech/assets/${asset.slug}`}
+                      src={`https://front-12nz.vercel.app/assets/${asset.slug}`}
                       key={i}
                       width={200}
                       height={200}
