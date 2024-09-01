@@ -44,9 +44,6 @@ export const baseSeo: Metadata = {
   openGraph: {
     images: ["/og.png"],
   },
-  icons: {
-    icon: "/favicon.png",
-  },
 };
 
 export const getSeoForPage = (path: string) => {
